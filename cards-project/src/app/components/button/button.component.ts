@@ -10,7 +10,7 @@ export class ButtonComponent {
   @Input({required: true, alias: 'title'})
   buttonTitle: string = "";
   @Input({required: true, alias: 'style'})
-  buttonStyle: 'white' | 'orange' = "white";
+  buttonStyle: 'white' | 'purple' = "white";
 
   @Output('clicked') buttonEmitter = new EventEmitter<void>();
   @Input({alias: 'disabled'})
