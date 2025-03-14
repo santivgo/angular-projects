@@ -1,0 +1,6 @@
+<div class='item' [class.item--odd]="parameters?.isOdd" [class.item--highlighted]="parameters?.isHighlighted">
+    <p class="item__name">{{name}}</p>
+    <p class="item__age">{{idade}} anos</p>
+    <p class="item__age" *ngIf=parameters?.isFirst>É o primeiro</p>
+    <p class="item__age" *ngIf=parameters?.isLast>É o último</p>
+</div>
