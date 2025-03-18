@@ -1,4 +1,7 @@
-interface IUser {
+import { IEndereco } from "./endereco";
+import { IStatus } from "./status";
+
+export interface IUser {
     nome: string,
     email: string,
     senha: string,

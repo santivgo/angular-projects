@@ -1,4 +1,4 @@
-interface IEndereco {
+export interface IEndereco {
     rua: string,
     numero: number,
     cidade: string,
