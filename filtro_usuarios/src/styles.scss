@@ -1,4 +1,7 @@
 @use '@angular/material' as mat;
+@import './app/utils/center-items';
+@import './app/utils/margin';
+
 
 * {
     margin: 0;
@@ -13,8 +16,6 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 
 }
-
-
 
 html {
     color-scheme: light dark;

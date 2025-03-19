@@ -1,1 +1,38 @@
-<app-filtrar-button></app-filtrar-button>
+<div class="menu-bar">
+    <div class="name-filter">
+        <mat-form-field>
+            <mat-label>Input</mat-label>
+            <input matInput>
+        </mat-form-field>
+    </div>
+    <div class="status-filter">
+
+        <mat-form-field>
+            <mat-label>Select</mat-label>
+            <mat-select>
+                <mat-option value="one">Ativo</mat-option>
+                <mat-option value="two">Inativo\</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="date-picker-filter">
+        <mat-form-field>
+            <mat-label>Enter a date range</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+                <input matStartDate placeholder="Start date">
+                <input matEndDate placeholder="End date">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+    </div>
+
+
+    <div class="button">
+        <button mat-flat-button>
+            <strong>Filtrar</strong>
+        </button>
+    </div>
+</div>
