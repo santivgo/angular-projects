@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { IUser } from '../../interfaces/user/user';
+import { Usuarios } from '../../data/users-data';
 
 @Component({
   selector: 'app-user-table',
@@ -7,5 +9,6 @@ import { Component } from '@angular/core';
   styleUrl: './user-table.component.scss'
 })
 export class UserTableComponent {
-
+  usuarios: IUser[] = Usuarios;
+  displayedColumns = ['nome', 'dataCadastro', 'ativo']
 }
