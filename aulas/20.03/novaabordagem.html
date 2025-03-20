@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <template id="balançar">
+        <style>
+            .fabio{
+                background-color: blueviolet;
+            }
+        </style>
+
+        <script>
+            function clicou(){
+                alert("Dançar Kuduro")
+            }
+        </script>
+
+        <div id="root">
+         
+        </div>
+    </template>
+
+    <app-besteira id="um" texto = "Puta"></app-besteira>
+
+    <button onclick="alert('deu certo')">Clique</button>
+
+    <script>
+        class Besteira extends HTMLElement{
+            constructor(){
+                super();
+            }
+
+            connectedCallback(){
+                const shadow = this.attachShadow({mode: 'closed'})
+                const template = document.querySelector("#balançar").content
+                shadow.appendChild(template.cloneNode(true))
+                const root = shadow.querySelector("#root")
+                const h1  = document.createElement("h1")
+                h1.innerText = "Olá"
+
+                const evento = new CustomEvent("meu-evento", {
+                    bubbles: true,
+                    cancelable: true, 
+                    detail: "Este evento é muito louco!!!"
+                })
+
+                this.dispatchEvent(evento)
+
+                const p = document.createElement("p");
+                p.innerText = `Somos os filhos da ${this.getAttribute("texto")}`;
+                root.appendChild(h1)
+                root.appendChild(p)
+                
+
+            }
+        }
+
+        customElements.define("app-besteira", Besteira);
+        const tag  = document.querySelector('#um')
+
+        tag.addEventListener("meu-evento", function (event) {
+            console.log(event)
+        })
+    </script>
+</body>
+</html>

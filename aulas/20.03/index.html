@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fabio{
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div id="besteira">
+
+
+    </div>
+    <script defer>
+
+        const besteira = document.querySelector("#besteira");  //Shadow Root
+        const shadowRoot = besteira.attachShadow({mode: 'open'}); // A partir do momento que eu ativo o shadow root, só consigo adicionar os itens nele e não na div principal
+        // O modo é dizer se o javascript consegue acessar isso ou não
+        
+        //Um componente que usa essa DOM não consegue ser acessada diretamente
+        const novaDiv = documento.createElement('div')
+        novaDiv.innerText = "Mexe a cabeça";
+        novaDiv.classList = ['fabio junio']
+        novaDiv.onclick = "clicou()"
+
+        const style = document.createElement("style")
+        style.innerHTML = `
+        .fabio{
+            background-color: cyan;
+        }`
+
+        const script = document.createElement("script");
+        script.innerHTML = `
+            function clicou() {
+                alert("dançar kuduro")
+            }
+        `
+
+        shadowRoot.append(style);
+        shadowRoot.append(novaDiv)
+
+        
+</script>
+    
+</body>
+</html>
