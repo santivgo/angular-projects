@@ -23,13 +23,12 @@
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Endereço:</strong> {{ user.endereco.rua }}, {{user.endereco.numero}}, {{user.endereco.cidade}},
-                {{user.endereco.estado}}</p>
+            <p><strong>Endereço:</strong> {{ user.endereco | endereco}}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Ativo:</strong> {{ user.ativo }}</p>
+            <p><strong>Status:</strong> {{ user.ativo | status }}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
@@ -40,7 +39,7 @@
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Data de Cadastro:</strong> {{ user.dataCadastro | date}}</p>
+            <p><strong>Data de Cadastro:</strong> {{ user.dataCadastro | date: 'dd/MM/YYYY'}}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
