@@ -5,13 +5,14 @@ import { DashboardUserComponent } from './dashboard-user/dashboard-user.componen
 import { UserTableComponent } from './user-table/user-table.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
 @NgModule({
   declarations: [MenuComponent, DashboardUserComponent, UserTableComponent],
   imports: [
-    AngularMaterialModule, FormsModule, CommonModule
+    AngularMaterialModule, FormsModule, CommonModule, PipesModule
   ],
   exports: [
     AngularMaterialModule,
