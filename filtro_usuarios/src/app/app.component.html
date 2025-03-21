@@ -6,10 +6,11 @@
 
         <div class="container--content">
             <app-user-table></app-user-table>
+            <!-- <app-user-table (userEmmiter)='userClicked($event)'></app-user-table> -->
         </div>
     </div>
     <div class="container--user-info">
-        <app-dashboard-user></app-dashboard-user>
+        <app-dashboard-user [user]="usuarioSelecionado"></app-dashboard-user>
     </div>
 
 

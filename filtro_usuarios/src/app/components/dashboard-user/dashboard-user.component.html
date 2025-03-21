@@ -7,35 +7,40 @@
 
     <div class="content">
         <mat-card-content class="u-margin-2-bottom">
-            <p><strong>Nome:</strong> {{ '' }}</p>
-        </mat-card-content>
-        <mat-divider></mat-divider>
-
-
-
-        <mat-card-content class="u-margin-2">
-            <p><strong>Email:</strong> {{ '' }}</p>
+            <p><strong>Nome:</strong> {{ user.nome }}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Telefone:</strong> {{ '' }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Status:</strong> {{ '' }}</p>
+            <p><strong>Telefone:</strong> {{ user.telefone }}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Função:</strong> {{ '' }}</p>
+            <p><strong>Endereço:</strong> {{ user.endereco.rua }}, {{user.endereco.numero}}, {{user.endereco.cidade}},
+                {{user.endereco.estado}}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Data de Cadastro:</strong> {{ '' }}</p>
+            <p><strong>Ativo:</strong> {{ user.ativo }}</p>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+
+
+        <mat-card-content class="u-margin-2">
+            <p><strong>Função:</strong> {{ user.funcao }}</p>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+
+        <mat-card-content class="u-margin-2">
+            <p><strong>Data de Cadastro:</strong> {{ user.dataCadastro | date}}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
