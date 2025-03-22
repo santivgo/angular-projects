@@ -1,0 +1,18 @@
+<h1>Pêpeu Bolos: Uma confeitaria legal </h1>
+<p>Você não quer perder isso..</p>
+
+<span class="bagunca" (mouseenter)="bagunca($event)">{{title}}</span>
+
+<button (click)="mudaTitle()">Clique</button>
+
+@if (seletor){
+    <h2>Eu quero ser humilde</h2>
+} @else{
+    <h2>Eu quero dominar o mundo</h2>
+}
+
+<ol>
+    @for (item of lista; track $index) {
+        <li id="{{$index}}" class="bagunca" (mouseenter)="bagunca($event)">{{item}}</li>
+    }
+</ol>
