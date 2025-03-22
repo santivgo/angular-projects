@@ -13,13 +13,13 @@ export class UserTableComponent {
 
 
 
-  @Output()
-  userEmitter = new EventEmitter<any>();
+  @Output('userEmitter')
+  userEmitter = new EventEmitter<IUser>();
 
 
   displayedColumns = ['nome', 'dataCadastro', 'ativo']
 
-  onUserClicked(element: IUser) {
-    this.userEmitter.emit(element);
+  onUserClicked(user: IUser): void {
+    this.userEmitter.emit(user);
   }
 }

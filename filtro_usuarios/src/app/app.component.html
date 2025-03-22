@@ -5,12 +5,11 @@
         </div>
 
         <div class="container--content">
-            <app-user-table></app-user-table>
-            <!-- <app-user-table (userEmmiter)='userClicked($event)'></app-user-table> -->
+            <app-user-table (userEmitter)='userClicked($event)'></app-user-table>
         </div>
     </div>
     <div class="container--user-info">
-        <app-dashboard-user [user]="usuarioSelecionado"></app-dashboard-user>
+        <app-dashboard-user [user]="usuarioSelecionado" *ngIf="showUserDetails"></app-dashboard-user>
     </div>
 
 

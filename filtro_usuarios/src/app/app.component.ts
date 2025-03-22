@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IUser } from './interfaces/user/user';
-import { Usuarios } from './data/users-data';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,12 @@ import { Usuarios } from './data/users-data';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'filtro_usuarios';
 
-  usuarioSelecionado: IUser = Usuarios[0];
+  usuarioSelecionado: IUser = {} as IUser;
+  showUserDetails: boolean = false;
 
   userClicked(usuario: IUser) {
     this.usuarioSelecionado = usuario;
+    this.showUserDetails = true;
   }
 }

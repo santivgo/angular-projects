@@ -7,13 +7,13 @@
 
     <div class="content">
         <mat-card-content class="u-margin-2-bottom">
-            <p><strong>Nome:</strong> {{ user.nome }}</p>
+            <p><strong>Nome:</strong> {{ user.nome | vazio }}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Email:</strong> {{ user.email | vazio}}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
@@ -34,12 +34,12 @@
 
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Função:</strong> {{ user.funcao }}</p>
+            <p><strong>Função:</strong> {{ user.funcao | vazio }}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
         <mat-card-content class="u-margin-2">
-            <p><strong>Data de Cadastro:</strong> {{ user.dataCadastro | date: 'dd/MM/YYYY'}}</p>
+            <p><strong>Data de Cadastro:</strong> {{ user.dataCadastro | date: 'dd/MM/YYYY' | vazio}}</p>
         </mat-card-content>
         <mat-divider></mat-divider>
 
