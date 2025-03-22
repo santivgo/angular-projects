@@ -5,7 +5,7 @@
         </div>
 
         <div class="container--content">
-            <app-user-table (userEmitter)='userClicked($event)'></app-user-table>
+            <app-user-table [usuarios]="listaUsuarios" (userEmitter)='userClicked($event)'></app-user-table>
         </div>
     </div>
     <div class="container--user-info">

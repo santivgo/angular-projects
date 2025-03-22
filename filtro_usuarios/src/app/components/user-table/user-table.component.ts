@@ -9,7 +9,8 @@ import { Usuarios } from '../../data/users-data';
 })
 export class UserTableComponent {
 
-  usuarios: IUser[] = Usuarios;
+  @Input({ 'required': true })
+  usuarios: IUser[] = [];
 
 
 
