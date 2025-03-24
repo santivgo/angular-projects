@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IFilterOptions } from '../../interfaces/filter.interface';
 
 @Component({
   selector: 'app-menu',
@@ -7,5 +8,18 @@ import { Component } from '@angular/core';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-  users = [{ value: 'teste', viewValue: 'oi' }]
+
+
+  filterOptions: IFilterOptions = {
+    name: undefined,
+    endDate: undefined,
+    startDate: undefined,
+    status: undefined
+  }
+  filterList = [{ description: 'Ativo', value: true }, { description: 'Inativo', value: false }]
+
+  onFilter() {
+    console.log("oi")
+    console.log(this.filterOptions)
+  }
 }
