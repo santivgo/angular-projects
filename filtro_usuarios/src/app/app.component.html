@@ -1,7 +1,7 @@
 <div class="container">
     <div class="container-principal">
         <div class="container--menu">
-            <app-menu></app-menu>
+            <app-menu (filterEmit)="getFiltros($event)"></app-menu>
         </div>
 
         <div class="container--content">

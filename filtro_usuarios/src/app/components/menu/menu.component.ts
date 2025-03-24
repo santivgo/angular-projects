@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { IFilterOptions } from '../../interfaces/filter.interface';
 
 @Component({
@@ -18,8 +18,9 @@ export class MenuComponent {
   }
   filterList = [{ description: 'Ativo', value: true }, { description: 'Inativo', value: false }]
 
+  @Output() filterEmit = new EventEmitter<IFilterOptions>();
   onFilter() {
-    console.log("oi")
-    console.log(this.filterOptions)
+    this.filterEmit.emit(this.filterOptions);
+
   }
 }
