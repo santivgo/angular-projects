@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-button-lovehour',
@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './button-lovehour.component.sass'
 })
 export class ButtonLovehourComponent {
+  @Output()
+  clicado = new EventEmitter<boolean>();
 
+  botaoClicado(): void {
+    this.clicado.emit(true);
+  }
 }
