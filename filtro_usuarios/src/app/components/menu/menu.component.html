@@ -7,11 +7,13 @@
             </mat-form-field>
         </div>
 
+
+
         <div class="form__status">
             <mat-form-field>
                 <mat-label>Status</mat-label>
                 <mat-select [(ngModel)]="filterOptions.status">
-                    <mat-option *ngFor="let status of filterList">
+                    <mat-option *ngFor="let status of filterList" [value]="status.value">
                         {{status.description}}
                     </mat-option>
                 </mat-select>

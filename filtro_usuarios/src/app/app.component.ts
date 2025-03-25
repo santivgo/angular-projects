@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IUser } from './interfaces/user/user';
 import { Usuarios } from './data/users-data';
 import { IFilterOptions } from './interfaces/filter.interface';
+import { fileURLToPath } from 'node:url';
+import { filtrarLista } from './utils/filter-users-list';
 
 @Component({
   selector: 'app-root',
@@ -23,24 +25,6 @@ export class AppComponent implements OnInit {
     }, 1)
   }
 
-  filterListByName(name: string | undefined, listaFiltrada: IUser[]): IUser[] {
-    //filter sempre retorna um array
-    const NOME_N_TIPADO = name === undefined
-
-    if (NOME_N_TIPADO) {
-      return listaFiltrada
-    }
-
-    return listaFiltrada.filter((p) => p.nome && name && p.nome.toLowerCase().includes(name.toLowerCase()));
-
-  }
-  filtrarLista(filtro: IFilterOptions, listaFiltrada: IUser[]): IUser[] { // Função Pura, não modifica variaveis externas e não precisa de VARIÁVEIS EXTERNAS pra funcionar.
-
-    let filteredList: IUser[] = listaFiltrada;
-    filteredList = this.filterListByName(filtro.name, listaFiltrada)
-    return filteredList
-
-  }
 
   getFiltros(filterObject: IFilterOptions) {
     this.listaUsuariosFiltradas = this.listaUsuarios
@@ -50,7 +34,7 @@ export class AppComponent implements OnInit {
       this.listaUsuariosFiltradas = this.listaUsuarios;
       return
     }
-    this.listaUsuariosFiltradas = this.filtrarLista(filterObject, this.listaUsuariosFiltradas)
+    this.listaUsuariosFiltradas = filtrarLista(filterObject, this.listaUsuariosFiltradas)
 
   }
 
