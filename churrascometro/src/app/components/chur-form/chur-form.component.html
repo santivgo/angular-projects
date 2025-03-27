@@ -1,1 +1,32 @@
-<p>chur-form works!</p>
+<div class="chur">
+    <div class="chur--block">
+
+        <h1>Churrascômetro</h1>
+        <div class="chur--form" #formChurras>
+            <mat-form-field>
+                <mat-label>Adultos</mat-label>
+                <input matInput type="number" [(ngModel)]="inputForm.adultos">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Criancas</mat-label>
+                <input matInput type="number" [(ngModel)]="inputForm.criancas">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Duração</mat-label>
+                <input matInput type="number" [(ngModel)]="inputForm.duracaoHrs">
+            </mat-form-field>
+
+            <div class="chur--info" *ngIf="churrasInfo">
+                <p>{{churrasInfo.kgCarne}} KG de Carne</p>
+                <p>{{churrasInfo.qtdBebida}} Pet's de 2L de Refrigerante'</p>
+                <p>{{churrasInfo.qtdCerveja}} Latas de Cerveja</p>
+
+            </div>
+        </div>
+
+        <button mat-raised-button (click)="validar()">Calcular</button>
+
+    </div>
+</div>

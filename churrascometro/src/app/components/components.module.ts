@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ChurFormComponent } from './chur-form/chur-form.component';
+import { AngularMaterialModule } from '../angular-material/angular-material.module';
 
 
 
@@ -9,8 +10,9 @@ import { ChurFormComponent } from './chur-form/chur-form.component';
     ChurFormComponent
   ],
   imports: [
-    CommonModule
-  ], 
+    CommonModule,
+    AngularMaterialModule
+  ],
   exports: [
     ChurFormComponent
   ]
