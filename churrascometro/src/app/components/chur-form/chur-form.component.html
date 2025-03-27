@@ -1,7 +1,12 @@
 <div class="chur">
     <div class="chur--block">
 
-        <h1>Churrascômetro</h1>
+        <div class="chur--header">
+            <h1>Churrascômetro</h1>
+            <mat-divider></mat-divider>
+    
+        </div>
+        
         <div class="chur--form" #formChurras>
             <mat-form-field>
                 <mat-label>Adultos</mat-label>
@@ -19,10 +24,9 @@
             </mat-form-field>
 
             <div class="chur--info" *ngIf="churrasInfo">
-                <p>{{churrasInfo.kgCarne}} KG de Carne</p>
-                <p>{{churrasInfo.qtdBebida}} Pet's de 2L de Refrigerante'</p>
-                <p>{{churrasInfo.qtdCerveja}} Latas de Cerveja</p>
-
+                <p><span>{{churrasInfo.kgCarne}}</span>kg de Carne</p>
+                <p><span>{{churrasInfo.qtdBebida}}</span>Pet's de 2l de Refrigerante'</p>
+                <p><span>{{churrasInfo.qtdCerveja}}</span> Latas de Cerveja</p>
             </div>
         </div>
 

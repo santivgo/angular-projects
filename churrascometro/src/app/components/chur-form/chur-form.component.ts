@@ -19,8 +19,9 @@ export class ChurFormComponent {
 
 
   validar(): void {
-    const VALID_FORM = this.inputForm.adultos && this.inputForm.criancas && this.inputForm.duracaoHrs
-    if (VALID_FORM) {
+    const VALID_VALUES = this.inputForm.adultos > 0 && this.inputForm.criancas > 0 && this.inputForm.duracaoHrs > 0;
+    const VALID_FORM = this.inputForm.adultos && this.inputForm.criancas && this.inputForm.duracaoHrs 
+    if (VALID_FORM && VALID_VALUES) {
       this.churrasInfo = calcular(this.inputForm)
     }
 
