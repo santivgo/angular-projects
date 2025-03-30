@@ -25,7 +25,7 @@ export function circleCanvas(canvasEl: ElementRef<HTMLCanvasElement>, finalList:
         'speed': 0,
         'maxRotation': randomRange(360 * 3, 360 * 6),
         'pause': false,
-        'winner': undefined
+        'winner': undefined,
     }
 }
 export function draw(c: ICanvas) { // essa tipagem aqui tem que ver certinho ali nos objetos
@@ -76,15 +76,14 @@ export function draw(c: ICanvas) { // essa tipagem aqui tem que ver certinho ali
         ctx!.fillText(c.items[i].movie, 130, 10);
         ctx!.restore();
 
-        console.log(startDeg)
-        console.log(endDeg)
-
-
-        if (startDeg % 360 < 360 && startDeg % 360 > 270 && endDeg % 360 > 0 && endDeg % 360 < 90) {
+        let normStart = (startDeg + 360) % 360;
+        let normEnd = (endDeg + 360) % 360;
+        let selectionPoint = 360
+        if ((normStart <= selectionPoint && normEnd > selectionPoint) ||
+            (normStart > normEnd && (selectionPoint >= normStart || selectionPoint < normEnd))) {
             c.winner = c.items[i]
-            console.log(c.winner)
-        }
 
+        }
     }
 }
 
@@ -109,7 +108,7 @@ export function spin(canvas: ICanvas) {
     }
 
     canvas.currentDeg = 0
-    let maxRotation = randomRange(360 * 3, 360 * 6)
+    canvas.maxRotation = randomRange(360 * 3, 360 * 6)
     canvas.pause = false
     window.requestAnimationFrame(() => animate(canvas));
 }
