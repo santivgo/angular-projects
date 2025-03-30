@@ -1,0 +1,18 @@
+<div class="winner">
+    <h1>Winner</h1>
+    <h1>{{canvas.winner?.name}}</h1>
+    <p>{{canvas.winner?.movie}}</p>
+</div>
+<div class="wheel">
+    <canvas #canvaWheel width="450" height="450"></canvas>
+    <div class="center-circle" (click)="spin()">
+        <div class="triangle"></div>
+    </div>
+
+</div>
+
+<div class="inputs">
+    <textarea rows="20" cols="30" ngModel (ngModelChange)="fillList($event, {'name': 'sant'})" id="sant"></textarea>
+    <textarea rows="20" cols="30" ngModel (ngModelChange)="fillList($event, {'name': 'kess'})" id="kess"></textarea>
+
+</div>
