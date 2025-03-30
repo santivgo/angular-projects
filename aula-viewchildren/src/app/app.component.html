@@ -1,4 +1,7 @@
-<button #meusButtons *ngFor="let btn of buttonsList">
-  {{ btn}}
+<button #meusButtons *ngFor="let btn of buttonsList" (click)="changeColor($event)">
+  {{btn}}
 
 </button>
+
+<button (click)="resetarBotoes()">Resetar</button>
+<button (click)="removerItem()">Remover Item</button>
