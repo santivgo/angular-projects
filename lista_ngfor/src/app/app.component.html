@@ -1,5 +1,0 @@
-<div class="list" *ngFor="let person of listaPessoas; index as index; odd as odd; last as last; first as first">
-
-  <app-item-lista [parameters]="{isOdd: odd, isHighlighted: index===personSelectedIndex, isFirst: first, isLast: last
-  }" (click)="selectPerson(index)" [name]="person.name" [idade]="person.idade"></app-item-lista>
-</div>

@@ -1,0 +1,13 @@
+<div class="principal">
+  <div class="principal--button" style="height: 100%;" *ngIf="!div_content_active">
+    <app-button-lovehour (clicado)="toggle_active($event)"></app-button-lovehour>
+
+  </div>
+
+  <div class="principal--content" *ngIf="div_content_active">
+
+    <div class="principal--content--card">
+      <app-real-content [image-list]="imageList"></app-real-content>
+    </div>
+  </div>
+</div>
