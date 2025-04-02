@@ -1,0 +1,20 @@
+1. Modificar o app.routes.ts
+2.  <a href="home" routerLink="home" routerLinkActive="amigo">Home</a>
+    <a href="teste" routerLink="teste" routerLinkActive="amigo">Teste</a>
+
+onde routerLinkActive é uma atributo que se caso o router link estiver ativo, ele aplica uma classe 
+no elemento que eu citá-lo.
+
+3. Configurar rotas
+
+    {path: 'home', component: HomeComponent},
+    {path: 'teste', component: TesteComponent},
+    {path: 'numeros/:id', component: TesteComponent}, # pega numeros/01 ...
+
+4. 
+
+<router-outlet></router-outlet> renderiza o componente que tem a rota ativa.
+
+
+
+## olhe sobre queryParameters
