@@ -1,0 +1,14 @@
+<form [formGroup]="cadastraForm" action="/salva">
+    <label for="nome">Nome:</label>
+    <input formControlName="name" type="text" name="name" id="nome">
+    <br>
+    <label for="data">Nascimento:</label>
+    <input formControlName="date" type="date" name="data" for="date">
+    <br>
+    <button (click)="getChanges()">Enviar</button>
+</form>
+
+
+@if(cadastraForm.controls.name.invalid){
+    <h1>você tem certeza que sabe o que está fazendo?</h1>
+}
