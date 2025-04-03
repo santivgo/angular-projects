@@ -8,6 +8,8 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { ComDiretivaComponent } from './com-diretiva/com-diretiva.component';
 import { DisabledDirective } from './directives/disabled.directive';
 import { StyleDirective } from './directives/style.directive';
+import { ListenerDirective } from './directives/listener.directive';
+import { InputBackgroundDirective } from './directives/input-background.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { StyleDirective } from './directives/style.directive';
     HighlightDirective,
     ComDiretivaComponent,
     DisabledDirective,
-    StyleDirective
+    StyleDirective,
+    ListenerDirective,
+    InputBackgroundDirective
   ],
   imports: [
     BrowserModule,
