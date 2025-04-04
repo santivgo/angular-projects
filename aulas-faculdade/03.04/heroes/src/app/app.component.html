@@ -1,0 +1,12 @@
+<form class='form' [formGroup]="inps" action="">
+  <input matInput formControlName="id">
+  <button (click)="getHeroes()">
+    Search
+  </button>
+
+</form>
+
+
+@if (hero | validhero){
+<app-hero-dummy [hero]="hero"></app-hero-dummy>
+}
