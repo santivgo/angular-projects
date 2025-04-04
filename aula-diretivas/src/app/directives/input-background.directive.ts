@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostBinding, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appInputBackground]',
@@ -9,9 +9,23 @@ export class InputBackgroundDirective {
 
 
   @Input() appInputBackground: string = "blue"
-  @HostListener('focus', ['$event'])
-  onClickEvent(click: MouseEvent): void {
-    const el = click.target as HTMLInputElement
-    el.style.backgroundColor = this.appInputBackground;
+  @Input() textColor: string = 'black'
+
+  @HostBinding('style.backgroundColor') bg = "white"
+  @HostBinding('style.color') color = ''
+
+  @HostListener('focus')
+  onClickEvent(): void {
+    this.bg = this.appInputBackground
+    this.color = this.textColor;
+
   }
+
+  @HostListener('blur')
+  onBlurEvent(): void {
+    this.bg = 'initial'
+    this.color = 'initial'
+  }
+
+
 }

@@ -8,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'aula-diretivas';
+  textColor = "green"
+  bgColor = "orange"
 }
