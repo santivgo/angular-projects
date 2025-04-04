@@ -1,16 +1,39 @@
 <div class="container">
     <div class="content">
         <div class="left-side bg-yellow">
+
             <img src="{{hero.images.lg}}" alt="" srcset="">
             <h1 class="hero-name text-blue bangers-regular">{{hero.name}}</h1>
 
-            <h4 class="comic-neue-bold text-red">STATS</h4>
-            <ul>
-                <li *ngFor="let item of (hero.powerstats | keyvalue)">{{item.key}} - {{item.value}}
-            </ul>
+            <div class="stats">
+                <h4 class="bangers-regular text-red">STATS</h4>
+                <ul>
+                    <li *ngFor="let item of (hero.powerstats | keyvalue)" class="text-wine"> <span
+                            class="stats-item-name bangers-regular">{{item.key}}</span> -
+                        <span class="comic-neue-bold stats-item-value">{{item.value}}</span>
+                </ul>
+            </div>
         </div>
+
         <div class="right-side">
-            a
+            <h1>{{hero.id}}</h1>
+            <mat-divider></mat-divider>
+            <p class="text-content">
+                <strong>{{hero.biography.fullName|name:hero.appearance.gender}}</strong>
+                has your first appeareance at
+                <strong>
+                    {{hero.biography.firstAppearance}}.
+                </strong>
+                {{hero.appearance.gender|gender}} is a <strong>{{hero.work.occupation}}</strong>
+                the character belongs to <strong>{{hero.biography.publisher}}.</strong>
+
+            </p>
         </div>
     </div>
+
+    <footer>
+        <div style="margin-top: 100px">
+            <p style="text-align: center">Teste</p>
+        </div>
+    </footer>
 </div>
