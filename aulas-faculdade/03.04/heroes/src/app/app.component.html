@@ -1,12 +1,17 @@
-<form class='form' [formGroup]="inps" action="">
-  <input matInput formControlName="id">
-  <button (click)="getHeroes()">
-    Search
-  </button>
+<div class="page">
+  <div class="header">
+    <mat-form-field [formGroup]="inps">
+      <input class="comic-neue-light" matInput formControlName="id">
+    </mat-form-field>
+    <button mat-stroked-button (click)="getHeroes()">
+      Search
+    </button>
+  </div>
 
-</form>
+  <div class="hero">
+    @if (hero | validhero){
+    <app-hero-dummy [hero]="hero"></app-hero-dummy>
+    }
+  </div>
 
-
-@if (hero | validhero){
-<app-hero-dummy [hero]="hero"></app-hero-dummy>
-}
+</div>
