@@ -21,5 +21,16 @@ export class AppComponent implements OnInit {
     console.log(divRef)
   }
 
+  createElement(): void {
+    const pRef: HTMLParagraphElement = document.createElement("p")
+    pRef.textContent = "Olá"
+    pRef.classList.add("bg-red")
+
+    this._elRef.nativeElement.appendChild(pRef)
+
+
+
+    console.log(pRef)
+  }
 
 }
