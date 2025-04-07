@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +6,20 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.sass'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   title = 'aula-diretivas';
-  textColor = "green"
-  bgColor = "orange"
+
+
+  constructor(private readonly _elRef: ElementRef) {
+
+  };
+
+  ngOnInit(): void {
+    console.log(this._elRef)
+    const divRef: HTMLDivElement = this._elRef.nativeElement.querySelector("#minha-outra-div")
+    console.log(divRef)
+  }
+
+
 }
