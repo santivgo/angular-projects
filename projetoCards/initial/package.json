@@ -1,0 +1,21 @@
+{
+    "name": "projeto-cards",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "sass": "node-sass src/sass/main.scss -o dist/css",
+        "watch:sass": "sass src/sass/main.scss:dist/css/main.css --watch",
+        "start": "live-server dist --port=8080"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "live-server": "^1.2.2"
+    },
+    "dependencies": {
+        "gitignore": "^0.7.0",
+        "sass": "^1.86.3"
+    }
+}

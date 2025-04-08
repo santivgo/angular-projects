@@ -1,0 +1,41 @@
+.client-infos-card {
+    overflow: hidden;
+    border-radius: 1vh;
+
+}
+
+.content {
+    background-color: white;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vh
+}
+
+.client-header {
+    background-color: #32E9DB;
+    gap: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem
+}
+
+
+.client-header p {
+    font-size: 1.2rem;
+    margin-left: auto
+}
+
+.client-header h1 {
+    font-size: 1.2rem;
+}
+
+.client-header img {
+    max-width: 5vh;
+
+}

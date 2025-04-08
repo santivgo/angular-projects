@@ -1,0 +1,34 @@
+.credit-card {
+    border-radius: 1vh;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #e88032;
+    gap: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem
+}
+
+.header h1 {
+    font-size: 1.2rem;
+}
+
+.header img {
+    max-width: 5vh;
+
+}
+
+.credit-card-info {
+    padding: 3vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center
+}
+
+.credit-card-info span {
+    margin-left: auto;
+}

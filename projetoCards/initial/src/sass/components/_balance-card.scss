@@ -1,0 +1,56 @@
+.balance-card {
+    border-radius: 1vh;
+    background-color: #ffffff;
+    overflow: hidden;
+
+}
+
+.header {
+    background-color: #e88032;
+    gap: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 1rem
+}
+
+.balance-total {
+    padding: 2vh;
+}
+
+.balance-total div {
+    background-color: #d8d6d6;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 4vh
+}
+
+.hr-solid {
+    margin: 0 4vh;
+    border: 5vh solid initial;
+}
+
+.saldo-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vh
+}
+
+
+
+.header p {
+    font-size: 1.2rem;
+    margin-left: auto
+}
+
+.header h1 {
+    font-size: 1.2rem;
+}
+
+.header img {
+    max-width: 5vh;
+
+}
