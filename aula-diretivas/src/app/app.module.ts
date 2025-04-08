@@ -10,6 +10,7 @@ import { DisabledDirective } from './directives/disabled.directive';
 import { StyleDirective } from './directives/style.directive';
 import { ListenerDirective } from './directives/listener.directive';
 import { InputBackgroundDirective } from './directives/input-background.directive';
+import { FocusSecondDirective } from './directives/focus-second.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { InputBackgroundDirective } from './directives/input-background.directiv
     DisabledDirective,
     StyleDirective,
     ListenerDirective,
-    InputBackgroundDirective
+    InputBackgroundDirective,
+    FocusSecondDirective
   ],
   imports: [
     BrowserModule,
