@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit } from '@angular/core';
+import { TesteService } from './services/teste.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,9 @@ export class AppComponent implements OnInit {
   title = 'aula-diretivas';
 
 
-  constructor(private readonly _elRef: ElementRef) {
+  constructor(private readonly _elRef: ElementRef,
+    private readonly _testeService: TesteService
+  ) {
 
   };
 
