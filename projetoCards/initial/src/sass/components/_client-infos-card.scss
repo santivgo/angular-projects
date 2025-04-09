@@ -1,41 +1,48 @@
 .client-infos-card {
     overflow: hidden;
     border-radius: 1vh;
-
-}
-
-.content {
     background-color: white;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4vh
-}
-
-.client-header {
-    background-color: #32E9DB;
-    gap: 2vh;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    padding: 1rem
-}
+    border: none;
 
 
-.client-header p {
-    font-size: 1.2rem;
-    margin-left: auto
-}
+    &__header {
+        background-color: #32E9DB;
+        gap: 2vh;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        padding: 1rem;
 
-.client-header h1 {
-    font-size: 1.2rem;
-}
+        img {
+            max-width: 5vh;
 
-.client-header img {
-    max-width: 5vh;
+        }
+
+        h1 {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__content {
+        padding: 4vh;
+
+
+    }
+
+    &__content-line {
+        background-color: #9e9e9e;
+        margin: 0 2.5vh;
+        border-radius: 10vh;
+        height: 0.7vh;
+
+    }
+
+    &__content-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4vh
+    }
 
 }

@@ -2,33 +2,52 @@
     border-radius: 1vh;
     background-color: #ffffff;
     overflow: hidden;
-}
+    border: none;
 
-.header {
-    background-color: #e88032;
-    gap: 2vh;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    padding: 1rem
-}
 
-.header h1 {
-    font-size: 1.2rem;
-}
+    &__header {
+        background-color: #e88032;
+        gap: 2vh;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        padding: 1rem;
 
-.header img {
-    max-width: 5vh;
+        h1 {
+            font-size: 1.2rem;
+        }
 
-}
+        img {
+            max-width: 5vh;
 
-.credit-card-info {
-    padding: 3vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center
-}
+        }
+    }
 
-.credit-card-info span {
-    margin-left: auto;
+    &__info {
+        padding: 4vh;
+
+    }
+
+    &__info-balance-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 5vh 0;
+
+    }
+
+    &__info-line {
+        background-color: #9e9e9e;
+        margin: 0% 2.5vh;
+        border-radius: 10vh;
+        height: 0.7vh;
+    }
+
+    &__info-brand {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5vh;
+    }
+
 }
