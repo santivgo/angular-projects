@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Icon } from '../../interfaces/IHeader.interface';
 
 @Component({
   selector: 'app-debit-card',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './debit-card.component.sass'
 })
 export class DebitCardComponent {
-
+  icon = Icon.debit_card
 }

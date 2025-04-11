@@ -1,0 +1,10 @@
+<div class="card__header" [ngClass]="{
+    'bg-orange': header.bgColor === 'orange',
+    'bg-cyan': header.bgColor === 'cyan',
+    }">
+    <div class="card__header-title">
+        <img src="icons/{{header.iconType}}" alt="">
+        <h1>{{header.mainTitle}}</h1>
+    </div>
+    <p *ngIf="header.value">{{header.value}}</p>
+</div>

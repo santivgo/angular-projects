@@ -1,8 +1,7 @@
 <div class="card">
-    <div class="card__header">
-        <img src="icons/icon-credit-card.png" alt="">
-        <h1>Cartão de Crédito</h1>
-    </div>
+
+    <app-card-header
+        [header]="{iconType: icon, mainTitle: 'Cartão de Crédito', value: undefined, bgColor: 'orange'}"></app-card-header>
 
     <div class="card__content">
         <div class="card__info-brand">
@@ -13,28 +12,13 @@
             <p>MASTER CARD</p>
         </div>
         <div class="card__info-credit">
-            <div class="card__info-credit-item">
-                <p>Limite de Compra</p>
-                <p>R$ 1000,00</p>
-            </div>
-            <div class="card__content-line"></div>
-            <div class="card__info-credit-item">
-                <p>Disponível</p>
-                <p>R$ 1200,00</p>
-            </div>
-            <div class="card__info-credit-item">
-                <p>Limite de Saque</p>
-                <p>R$ 2000,00</p>
-            </div>
-            <div class="card__content-line"></div>
-            <div class="card__info-credit-item">
-                <p>Disponível</p>
-                <p>R$ 1300,00</p>
-            </div>
-            <div class="card__info-credit-item">
-                <p>Limite Total Utilizado</p>
-                <p>R$ 3000,00</p>
-            </div>
+            <app-item [item]="{text1: 'Limite de Compra', text2: 'R$ 1000,00'}"></app-item>
+            <app-card-line></app-card-line>
+            <app-item [item]="{text1: 'Limite de Saque', text2: 'R$ 2000,00'}"></app-item>
+            <app-card-line></app-card-line>
+            <app-item [item]="{text1: 'Disponível', text2: 'R$ 1300,00'}"></app-item>
+            <app-item [item]="{text1: 'Limite Total Utilizado', text2: 'R$ 3000,00'}"></app-item>
+
         </div>
     </div>
 

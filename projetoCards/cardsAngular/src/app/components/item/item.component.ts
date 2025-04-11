@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-
-interface IItem {
-  text1: string,
-  text2: string
-}
+import { IItem } from '../../interfaces/IItem.interface';
 
 @Component({
   selector: 'app-item',

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Icon } from '../../interfaces/IHeader.interface';
 
 @Component({
   selector: 'app-client-info',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './client-info.component.sass'
 })
 export class ClientInfoComponent {
-
+  icon = Icon.client
 }

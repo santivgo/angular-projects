@@ -1,55 +1,25 @@
 <div class="card">
-    <div class="card__header">
-        <div class="card__header-title">
-            <img src="icons/icon-hand.png" alt="">
-            <h1>Saldos Disponíveis</h1>
-        </div>
-        <p>R$ 100,00</p>
-    </div>
+    <app-card-header
+        [header]="{iconType: icon, mainTitle: 'Saldo Disponíveis', value: 'R$ 1000,00', bgColor: 'orange'}"></app-card-header>
     <div class="card__content">
         <div class="card__content-items">
             <app-item [item]="{text1: 'Conta Corrente', text2: 'R$ 200,00'}"></app-item>
-
-            <div class="card__content-item">
-                <p>Conta Corrente</p>
-                <p>R$ 200,00</p>
-            </div>
-            <div class="card__content-line"></div>
-            <div class="card__content-item">
-                <p>Conta Corrente Saldo Vinculados</p>
-                <p>R$ 200,00</p>
-            </div>
-            <div class="card__content-line"></div>
-            <div class="card__content-item">
-                <p>Conta Poupança Saldo Vinculados</p>
-                <p>R$ 400,00</p>
-            </div>
-            <div class="card__content-line"></div>
-            <div class="card__content-item">
-                <p>Investimentos com Baixa Automática</p>
-                <p>R$ 500,00</p>
-            </div>
-            <div class="card__content-line"></div>
-            <div class="card__content-item">
-                <p>Investimentos sem Baixa Automática</p>
-                <p>R$ 500,00</p>
-            </div>
-            <div class="card__content-line"></div>
+            <app-card-line></app-card-line>
+            <app-item [item]="{text1: 'Conta Corrente Saldo Vinculados', text2: 'R$ 200,00'}"></app-item>
+            <app-card-line></app-card-line>
+            <app-item [item]="{text1: 'Conta Poupança Saldo Vinculados', text2: 'R$ 400,00'}"></app-item>
+            <app-card-line></app-card-line>
+            <app-item [item]="{text1: 'Investimentos com Baixa Automática', text2: 'R$ 500,00'}"></app-item>
+            <app-card-line></app-card-line>
+            <app-item [item]="{text1: 'Investimentos sem Baixa Automática', text2: 'R$ 500,00'}"></app-item>
+            <app-card-line></app-card-line>
 
         </div>
 
         <div class="card__footer">
             <div class="card__content-total">
-                <div class="card__content-item">
-                    <p>SALDO TOTAL</p>
-                    <p>R$ 1000,00</p>
-                </div>
-                <div class="card__content-item">
-                    <p>LIVRE PARA MOVIMENTAÇÃO</p>
-                    <p>R$ 1000,00</p>
-                </div>
-
-
+                <app-item [item]="{text1: 'SALDO TOTAL', text2: 'R$ 1000,00'}"></app-item>
+                <app-item [item]="{text1: 'LIVRE PRA MOVIMENTAÇÃO', text2: 'R$ 1000,00'}"></app-item>
             </div>
         </div>
 
