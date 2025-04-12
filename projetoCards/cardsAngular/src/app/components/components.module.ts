@@ -7,11 +7,12 @@ import { DebitCardComponent } from './debit-card/debit-card.component';
 import { ItemComponent } from './item/item.component';
 import { CardLineComponent } from './card-line/card-line.component';
 import { CardHeaderComponent } from './card-header/card-header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
-  declarations: [BalanceCardComponent, CreditCardComponent, ClientInfoComponent, DebitCardComponent, ItemComponent, CardLineComponent, CardHeaderComponent],
+  declarations: [BalanceCardComponent, CreditCardComponent, ClientInfoComponent, DebitCardComponent, ItemComponent, CardLineComponent, CardHeaderComponent, FooterComponent],
   imports: [
     CommonModule
   ],
