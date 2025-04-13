@@ -4,20 +4,16 @@
         [header]="{iconType: icon, mainTitle: 'Cartão de Crédito', value: undefined, bgColor: 'orange'}"></app-card-header>
 
     <div class="card__content">
-        <div class="card__info-brand">
-            <div class="card__info-brand-user-info">
-                <p>1234567891011</p>
-                <p>FELIPE DA SILVA FREITAS</p>
-            </div>
-            <p>MASTER CARD</p>
-        </div>
+        <app-card-brand cardNumber="1234567891011" brand="MASTER CARD"
+            cardOwner="FELIPE DA SILVA FREITAS"></app-card-brand>
+
         <div class="card__info-credit">
-            <app-item [item]="{text1: 'Limite de Compra', text2: 'R$ 1000,00'}"></app-item>
+            <app-card-item [item]="{text1: 'Limite de Compra', text2: 'R$ 1000,00'}"></app-card-item>
             <app-card-line></app-card-line>
-            <app-item [item]="{text1: 'Limite de Saque', text2: 'R$ 2000,00'}"></app-item>
+            <app-card-item [item]="{text1: 'Limite de Saque', text2: 'R$ 2000,00'}"></app-card-item>
             <app-card-line></app-card-line>
-            <app-item [item]="{text1: 'Disponível', text2: 'R$ 1300,00'}"></app-item>
-            <app-item [item]="{text1: 'Limite Total Utilizado', text2: 'R$ 3000,00'}"></app-item>
+            <app-card-item [item]="{text1: 'Disponível', text2: 'R$ 1300,00'}"></app-card-item>
+            <app-card-item [item]="{text1: 'Limite Total Utilizado', text2: 'R$ 3000,00'}"></app-card-item>
 
         </div>
     </div>

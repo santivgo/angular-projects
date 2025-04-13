@@ -4,7 +4,7 @@
     <div class="card__content">
         <div class="card__content-items">
             <div *ngFor="let card of cardList">
-                <app-item [item]="card"></app-item>
+                <app-card-item [item]="card"></app-card-item>
                 <app-card-line></app-card-line>
             </div>
 
@@ -13,8 +13,8 @@
 
         <div class="card__footer">
             <div class="card__content-total">
-                <app-item [item]="{text1: 'SALDO TOTAL', text2: 'R$ 1000,00'}"></app-item>
-                <app-item [item]="{text1: 'LIVRE PRA MOVIMENTAÇÃO', text2: 'R$ 1000,00'}"></app-item>
+                <app-card-item [item]="{text1: 'SALDO TOTAL', text2: 'R$ 1000,00'}"></app-card-item>
+                <app-card-item [item]="{text1: 'LIVRE PRA MOVIMENTAÇÃO', text2: 'R$ 1000,00'}"></app-card-item>
             </div>
         </div>
 
