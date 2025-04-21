@@ -1,30 +1,55 @@
 <div class="container">
     <div class="item">
         <app-card>
-            <div card-header class="card__header">
-                <img src="icons/icon-client.png" alt="">
-            </div>
+            <app-card-header>
+                <div card-header class="card__header">
+                    <img src="icons/icon-client.png" alt="">
+                </div>
+            </app-card-header>
 
-            <div card-content class="card__content">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente explicabo tempora, dolore animi
-                    qui vitae, labore est odio, cumque quia doloribus dignissimos quas. Optio culpa, eveniet nesciunt
-                    repellendus veritatis vero.</p>
-            </div>
+            <app-card-content>
+                <div card-content class="card__content">
+                    <app-card-content-text>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente explicabo tempora, dolore
+                            animi
+                            qui vitae, labore est odio, cumque quia doloribus dignissimos quas. Optio culpa, eveniet
+                            nesciunt
+                            repellendus veritatis vero.</p>
+                    </app-card-content-text>
+                </div>
+            </app-card-content>
+
         </app-card>
 
     </div>
     <div class="item">
         <app-card>
-            <div card-header class="card__header card__header--direction-column">
-                <h1>Fulano da Silva</h1>
-                <img src="/icons/icon-credit-card.png" alt="">
-                <h3>Desenvolvedor Full-Stack</h3>
-            </div>
-            <div card-content class="card__content">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat aspernatur fuga doloribus
-                    eius. Nemo sapiente, dicta repellendus tempora quaerat eos, architecto sunt, obcaecati esse sequi
-                    corrupti perspiciatis laborum molestias.</p>
-            </div>
+            <app-card-header>
+                <div class="card__header card__header--direction-column">
+                    <app-card-main-text>
+                        <h1>Fulano da Silva</h1>
+                    </app-card-main-text>
+                    <img src="/icons/icon-credit-card.png" alt="">
+                    <app-card-subtitle-text>
+                        <h3>Desenvolvedor Full-Stack</h3>
+                    </app-card-subtitle-text>
+                </div>
+
+            </app-card-header>
+
+            <app-card-content>
+                <div card-content class="card__content">
+                    <app-card-content-text>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo placeat aspernatur fuga
+                            doloribus
+                            eius. Nemo sapiente, dicta repellendus tempora quaerat eos, architecto sunt, obcaecati esse
+                            sequi
+                            corrupti perspiciatis laborum molestias.</p>
+                    </app-card-content-text>
+
+                </div>
+            </app-card-content>
+
         </app-card>
     </div>
 </div>

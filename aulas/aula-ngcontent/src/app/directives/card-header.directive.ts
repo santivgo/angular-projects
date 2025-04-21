@@ -1,12 +1,10 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: 'card-header',
-  host: {'class': 'card__header card__header--direction-column' },
-  standalone: false
+  selector: 'app-card-header',
+  host: {'class': 'ca-c-card__header' },
 })
 export class CardHeaderDirective {
 
-  constructor() { }
 
 }
