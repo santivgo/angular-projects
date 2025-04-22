@@ -1,0 +1,23 @@
+<div class="card">
+    <!-- <app-card-header
+        [header]="{iconType: icon, mainTitle: 'Saldo Disponíveis', value: 'R$ 1000,00', bgColor: 'orange'}"></app-card-header> -->
+    <div class="card__content">
+        <div class="card__content-items">
+            <div *ngFor="let card of cardList">
+                <app-card-item [item]="card"></app-card-item>
+                <app-card-line></app-card-line>
+            </div>
+
+
+        </div>
+
+        <div class="card__footer">
+            <div class="card__content-total">
+                <app-card-item [item]="{text1: 'SALDO TOTAL', text2: 'R$ 1000,00'}"></app-card-item>
+                <app-card-item [item]="{text1: 'LIVRE PRA MOVIMENTAÇÃO', text2: 'R$ 1000,00'}"></app-card-item>
+            </div>
+        </div>
+
+    </div>
+
+</div>
