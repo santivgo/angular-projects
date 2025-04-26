@@ -4,15 +4,18 @@
     overflow: hidden
     border: none
     &__content
+        display: block
         padding: 4vh
     &__header
         display: flex
         flex-direction: row
         gap: 2vh
-        justify-content: space-between
         align-items: center
         padding: 1rem
         background-color: rgb(233, 129, 50)
+        &[color="cyan"]
+            background-color: #32E9DB
+
         h1, p
             font-size: 1.2em
         img

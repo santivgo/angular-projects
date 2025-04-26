@@ -1,0 +1,14 @@
+Ex. 2
+<br>
+
+<ng-container *ngIf="condition; else elseTemp">
+    <ng-container *ngTemplateOutlet="ifTemp"></ng-container>
+</ng-container>
+
+
+<ng-template #ifTemp>
+    <app-meu-comp></app-meu-comp>
+</ng-template>
+<ng-template #elseTemp>
+    eh foda!!!
+</ng-template>

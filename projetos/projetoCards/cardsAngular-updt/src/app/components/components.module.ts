@@ -10,14 +10,16 @@ import { CardHeaderComponent } from './card-components/card-header/card-header.c
 import { FooterComponent } from './footer/footer.component';
 import { CardBrandComponent } from './card-brand/card-brand.component';
 import { CardComponent } from './card/card.component';
+import { CardContentDirective } from './card/directives/card-content.directive';
+import { CardHeaderDirective } from './card/directives/card-header.directive';
 
 
 
 @NgModule({
-  declarations: [BalanceCardComponent, CreditCardComponent, ClientInfoComponent, DebitCardComponent, CardItemComponent, CardLineComponent, CardHeaderComponent, FooterComponent, CardBrandComponent, CardComponent, CardComponent],
+  declarations: [BalanceCardComponent, CreditCardComponent, ClientInfoComponent, DebitCardComponent, CardItemComponent, CardLineComponent, CardHeaderComponent, FooterComponent, CardBrandComponent, CardComponent, CardComponent, CardContentDirective, CardHeaderDirective],
   imports: [
     CommonModule
   ],
-  exports: [BalanceCardComponent, CreditCardComponent, ClientInfoComponent, DebitCardComponent, CardItemComponent, CardHeaderComponent, CardComponent]
+  exports: [BalanceCardComponent, CreditCardComponent, ClientInfoComponent, DebitCardComponent, CardItemComponent, CardHeaderComponent, CardComponent, CardContentDirective, CardHeaderDirective]
 })
 export class ComponentsModule { }

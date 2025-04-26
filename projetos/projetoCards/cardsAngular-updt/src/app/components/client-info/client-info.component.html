@@ -1,10 +1,9 @@
-<div class="card">
-
-
-
-    <!-- <app-card-header
-        [header]="{iconType: icon, mainTitle: 'Informações do Cliente', value: undefined, bgColor: 'cyan'}"></app-card-header> -->
-    <div class="card__content">
+<app-card>
+    <app-card-header color="cyan">
+        <img src="icons/icon-client.png" alt="">
+        <h1>Informações do Cliente</h1>
+    </app-card-header>
+    <app-card-content>
         <app-card-item [item]="{text1: 'Nome', text2: 'Alysson Henrique'}"></app-card-item>
         <app-card-line></app-card-line>
         <app-card-item [item]="{text1: 'Idade', text2: '20'}"></app-card-item>
@@ -12,6 +11,5 @@
         <app-card-item [item]="{text1: 'Renda Mensal', text2: 'R$ -1000,00'}"></app-card-item>
         <app-card-line></app-card-line>
         <app-card-item [item]="{text1: 'Nacionalidade', text2: 'Brasileiro'}"></app-card-item>
-
-    </div>
-</div>
+    </app-card-content>
+</app-card>
