@@ -7,8 +7,8 @@ class CarAdmin(admin.ModelAdmin):
     search_fields = ('car_model',) # o atributo usado para dar match na pesquisa
 
 class BrandAdmin(admin.ModelAdmin):
-    list_display = ('brand',)
-    search_fields = ('brand',) # o atributo usado para dar match na pesquisa
+    list_display = ('name',)
+    search_fields = ('name',) # o atributo usado para dar match na pesquisa
 
 
 admin.site.register(Car, CarAdmin)
