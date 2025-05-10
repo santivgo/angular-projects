@@ -1,15 +1,1 @@
-<p><strong>NOME:</strong> {{pessoa.nome | truncate: 5 | uppercase}}</p>
-
-<br />
-<p><strong>STATUS:</strong>
-    {{pessoa.status | status}}
-</p>
-
-<h1>Formato ISO8601</h1>
-<b>Hoje é dia DIAEMINGLES X de X de X</b>
-<p>
-    DATA: {{pessoa.data_cadastro | date: "'Hoje é' EEEE', dia' d 'de' LLLL 'de' YYYY"}}
-</p>
-<p> DATA: {{pessoa.data_cadastro | date: "'Hoje é' EEEE', dia' d 'de' LLLL 'de' YYYY 'às' HH:mm"}}</p>
-<p> DATA: {{pessoa.data_cadastro | date: "'Hoje é' EEEE', dia' d 'de' LLLL 'de' YYYY 'às' HH:mm ZZZZ"}}</p>
-<p> DATA: {{pessoa.data_cadastro | date: "'Hoje é' EEEE', dia' d 'de' LLLL 'de' YYYY 'às' HH:mm zzzz":'+0000 '}}</p>
+<app-obs-obj></app-obs-obj>

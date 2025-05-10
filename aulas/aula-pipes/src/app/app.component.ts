@@ -7,6 +7,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { ObsObjComponent } from './components/obs-obj/obs-obj.component';
 
 registerLocaleData(localePt)
 
@@ -14,7 +15,7 @@ registerLocaleData(localePt)
 const datePipeConfig: DatePipeConfig = {dateFormat: 'dd/MM/YYYY', timezone: '-0003'}
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, StatusPipe, TruncatePipe],
+  imports: [RouterOutlet,ObsObjComponent, CommonModule, StatusPipe, TruncatePipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass',
   providers: [{provide:DATE_PIPE_DEFAULT_OPTIONS, useValue: datePipeConfig}, {provide: LOCALE_ID, useValue: 'pt-BR'}]
