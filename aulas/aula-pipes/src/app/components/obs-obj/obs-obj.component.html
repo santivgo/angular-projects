@@ -1,1 +1,17 @@
-{{user | json}}
+<div class="container">
+    <div *ngIf="(user$ | async) as user">
+
+        <p>{{user.id}}</p>
+        <p>{{user.name}}</p>
+        <p>{{user.username}}</p>
+        <p>{{user.email}}</p>
+        <p>{{user.phone}}</p>
+        <p>{{user.website}}</p>
+    </div>
+    <div class="buttons">
+        <button (click)="onButtonClicked(1)" type="button">1</button>
+        <button (click)="onButtonClicked(2)" type="button">2</button>
+        <button (click)="onButtonClicked(3)" type="button">3</button>
+
+    </div>
+</div>
