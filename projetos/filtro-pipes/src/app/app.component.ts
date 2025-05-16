@@ -5,12 +5,14 @@ import { Observable } from 'rxjs';
 import { IUser } from './interfaces/user.interface';
 import { UserService } from './services/user.service';
 import { CommonModule, registerLocaleData } from '@angular/common';
-import localePt from '@angular/common/locales/pt';
-registerLocaleData(localePt);
+import ptBr from '@angular/common/locales/pt';
+import { StatusPipe } from './pipes/status.pipe';
+
+registerLocaleData(ptBr);
   
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatTableModule, CommonModule],
+  imports: [RouterOutlet, MatTableModule, CommonModule, StatusPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
