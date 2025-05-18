@@ -1,8 +1,15 @@
 <div class="content">
-  <input type="search" placeholder="Filtrar por Nome" id="">
-
-  <div class="table" *ngIf="(usersList$ | async) as users">
-    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+  <mat-form-field class="example-form-field">
+    <mat-label>Filtrar por nome</mat-label>
+    <input matInput type="text" [(ngModel)]="name">
+    @if (name) {
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+  <div class="table">
+    <table mat-table [dataSource]="userListAlt | filter : name : 'customerName'" class="mat-elevation-z8">
 
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>ID </th>
@@ -14,22 +21,28 @@
       </ng-container>
       <ng-container matColumnDef="customerStatus">
         <th mat-header-cell *matHeaderCellDef>Status</th>
-        <td mat-cell *matCellDef="let element"> {{element.customerStatus}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.customerStatus | status}} <img
+            [src]="element.customerStatus | imgStatus" alt=""> </td>
       </ng-container>
 
       <ng-container matColumnDef="operationDate">
         <th mat-header-cell *matHeaderCellDef>Operation Date</th>
-        <td mat-cell *matCellDef="let element"> {{element.operationDate | date}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.operationDate | date : 'dd/MM/YYYY'}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operationHour">
+        <th mat-header-cell *matHeaderCellDef>Operation Hour</th>
+        <td mat-cell *matCellDef="let element"> {{element.operationDate | date : 'HH:mm a'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="operationValue">
         <th mat-header-cell *matHeaderCellDef>Operation Value</th>
-        <td mat-cell *matCellDef="let element"> {{element.operationValue}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.operationValue | currency: 'BRL'}} </td>
       </ng-container>
 
       <ng-container matColumnDef="operationRisck">
         <th mat-header-cell *matHeaderCellDef>Operation Risk </th>
-        <td mat-cell *matCellDef="let element"> {{element.operationRisck}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.operationRisck | percent: '1.0-2'}} </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,0 +1,1 @@
+export type dictionary = { [key: number]:string }
