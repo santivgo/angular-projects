@@ -42,7 +42,10 @@
 
       <ng-container matColumnDef="operationRisck">
         <th mat-header-cell *matHeaderCellDef>Operation Risk </th>
-        <td mat-cell *matCellDef="let element"> {{element.operationRisck | percent: '1.0-2'}} </td>
+        <<<<<<< HEAD <td mat-cell *matCellDef="let element"> {{element.operationRisck | percent: '1.0-2'}} </td>
+          =======
+          <td mat-cell *matCellDef="let element"> {{element.operationRisck | percent}} </td>
+          >>>>>>> 69e163f7bf1fff88e9f33d799ad53227a5b737bc
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
