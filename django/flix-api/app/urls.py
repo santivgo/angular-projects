@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from genres.views import GenreView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('genres/', GenreView.as_view(), name="genres"),
 ]
