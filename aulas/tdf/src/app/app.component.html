@@ -1,8 +1,7 @@
-<input ngModel="Felipe" minlength="3" required #meuForm="ngModel" type="text" name="" id="">
-<div *ngIf="meuForm.invalid && meuForm.touched">
-    <div *ngIf="meuForm.hasError('required')">
-        O campo nome é obrigatório
+<section class="main">
+    <h1 class="title">wiped <i>out</i>!</h1>
+    <div class="content">
+        <app-syncronous></app-syncronous>
+        <img src="https://i.pinimg.com/736x/0a/98/88/0a988810b173042bcb784a73b8fe1217.jpg" alt="">
     </div>
-</div>
-<br />
-<button (click)="valid()">Submit</button>
+</section>

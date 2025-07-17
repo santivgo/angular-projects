@@ -1,0 +1,17 @@
+<div class="sync-test">
+    <label for="tec-select">Departamento: </label>
+    <form id="tec-select" appInvalidQuantity #meuForm="ngForm" action="">
+        <select ngModel name="dpto" id="dpto" required>
+            <option value="it">Tecnologia</option>
+            <option value="rh">Recursos Humanos</option>
+        </select>
+        <input type="number" ngModel name="qtd_dpto" id="qtd_dpto" required>
+        <div *ngIf="meuForm && meuForm.invalid && meuForm.touched">
+            <p *ngIf=" meuForm.hasError('invalidIT')">O departamento de Tecnologia deve ter no máximo 10 pessoas.</p>
+            <p *ngIf="meuForm.hasError('invalidRH')">O departamento de Recursos Humanos deve ter no máximo 20 pessoas.
+            </p>
+        </div>
+    </form>
+
+
+</div>
