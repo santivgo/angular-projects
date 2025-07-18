@@ -3,17 +3,14 @@ import { AfterViewInit, Component, ElementRef, HostBinding, ViewChild } from '@a
 import { FormControl, FormGroup, FormsModule, NgForm, NgModel } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
-import { SyncronousComponent } from "./custom-validators/syncronous/syncronous.component";
+import { AsyncronousComponent } from "./custom-validators/asyncronous/asyncronous.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SyncronousComponent],
+  imports: [RouterOutlet, AsyncronousComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'
 })
 export class AppComponent{
-  inputs: {'name': string} = {} as {'name': string };
-  onSubmit(form: NgForm){
-    console.log(form)
-  }
+
 }
