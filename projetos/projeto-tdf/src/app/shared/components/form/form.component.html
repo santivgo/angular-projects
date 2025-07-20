@@ -1,0 +1,35 @@
+<form class="form" #formPeople="ngForm" action="">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput required [value]="user.nome">
+    </mat-form-field>
+
+    <div class=" form__row-form">
+        <mat-form-field>
+            <mat-label>Usuário</mat-label>
+            <input matInput required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input placeholder="anon@example.com" matInput required>
+        </mat-form-field>
+
+    </div>
+
+
+    <div class='form__row-form'>
+        <mat-form-field>
+            <mat-label>Senha</mat-label>
+            <input matInput required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Confirmação de senha</mat-label>
+            <input matInput required>
+        </mat-form-field>
+
+    </div>
+
+
+</form>

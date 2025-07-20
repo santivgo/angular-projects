@@ -1,9 +1,10 @@
 <form appUserExists action="" #searchForm="ngForm">
-    <input type="text" name="name" ngModel required>
-    <div *ngIf="searchForm && searchForm.value.name && searchForm.touched && searchForm.dirty && searchForm.submitted">
+    <input type="text" name="name" ngModel [ngModelOptions]="{updateOn: 'blur'}" required>
+    <div *ngIf="searchForm && searchForm.value.name && searchForm.dirty && !searchForm.pending && searchForm.submitted">
         <p *ngIf="!searchForm.hasError('noIncludes')" style="color: green">Usuário existente</p>
         <p *ngIf="searchForm.hasError('noIncludes')" style="color: red">Usuário inexistente</p>
 
     </div>
+    <br>
     <button type="submit">Pesquisar</button>
 </form>
