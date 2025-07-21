@@ -4,13 +4,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { IUser } from '../../../core/interfaces/user.interface';
+import { CommonModule } from '@angular/common';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatTableModule} from '@angular/material/table';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 @Component({
   selector: 'app-form',
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatTableModule, MatDividerModule, MatCheckboxModule],
   templateUrl: './form.component.html',
   styleUrl: './form.component.sass'
 })
 export class FormComponent {
   @Input({'required': true}) user: IUser = {} as IUser;
+  displayedColumns: string[] = ['titulo', 'artista', 'genero', 'favorita'];
+
 }

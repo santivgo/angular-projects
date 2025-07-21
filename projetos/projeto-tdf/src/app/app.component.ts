@@ -3,11 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { UserCardComponent } from "./shared/components/user-card/user-card.component";
 import { IUser } from './core/interfaces/user.interface';
 import { CommonModule } from '@angular/common';
-
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
 import { FormComponent } from "./shared/components/form/form.component";
 
 @Component({

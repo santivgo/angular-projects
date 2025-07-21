@@ -1,35 +1,87 @@
 <form class="form" #formPeople="ngForm" action="">
-    <mat-form-field>
-        <mat-label>Nome</mat-label>
-        <input matInput required [value]="user.nome">
-    </mat-form-field>
-
-    <div class=" form__row-form">
-        <mat-form-field>
-            <mat-label>Usuário</mat-label>
-            <input matInput required>
-        </mat-form-field>
+    <ng-container ngModelGroup="grupoUsuario" #usuarioInfos="ngModelGroup">
 
         <mat-form-field>
-            <mat-label>Email</mat-label>
-            <input placeholder="anon@example.com" matInput required>
+            <mat-label>Nome</mat-label>
+            <input matInput required [value]="user.nome">
         </mat-form-field>
 
-    </div>
+        <div class=" form__row-form">
+            <mat-form-field>
+                <mat-label>Usuário</mat-label>
+                <input matInput [value]="user.usuario" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Email</mat-label>
+                <input placeholder="anon@example.com" [value]="user.email" matInput required>
+            </mat-form-field>
+
+        </div>
 
 
-    <div class='form__row-form'>
-        <mat-form-field>
-            <mat-label>Senha</mat-label>
-            <input matInput required>
-        </mat-form-field>
+        <div class='form__row-form'>
+            <mat-form-field>
+                <mat-label>Senha</mat-label>
+                <input matInput [value]="user.senha" required>
+            </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Confirmação de senha</mat-label>
-            <input matInput required>
-        </mat-form-field>
+            <mat-form-field>
+                <mat-label>Confirmação de senha</mat-label>
+                <input matInput [value]="user.resenha" required>
+            </mat-form-field>
 
-    </div>
+        </div>
+
+    </ng-container>
+    <mat-divider></mat-divider>
+    <h2>Minhas músicas: </h2>
+
+    <ng-container ngModelGroup="grupoUsuarioMusicas" #usuarioInfos="ngModelGroup">
+        <table mat-table [dataSource]="user.musicas" class="mat-elevation-z8">
+            <ng-container matColumnDef="titulo">
+                <th mat-header-cell *matHeaderCellDef> Titulo </th>
+
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput [value]="element.titulo" required>
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="artista">
+                <th mat-header-cell *matHeaderCellDef> Artista </th>
+                <td mat-cell *matCellDef="let element"> <mat-form-field>
+                        <input matInput [value]="element.artista" required>
+                    </mat-form-field> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="genero">
+                <th mat-header-cell *matHeaderCellDef> Gênero </th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-form-field>
+                        <input matInput [value]="element.genero" required>
+                    </mat-form-field>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="favorita">
+                <th mat-header-cell *matHeaderCellDef> Favorita </th>
+                <td mat-cell *matCellDef="let element">
+
+                    <mat-checkbox [checked]="element.favorita">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+
+
+    </ng-container>
 
 
 </form>
