@@ -1,18 +1,16 @@
-import { EstadosEnum } from "../enums/states.enum"
-
-interface IMusica {
-    titulo: string,
-    artista: string,
-    genero: string,
-    favorita: boolean
+interface IMusic{
+    title: string, 
+    band: string, 
+    genre: number, 
+    isFavorite: boolean
 }
-export interface IUser {
-    nome: string,
-    usuario: string, 
-    email: string, 
-    senha: string, 
-    resenha: string, 
-    data_nasc: Date,
-    estado: EstadosEnum
-    musicas: IMusica[]
+export interface IUser{
+    name: string,
+    username: string,
+    email: string,
+    password: string, 
+    birthDate: string,
+    state: number,
+    musics: IMusic[]
+
 }
