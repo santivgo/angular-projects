@@ -4,6 +4,7 @@ import { UserCardComponent } from "./shared/components/user-card/user-card.compo
 import { IUser } from './core/interfaces/user.interface';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from "./shared/components/form/form.component";
+import { EstadosEnum } from './core/enums/states.enum';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ export class AppComponent {
     senha: "senhaAna123",
     resenha: "senhaAna123",
     data_nasc: new Date("1995-03-12"),
-    estado: "SP",
+    estado: EstadosEnum.SP,
     musicas: [
       { titulo: "Shape of You", artista: "Ed Sheeran", genero: "Pop", favorita: true },
       { titulo: "Bohemian Rhapsody", artista: "Queen", genero: "Rock", favorita: false }
@@ -37,7 +38,7 @@ export class AppComponent {
     senha: "senhaCarlos456",
     resenha: "senhaCarlos456",
     data_nasc: new Date("1988-11-05"),
-    estado: "RJ",
+    estado: EstadosEnum.RJ,
     musicas: [
       { titulo: "Smells Like Teen Spirit", artista: "Nirvana", genero: "Grunge", favorita: true },
       { titulo: "Billie Jean", artista: "Michael Jackson", genero: "Pop", favorita: true },
@@ -51,7 +52,7 @@ export class AppComponent {
     senha: "senhaBia789",
     resenha: "senhaBia789",
     data_nasc: new Date("2000-07-25"),
-    estado: "MG",
+    estado: EstadosEnum.MG,
     musicas: [
       { titulo: "Levitating", artista: "Dua Lipa", genero: "Pop", favorita: true },
       { titulo: "Hotel California", artista: "Eagles", genero: "Rock", favorita: false }

@@ -1,3 +1,5 @@
+import { EstadosEnum } from "../enums/states.enum"
+
 interface IMusica {
     titulo: string,
     artista: string,
@@ -11,6 +13,6 @@ export interface IUser {
     senha: string, 
     resenha: string, 
     data_nasc: Date,
-    estado: string
+    estado: EstadosEnum
     musicas: IMusica[]
 }

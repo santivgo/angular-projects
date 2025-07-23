@@ -32,6 +32,32 @@
             </mat-form-field>
 
         </div>
+        <div class='form__row-form'>
+
+            <mat-form-field>
+                <mat-label>Data de nascimento</mat-label>
+                <mat-date-range-input required [rangePicker]="picker">
+                    <input matStartDate placeholder="Start date">
+                    <input matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-hint>dd/mm/yyyy</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <mat-form-field>
+
+                <mat-select [value]="user.estado" [ngModel]="user.estado" name="estado">
+                    @for (estado of estados; track estado) {
+                    <mat-option [value]="estado">{{estado}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field>
+
+
+        </div>
+
+
+
 
     </ng-container>
     <mat-divider></mat-divider>
