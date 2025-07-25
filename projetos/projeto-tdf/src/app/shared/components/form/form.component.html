@@ -1,114 +1,128 @@
-<form class="form" #formPeople="ngForm" action="">
-    <ng-container ngModelGroup="grupoUsuario" #usuarioInfos="ngModelGroup">
+<mat-card>
+    <mat-card-content>
+        <form class="form" #formPeople="ngForm" action="">
+            <ng-container ngModelGroup="grupoUsuario" #usuarioInfos="ngModelGroup">
+                <div class="form__row">
+                    <div class="form__item form__item-100">
+                        <mat-form-field class="form__item-100">
+                            <mat-label>Nome</mat-label>
+                            <input matInput required [value]="user.name">
+                        </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>Nome</mat-label>
-            <input matInput required [value]="user.name">
-        </mat-form-field>
-
-        <div class=" form__row-form">
-            <mat-form-field>
-                <mat-label>Usuário</mat-label>
-                <input matInput [value]="user.username" required>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input placeholder="anon@example.com" [value]="user.email" matInput required>
-            </mat-form-field>
-
-        </div>
+                    </div>
+                </div>
 
 
-        <div class='form__row-form'>
-            <mat-form-field>
-                <mat-label>Senha</mat-label>
-                <input matInput [value]="user.password" required>
-            </mat-form-field>
-
-            <mat-form-field>
-                <mat-label>Confirmação de senha</mat-label>
-                <input matInput [value]="user.password" required>
-            </mat-form-field>
-
-        </div>
-        <div class='form__row-form'>
-
-            <mat-form-field>
-                <mat-label>Data de nascimento</mat-label>
-                <mat-date-range-input required [rangePicker]="picker">
-                    <input matStartDate placeholder="Start date">
-                    <input matEndDate placeholder="End date">
-                </mat-date-range-input>
-                <mat-hint>dd/mm/yyyy</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select [value]="user.state" [ngModel]="user.state" name="estado">
-                    @for (estado of estados; track estado) {
-                    <mat-option [value]="estado.id">{{estado.descricao}}</mat-option>
-                    }
-                </mat-select>
-            </mat-form-field>
-
-
-        </div>
-
-
-
-
-    </ng-container>
-    <mat-divider></mat-divider>
-    <h2>Minhas músicas: </h2>
-
-    <ng-container ngModelGroup="grupoUsuarioMusicas" #usuarioInfos="ngModelGroup">
-        <table mat-table [dataSource]="user.musics" class="mat-elevation-z8">
-            <ng-container matColumnDef="titulo">
-                <th mat-header-cell *matHeaderCellDef> Titulo </th>
-
-                <td mat-cell *matCellDef="let element">
-                    <mat-form-field>
-                        <input matInput [value]="element.title" required>
+                <div class="form__row ">
+                    <mat-form-field class="form__item-50">
+                        <mat-label>Usuário</mat-label>
+                        <input matInput [value]="user.username" required>
                     </mat-form-field>
-                </td>
-            </ng-container>
 
-            <ng-container matColumnDef="artista">
-                <th mat-header-cell *matHeaderCellDef> Artista </th>
-                <td mat-cell *matCellDef="let element"> <mat-form-field>
-                        <input matInput [value]="element.band" required>
-                    </mat-form-field> </td>
-            </ng-container>
+                    <mat-form-field class="form__item-50">
+                        <mat-label>Email</mat-label>
+                        <input placeholder="anon@example.com" [value]="user.email" matInput required>
+                    </mat-form-field>
 
-            <ng-container matColumnDef="genero">
-                <th mat-header-cell *matHeaderCellDef> Gênero </th>
-                <td mat-cell *matCellDef="let element">
-                    <mat-form-field>
-                        <mat-select [value]="element.genre" name="genero">
-                            @for (genero of genreList; track genero) {
-                            <mat-option [value]="genero.id">{{genero.description}}</mat-option>
+                </div>
+
+
+                <div class='form__row'>
+                    <mat-form-field class="form__item-50">
+                        <mat-label>Senha</mat-label>
+                        <input matInput [value]="user.password" required>
+                    </mat-form-field>
+
+                    <mat-form-field class="form__item-50">
+                        <mat-label>Confirmação de senha</mat-label>
+                        <input matInput [value]="user.password" required>
+                    </mat-form-field>
+
+                </div>
+                <div class='form__row'>
+
+                    <mat-form-field class="form__item-50">
+                        <mat-label>Data de nascimento</mat-label>
+                        <mat-date-range-input required [rangePicker]="picker">
+                            <input matStartDate placeholder="Start date">
+                            <input matEndDate placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-hint>dd/mm/yyyy</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
+                    <mat-form-field class="form__item-50">
+                        <mat-select [value]="user.state" [ngModel]="user.state" name="estado">
+                            @for (estado of estados; track estado) {
+                            <mat-option [value]="estado.id">{{estado.descricao}}</mat-option>
                             }
                         </mat-select>
                     </mat-form-field>
-                </td>
+
+
+                </div>
+
+
+
+
             </ng-container>
+            <mat-divider class="form--divider"></mat-divider>
 
-            <ng-container matColumnDef="favorita">
-                <th mat-header-cell *matHeaderCellDef> Favorita </th>
-                <td mat-cell *matCellDef="let element">
+            <div class="form--songs">
 
-                    <mat-checkbox [checked]="element.isFavorite">
-                    </mat-checkbox>
-                </td>
-            </ng-container>
+                <h2>Minhas músicas: </h2>
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <ng-container ngModelGroup="grupoUsuarioMusicas" #usuarioInfos="ngModelGroup">
+                    <table mat-table [dataSource]="user.musics" class="mat-elevation-z8">
+                        <ng-container matColumnDef="titulo">
+                            <th mat-header-cell *matHeaderCellDef> Titulo </th>
 
-        </table>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-form-field>
+                                    <input matInput [value]="element.title" required>
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
 
-    </ng-container>
+                        <ng-container matColumnDef="artista">
+                            <th mat-header-cell *matHeaderCellDef> Artista </th>
+                            <td mat-cell *matCellDef="let element"> <mat-form-field>
+                                    <input matInput [value]="element.band" required>
+                                </mat-form-field> </td>
+                        </ng-container>
 
+                        <ng-container matColumnDef="genero">
+                            <th mat-header-cell *matHeaderCellDef> Gênero </th>
+                            <td mat-cell *matCellDef="let element">
+                                <mat-form-field>
+                                    <mat-select [value]="element.genre" name="genero">
+                                        @for (genero of genreList; track genero) {
+                                        <mat-option [value]="genero.id">{{genero.description}}</mat-option>
+                                        }
+                                    </mat-select>
+                                </mat-form-field>
+                            </td>
+                        </ng-container>
 
-</form>
+                        <ng-container matColumnDef="favorita">
+                            <th mat-header-cell *matHeaderCellDef> Favorita </th>
+                            <td mat-cell *matCellDef="let element">
+
+                                <mat-checkbox [checked]="element.isFavorite">
+                                </mat-checkbox>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    </table>
+
+                </ng-container>
+
+            </div>
+
+        </form>
+
+    </mat-card-content>
+</mat-card>

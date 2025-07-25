@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
   }
   
   changeUser(user: IUser){
-    this.actualUser = user;
+    this.actualUser = structuredClone(user);
   }
 
   

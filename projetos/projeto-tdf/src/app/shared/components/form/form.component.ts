@@ -15,11 +15,12 @@ import { genresService } from '../../../core/services/genres.service';
 import { IGenre } from '../../../core/interfaces/genre.interface';
 import { IState } from '../../../core/interfaces/state.interface';
 import { BrazilianStatesService } from '../../../core/services/brazilianStates.service';
+import {MatCardModule} from '@angular/material/card';
 
 
 @Component({
   selector: 'app-form',
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatTableModule, MatDividerModule, MatCheckboxModule, MatDatepickerModule],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatTableModule, MatDividerModule, MatCheckboxModule, MatDatepickerModule, MatCardModule],
   providers: [provideNativeDateAdapter()],
   templateUrl: './form.component.html',
   styleUrl: './form.component.sass'
