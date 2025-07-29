@@ -1,12 +1,17 @@
 <mat-card>
     <mat-card-content>
-        <form class="form" #formPeople="ngForm" action="">
+        <form class="form" ngForm #formPeople="ngForm">
             <ng-container ngModelGroup="grupoUsuario" #usuarioInfos="ngModelGroup">
                 <div class="form__row">
                     <div class="form__item form__item-100">
                         <mat-form-field class="form__item-100">
                             <mat-label>Nome</mat-label>
-                            <input matInput required [value]="user.name">
+                            <input type="text" name="nome" matInput [(ngModel)]="user.name" #nameControl="ngModel"
+                                required>
+                            <mat-error *ngIf="nameControl.hasError('required')">O nome não pode ser
+                                vazio</mat-error>
+
+
                         </mat-form-field>
 
                     </div>
@@ -16,12 +21,29 @@
                 <div class="form__row ">
                     <mat-form-field class="form__item-50">
                         <mat-label>Usuário</mat-label>
-                        <input matInput [value]="user.username" required>
+                        <input matInput name="username" [(ngModel)]="user.username" #usernameControl="ngModel" required
+                            appCredentialsValidator="username">
+                        <mat-error *ngIf="usernameControl.hasError('required')">O nome de usuário é
+                            obrigatório</mat-error>
+                        <mat-error
+                            *ngIf="usernameControl.hasError('includes-username') && !usernameControl.hasError('required')">O
+                            nome de usuário já existe</mat-error>
                     </mat-form-field>
 
                     <mat-form-field class="form__item-50">
                         <mat-label>Email</mat-label>
-                        <input placeholder="anon@example.com" [value]="user.email" matInput required>
+                        <input name="email" placeholder="anon@example.com" appInvalidEmailValidator
+                            appCredentialsValidator="email" [(ngModel)]="user.email" matInput required
+                            #emailControl="ngModel">
+                        <mat-error *ngIf="emailControl.hasError('required')">O <strong>e-mail</strong> é
+                            obrigatório</mat-error>
+                        <mat-error
+                            *ngIf="emailControl.hasError('invalid-email') && !emailControl.hasError('required')">O
+                            <strong>e-mail</strong> é
+                            inválido</mat-error>
+                        <mat-error
+                            *ngIf="emailControl.hasError('includes-email') && !emailControl.hasError('invalid-email') && !emailControl.hasError('required')">O
+                            <strong>e-mail</strong> já está cadastrado!</mat-error>
                     </mat-form-field>
 
                 </div>
@@ -30,6 +52,7 @@
                 <div class='form__row'>
                     <mat-form-field class="form__item-50">
                         <mat-label>Senha</mat-label>
+                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
                         <input matInput [value]="user.password" required>
                     </mat-form-field>
 
@@ -41,7 +64,7 @@
                 </div>
                 <div class='form__row'>
 
-                    <mat-form-field class="form__item-50">
+                    <mat-form-field class="form__item-100">
                         <mat-label>Data de nascimento</mat-label>
                         <mat-date-range-input required [rangePicker]="picker">
                             <input matStartDate placeholder="Start date">
@@ -53,7 +76,7 @@
                     </mat-form-field>
                     <mat-form-field class="form__item-50">
                         <mat-select [value]="user.state" [ngModel]="user.state" name="estado">
-                            @for (estado of estados; track estado) {
+                            @for (estado of stateList; track estado) {
                             <mat-option [value]="estado.id">{{estado.descricao}}</mat-option>
                             }
                         </mat-select>

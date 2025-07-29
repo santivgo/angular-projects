@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 @Injectable(
     {providedIn: 'root'}
 )
-export class genresService {
+export class GenresService {
     
     
 private readonly genresList: IGenre[] = [

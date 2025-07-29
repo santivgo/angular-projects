@@ -6,6 +6,10 @@ import { CommonModule } from '@angular/common';
 import { FormComponent } from "./shared/components/form/form.component";
 import { EstadosEnum } from './core/enums/states.enum';
 import { UserService } from './core/services/user.service';
+import { GenresService } from './core/services/genres.service';
+import { BrazilianStatesService } from './core/services/brazilianStates.service';
+import { IGenre } from './core/interfaces/genre.interface';
+import { IState } from './core/interfaces/state.interface';
 
 @Component({
   selector: 'app-root',
@@ -15,25 +19,41 @@ import { UserService } from './core/services/user.service';
 })
 export class AppComponent implements OnInit{
   title = 'projeto-tdf';
-  usuariosTeste: IUser[] = [];
+  userListResponse: IUser[] = [];
   actualUser: IUser | undefined;
+  genreList: IGenre[] = []
+  stateList: IState[] = []
 
-  constructor(private readonly _userService: UserService){}
-  getUsers(){
-    this._userService.getUsersList().subscribe((userList)=> this.usuariosTeste = userList)
+  constructor(private readonly _genresService: GenresService, private readonly _brazilianStatesService: BrazilianStatesService, private readonly _userService: UserService){}
+  
+  getUsers(): void{
+    this._userService.getUsersList().subscribe((userList)=> this.userListResponse = userList)
   }
+
+
+  getGenres(): void{
+    this._genresService.getAllGenres().subscribe((genreList)=> this.genreList = genreList)
+  }
+  
+  getStates(): void{
+    this._brazilianStatesService.getStates().subscribe((states)=> this.stateList = states)
+  
+  }
+
+  
+  ngOnInit(): void {
+   this.getGenres()
+   this.getStates()
+   this.getUsers();
+
+  }
+
   
   changeUser(user: IUser){
     this.actualUser = structuredClone(user);
   }
 
   
-
-  ngOnInit(): void {
-    this.getUsers();
-  }
-
-
 
 
 }

@@ -1,8 +1,8 @@
 <div class="cards">
     <app-user-card (emitter)="changeUser($event)" class="cards__card" [user]="user"
-        *ngFor="let user of usuariosTeste"></app-user-card>
+        *ngFor="let user of userListResponse"></app-user-card>
 </div>
 
 <div *ngIf="actualUser !== undefined" class="container">
-    <app-form [user]='actualUser!'></app-form>
+    <app-form [states]="stateList" [genres]="genreList" [user]='actualUser!'></app-form>
 </div>
