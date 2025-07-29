@@ -12,7 +12,7 @@ import { UsersPlaceholderService } from '../services/usersPlaceholder.service';
   }]
 })
 export class CredentialsValidatorDirective implements AsyncValidator {
-  @Input('appCredentialsValidator') tipoCampo: string = '';
+  @Input('appCredentialsValidator') tipoCampo: 'username' | 'email' = 'email';
 
   constructor(private readonly _up: UsersPlaceholderService){}
 

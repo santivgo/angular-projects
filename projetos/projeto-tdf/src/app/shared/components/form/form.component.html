@@ -22,7 +22,7 @@
                     <mat-form-field class="form__item-50">
                         <mat-label>Usuário</mat-label>
                         <input matInput name="username" [(ngModel)]="user.username" #usernameControl="ngModel" required
-                            appCredentialsValidator="username">
+                            [ngModelOptions]="{updateOn: 'blur'}" appCredentialsValidator="username">
                         <mat-error *ngIf="usernameControl.hasError('required')">O nome de usuário é
                             obrigatório</mat-error>
                         <mat-error
@@ -33,8 +33,9 @@
                     <mat-form-field class="form__item-50">
                         <mat-label>Email</mat-label>
                         <input name="email" placeholder="anon@example.com" appInvalidEmailValidator
-                            appCredentialsValidator="email" [(ngModel)]="user.email" matInput required
-                            #emailControl="ngModel">
+                            appCredentialsValidator="email" [(ngModel)]="user.email"
+                            [ngModelOptions]="{updateOn: 'blur'}" matInput required #emailControl="ngModel">
+
                         <mat-error *ngIf="emailControl.hasError('required')">O <strong>e-mail</strong> é
                             obrigatório</mat-error>
                         <mat-error
@@ -52,8 +53,9 @@
                 <div class='form__row'>
                     <mat-form-field class="form__item-50">
                         <mat-label>Senha</mat-label>
-                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
                         <input matInput [value]="user.password" required>
+                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+
                     </mat-form-field>
 
                     <mat-form-field class="form__item-50">
