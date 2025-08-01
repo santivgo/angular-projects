@@ -53,8 +53,20 @@
                 <div class='form__row'>
                     <mat-form-field class="form__item-50">
                         <mat-label>Senha</mat-label>
-                        <input matInput [value]="user.password" required>
-                        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+                        <input matInput name="password" (ngModelChange)="onPasswordChange($event)"
+                            [(ngModel)]="user.password" required appPasswordStrengthValidator
+                            #passwordControl="ngModel">
+                        <mat-error *ngIf="passwordControl.hasError('required')">A senha é obrigatória</mat-error>
+                        <mat-error
+                            *ngIf="passwordControl.hasError('weak-password') && !passwordControl.hasError('required')">
+                            A senha é fraca demais
+                        </mat-error>
+                        <mat-progress-bar mode="determinate" [ngClass]="
+                        {'weak-password': passwordStrengthValue <= 30,
+                         'medium-password': passwordStrengthValue > 30 && passwordStrengthValue <= 60,
+                         'strong-password': passwordStrengthValue > 60
+                         }" [value]="passwordStrengthValue"></mat-progress-bar>
+
 
                     </mat-form-field>
 
