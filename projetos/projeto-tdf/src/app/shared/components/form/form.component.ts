@@ -19,11 +19,12 @@ import { CredentialsValidatorDirective } from '../../../core/validators/credenti
 import { PasswordStrengthValidatorDirective } from '../../../core/validators/password-strength-validator.directive';
 import * as zxcvbn from 'zxcvbn' ;
 import { getPasswordStrength } from '../../../core/utils/get-password-strength';
+import { EqualPasswordValidator } from '../../../core/validators/equal-password-validator.directive';
 
 
 @Component({
   selector: 'app-form',
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatTableModule, MatDividerModule, MatCheckboxModule, MatDatepickerModule, MatCardModule, MatProgressBarModule, InvalidEmailDirective, CredentialsValidatorDirective, PasswordStrengthValidatorDirective],
+  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, CommonModule, MatTableModule, MatDividerModule, MatCheckboxModule, MatDatepickerModule, MatCardModule, MatProgressBarModule, InvalidEmailDirective, CredentialsValidatorDirective, PasswordStrengthValidatorDirective, EqualPasswordValidator],
   providers: [provideNativeDateAdapter()],
   templateUrl: './form.component.html',
   styleUrl: './form.component.sass'

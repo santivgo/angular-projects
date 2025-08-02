@@ -1,108 +1,113 @@
 <mat-card>
     <mat-card-content>
-        <form class="form" ngForm #formPeople="ngForm">
-            <ng-container ngModelGroup="grupoUsuario" #usuarioInfos="ngModelGroup">
-                <div class="form__row">
-                    <div class="form__item form__item-100">
-                        <mat-form-field class="form__item-100">
-                            <mat-label>Nome</mat-label>
-                            <input type="text" name="nome" matInput [(ngModel)]="user.name" #nameControl="ngModel"
-                                required>
-                            <mat-error *ngIf="nameControl.hasError('required')">O nome não pode ser
-                                vazio</mat-error>
+        <form class="form" appEqualPasswordValidator ngForm #formPeople="ngForm">
+            <div class="form__row">
+                <div class="form__item form__item-100">
+                    <mat-form-field class="form__item-100">
+                        <mat-label>Nome</mat-label>
+                        <input type="text" name="nome" matInput [(ngModel)]="user.name" #nameControl="ngModel" required>
+                        <mat-error *ngIf="nameControl.hasError('required')">O nome não pode ser
+                            vazio</mat-error>
 
 
-                        </mat-form-field>
-
-                    </div>
-                </div>
-
-
-                <div class="form__row ">
-                    <mat-form-field class="form__item-50">
-                        <mat-label>Usuário</mat-label>
-                        <input matInput name="username" [(ngModel)]="user.username" #usernameControl="ngModel" required
-                            [ngModelOptions]="{updateOn: 'blur'}" appCredentialsValidator="username">
-                        <mat-error *ngIf="usernameControl.hasError('required')">O nome de usuário é
-                            obrigatório</mat-error>
-                        <mat-error
-                            *ngIf="usernameControl.hasError('includes-username') && !usernameControl.hasError('required')">O
-                            nome de usuário já existe</mat-error>
-                    </mat-form-field>
-
-                    <mat-form-field class="form__item-50">
-                        <mat-label>Email</mat-label>
-                        <input name="email" placeholder="anon@example.com" appInvalidEmailValidator
-                            appCredentialsValidator="email" [(ngModel)]="user.email"
-                            [ngModelOptions]="{updateOn: 'blur'}" matInput required #emailControl="ngModel">
-
-                        <mat-error *ngIf="emailControl.hasError('required')">O <strong>e-mail</strong> é
-                            obrigatório</mat-error>
-                        <mat-error
-                            *ngIf="emailControl.hasError('invalid-email') && !emailControl.hasError('required')">O
-                            <strong>e-mail</strong> é
-                            inválido</mat-error>
-                        <mat-error
-                            *ngIf="emailControl.hasError('includes-email') && !emailControl.hasError('invalid-email') && !emailControl.hasError('required')">O
-                            <strong>e-mail</strong> já está cadastrado!</mat-error>
                     </mat-form-field>
 
                 </div>
+            </div>
 
 
-                <div class='form__row'>
-                    <mat-form-field class="form__item-50">
-                        <mat-label>Senha</mat-label>
-                        <input matInput name="password" (ngModelChange)="onPasswordChange($event)"
-                            [(ngModel)]="user.password" required appPasswordStrengthValidator
-                            #passwordControl="ngModel">
-                        <mat-error *ngIf="passwordControl.hasError('required')">A senha é obrigatória</mat-error>
-                        <mat-error
-                            *ngIf="passwordControl.hasError('weak-password') && !passwordControl.hasError('required')">
-                            A senha é fraca demais
-                        </mat-error>
-                        <mat-progress-bar mode="determinate" [ngClass]="
+            <div class="form__row ">
+                <mat-form-field class="form__item-50">
+                    <mat-label>Usuário</mat-label>
+                    <input matInput name="username" [(ngModel)]="user.username" #usernameControl="ngModel" required
+                        [ngModelOptions]="{updateOn: 'blur'}" appCredentialsValidator="username">
+                    <mat-error *ngIf="usernameControl.hasError('required')">O nome de usuário é
+                        obrigatório</mat-error>
+                    <mat-error
+                        *ngIf="usernameControl.hasError('includes-username') && !usernameControl.hasError('required')">O
+                        nome de usuário já existe</mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form__item-50">
+                    <mat-label>Email</mat-label>
+                    <input name="email" placeholder="anon@example.com" appInvalidEmailValidator
+                        appCredentialsValidator="email" [(ngModel)]="user.email" [ngModelOptions]="{updateOn: 'blur'}"
+                        matInput required #emailControl="ngModel">
+
+                    <mat-error *ngIf="emailControl.hasError('required')">O <strong>e-mail</strong> é
+                        obrigatório</mat-error>
+                    <mat-error *ngIf="emailControl.hasError('invalid-email') && !emailControl.hasError('required')">O
+                        <strong>e-mail</strong> é
+                        inválido</mat-error>
+                    <mat-error
+                        *ngIf="emailControl.hasError('includes-email') && !emailControl.hasError('invalid-email') && !emailControl.hasError('required')">O
+                        <strong>e-mail</strong> já está cadastrado!</mat-error>
+                </mat-form-field>
+
+            </div>
+
+
+            <div class='form__row'>
+                <mat-form-field class="form__item-50">
+                    <mat-label>Senha</mat-label>
+                    <input matInput name="password" (ngModelChange)="onPasswordChange($event)"
+                        [(ngModel)]="user.password" required appPasswordStrengthValidator #passwordControl="ngModel">
+                    <mat-error *ngIf="passwordControl.hasError('required')">A senha é obrigatória</mat-error>
+                    <mat-error
+                        *ngIf="passwordControl.hasError('weak-password') && !passwordControl.hasError('required')">
+                        A senha é fraca demais
+                    </mat-error>
+                    <mat-progress-bar mode="determinate" [ngClass]="
                         {'weak-password': passwordStrengthValue <= 30,
-                         'medium-password': passwordStrengthValue > 30 && passwordStrengthValue <= 60,
-                         'strong-password': passwordStrengthValue > 60
+                         'medium-password': passwordStrengthValue === 60,
+                         'strong-password': passwordStrengthValue === 100
                          }" [value]="passwordStrengthValue"></mat-progress-bar>
 
 
-                    </mat-form-field>
+                </mat-form-field>
 
-                    <mat-form-field class="form__item-50">
-                        <mat-label>Confirmação de senha</mat-label>
-                        <input matInput [value]="user.password" required>
-                    </mat-form-field>
+                <mat-form-field class="form__item-50">
+                    <mat-label>Confirmação de senha</mat-label>
+                    <input matInput ngModel name="repass" [value]="user.password" #repassControl="ngModel" required>
+                    <mat-error *ngIf="repassControl.hasError('required')">A senha é obrigatória</mat-error>
+                    {{formPeople.hasError('no-equal-password')}}
+                    {{!repassControl.hasError('required')}}
+                    <mat-error *ngIf="formPeople.hasError('no-equal-password')">A senha é obrigatória</mat-error>
 
-                </div>
-                <div class='form__row'>
+                    <mat-error
+                        *ngIf="repassControl.hasError('no-equal-password') && !repassControl.hasError('required')">
+                        As senhas precisam ser iguais.
+                    </mat-error>
 
-                    <mat-form-field class="form__item-100">
-                        <mat-label>Data de nascimento</mat-label>
-                        <mat-date-range-input required [rangePicker]="picker">
-                            <input matStartDate placeholder="Start date">
-                            <input matEndDate placeholder="End date">
-                        </mat-date-range-input>
-                        <mat-hint>dd/mm/yyyy</mat-hint>
-                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-date-range-picker #picker></mat-date-range-picker>
-                    </mat-form-field>
-                    <mat-form-field class="form__item-50">
-                        <mat-select [value]="user.state" [ngModel]="user.state" name="estado">
-                            @for (estado of stateList; track estado) {
-                            <mat-option [value]="estado.id">{{estado.descricao}}</mat-option>
-                            }
-                        </mat-select>
-                    </mat-form-field>
+                </mat-form-field>
+
+            </div>
+            <div class='form__row'>
+
+                <mat-form-field class="form__item-100">
+                    <mat-label>Data de nascimento</mat-label>
+                    <mat-date-range-input required [rangePicker]="picker">
+                        <input matStartDate placeholder="Start date">
+                        <input matEndDate placeholder="End date">
+                    </mat-date-range-input>
+                    <mat-hint>dd/mm/yyyy</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #picker></mat-date-range-picker>
+                </mat-form-field>
+                <mat-form-field class="form__item-50">
+                    <mat-select [value]="user.state" [ngModel]="user.state" name="estado">
+                        @for (estado of stateList; track estado) {
+                        <mat-option [value]="estado.id">{{estado.descricao}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
 
 
-                </div>
+            </div>
 
 
 
 
-            </ng-container>
             <mat-divider class="form--divider"></mat-divider>
 
             <div class="form--songs">
