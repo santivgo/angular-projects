@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-content>
-        <form class="form" appEqualPasswordValidator ngForm #formPeople="ngForm">
+        <form class="form" (ngSubmit)="onFormSubmit(formPeople)" appEqualPasswordValidator ngForm #formPeople="ngForm">
             <div class="form__row">
                 <div class="form__item form__item-100">
                     <mat-form-field class="form__item-100">
@@ -68,12 +68,8 @@
 
                 <mat-form-field class="form__item-50">
                     <mat-label>Confirmação de senha</mat-label>
-                    <input matInput ngModel name="repass" [value]="user.password" #repassControl="ngModel" required>
+                    <input matInput ngModel name="repass" #repassControl="ngModel" required>
                     <mat-error *ngIf="repassControl.hasError('required')">A senha é obrigatória</mat-error>
-                    {{formPeople.hasError('no-equal-password')}}
-                    {{!repassControl.hasError('required')}}
-                    <mat-error *ngIf="formPeople.hasError('no-equal-password')">A senha é obrigatória</mat-error>
-
                     <mat-error
                         *ngIf="repassControl.hasError('no-equal-password') && !repassControl.hasError('required')">
                         As senhas precisam ser iguais.
@@ -85,17 +81,25 @@
             <div class='form__row'>
 
                 <mat-form-field class="form__item-100">
+
                     <mat-label>Data de nascimento</mat-label>
-                    <mat-date-range-input required [rangePicker]="picker">
-                        <input matStartDate placeholder="Start date">
-                        <input matEndDate placeholder="End date">
-                    </mat-date-range-input>
+                    <input matInput #dateControl='ngModel' name="birthDate" (ngModelChange)="updateDate(dateControl)"
+                        [ngModel]="birthUserDate" [matDatepicker]="picker" required readonly [min]="getMinDate()"
+                        [max]="getMaxDate()" placeholder="Selecione a data de nascimento">
                     <mat-hint>dd/mm/yyyy</mat-hint>
+                    <mat-error *ngIf="dateControl.hasError('required')"></mat-error>
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-date-range-picker #picker></mat-date-range-picker>
+                    <mat-datepicker #picker>
+                        <mat-datepicker-actions>
+
+                            <button matButton matDatepickerCancel>Cancelar</button>
+                            <button matButton="elevated" matDatepickerApply>Confirmar</button>
+
+                        </mat-datepicker-actions>
+                    </mat-datepicker>
                 </mat-form-field>
                 <mat-form-field class="form__item-50">
-                    <mat-select [value]="user.state" [ngModel]="user.state" name="estado">
+                    <mat-select [value]="user.state" [(ngModel)]="user.state" name="estado">
                         @for (estado of stateList; track estado) {
                         <mat-option [value]="estado.id">{{estado.descricao}}</mat-option>
                         }
@@ -119,38 +123,42 @@
                         <ng-container matColumnDef="titulo">
                             <th mat-header-cell *matHeaderCellDef> Titulo </th>
 
-                            <td mat-cell *matCellDef="let element">
+                            <td mat-cell *matCellDef="let element; let i = index">
                                 <mat-form-field>
-                                    <input matInput [value]="element.title" required>
+                                    <input name="title-song-{{i}}" matInput [(ngModel)]="element.title" required>
                                 </mat-form-field>
                             </td>
                         </ng-container>
 
                         <ng-container matColumnDef="artista">
                             <th mat-header-cell *matHeaderCellDef> Artista </th>
-                            <td mat-cell *matCellDef="let element"> <mat-form-field>
-                                    <input matInput [value]="element.band" required>
+                            <td mat-cell *matCellDef="let element; let i = index;"> <mat-form-field>
+                                    <input name="band-song-{{i}}" matInput required [(ngModel)]="element.band" required>
                                 </mat-form-field> </td>
                         </ng-container>
-
                         <ng-container matColumnDef="genero">
                             <th mat-header-cell *matHeaderCellDef> Gênero </th>
-                            <td mat-cell *matCellDef="let element">
+                            <td mat-cell *matCellDef="let element; let i = index;">
                                 <mat-form-field>
-                                    <mat-select [value]="element.genre" name="genero">
-                                        @for (genero of genreList; track genero) {
+                                    <input name="genre-song-{{i}}" type="text" aria-label="Number" matInput
+                                        [matAutocomplete]="auto" required [value]="genreList[i].description"
+                                        [(ngModel)]="element.genre" (ngModelChange)="filterGenres($event)">
+                                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+                                        @for (genero of filteredGenreList; track genero) {
                                         <mat-option [value]="genero.id">{{genero.description}}</mat-option>
                                         }
-                                    </mat-select>
+                                    </mat-autocomplete>
+
                                 </mat-form-field>
                             </td>
                         </ng-container>
+
 
                         <ng-container matColumnDef="favorita">
                             <th mat-header-cell *matHeaderCellDef> Favorita </th>
                             <td mat-cell *matCellDef="let element">
 
-                                <mat-checkbox [checked]="element.isFavorite">
+                                <mat-checkbox required [checked]="element.isFavorite" (change)="onFavChanged(element)">
                                 </mat-checkbox>
                             </td>
                         </ng-container>
@@ -162,6 +170,9 @@
 
                 </ng-container>
 
+            </div>
+            <div class="form__button-container">
+                <button matButton="filled">Salvar</button>
             </div>
 
         </form>

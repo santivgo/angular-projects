@@ -1,6 +1,6 @@
 import {Injectable } from "@angular/core";
 import { IGenre } from "../interfaces/genre.interface";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 
 @Injectable(
     {providedIn: 'root'}
@@ -38,6 +38,11 @@ getAllGenres(): Observable<IGenre[]>{
             subscriber.complete()
         }, 3000)
     })
+}
+
+getGenreDescription(id: number): string{
+    const genreFound = this.genresList.find((genre)=> genre.id === id)?.description;
+    return genreFound ? genreFound : ''
 }
 
 }

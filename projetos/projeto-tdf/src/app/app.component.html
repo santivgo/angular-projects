@@ -1,8 +1,9 @@
 <div class="cards">
-    <app-user-card (emitter)="changeUser($event)" class="cards__card" [user]="user"
-        *ngFor="let user of userListResponse"></app-user-card>
+    <app-user-card (emitter)="changeUser($event, i)" class="cards__card" [user]="user"
+        *ngFor="let user of userListResponse; let i = index"></app-user-card>
 </div>
 
 <div *ngIf="actualUser !== undefined" class="container">
-    <app-form [states]="stateList" [genres]="genreList" [user]='actualUser!'></app-form>
+    <app-form [states]="stateList" (userEmitter)="compareUsersDialog($event, actualUserId)" [genres]="genreList"
+        [user]='actualUser!'></app-form>
 </div>

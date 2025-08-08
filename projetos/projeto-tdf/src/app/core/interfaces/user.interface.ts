@@ -1,4 +1,4 @@
-interface IMusic{
+export interface IUserMusic{
     title: string, 
     band: string, 
     genre: number, 
@@ -11,6 +11,6 @@ export interface IUser{
     password: string, 
     birthDate: string,
     state: number,
-    musics: IMusic[]
+    musics: IUserMusic[]
 
 }
