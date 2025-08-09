@@ -1,0 +1,6 @@
+<label for="name">Nome:</label>
+<input type="text" [formControl]='nome' id="name" value="" (input)="intercept($event)" [disabled]="true">
+<button (click)=" alterarValor()">Alterar valor</button>
+<br />
+<button (click)=" desabilitar()">Habilitar</button>
+<button (click)=" habilitar()">Desabilitar</button>
