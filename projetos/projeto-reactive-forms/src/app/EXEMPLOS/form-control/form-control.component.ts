@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { FormControl, FormControlDirective } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormControlDirective, Validators } from '@angular/forms';
+import { UserValidatorService } from '../services/user-validator.service';
 
 @Component({
   selector: 'app-form-control',
@@ -9,8 +10,11 @@ import { FormControl, FormControlDirective } from '@angular/forms';
 })
 export class FormControlComponent {
 
+  userValidator = inject(UserValidatorService);
 
-  nome: FormControl = new FormControl()
+  nome: FormControl = new FormControl('', {
+    asyncValidators: [this.userValidator.validate.bind(this.userValidator)],
+  })
   alterarValor(): void {
     this.nome.patchValue('teste')
   }
