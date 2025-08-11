@@ -6,12 +6,14 @@ import { FormControlComponent } from './EXEMPLOS/form-control/form-control.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { FormGroupComponent } from './EXEMPLOS/form-group/form-group.component';
+import { FormArrayComponent } from './EXEMPLOS/form-array/form-array.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormControlComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    FormArrayComponent,
   ],
   imports: [
     BrowserModule,
