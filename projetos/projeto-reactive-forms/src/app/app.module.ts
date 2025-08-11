@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { FormControlComponent } from './EXEMPLOS/form-control/form-control.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { FormGroupComponent } from './EXEMPLOS/form-group/form-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormControlComponent
+    FormControlComponent,
+    FormGroupComponent
   ],
   imports: [
     BrowserModule,
