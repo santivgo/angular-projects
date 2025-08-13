@@ -8,6 +8,9 @@ import { provideHttpClient } from '@angular/common/http';
 import { FormGroupComponent } from './EXEMPLOS/form-group/form-group.component';
 import { FormArrayComponent } from './EXEMPLOS/form-array/form-array.component';
 import { FormArrayComGroupComponent } from './EXEMPLOS/form-array-com-group/form-array-com-group.component';
+import { FormBuilderComponent } from './EXEMPLOS/form-builder/form-builder.component';
+import { FormBuilderExternoComponent } from './EXEMPLOS/form-builder-externo/form-builder-externo.component';
+import { MarkAsTouchedComponent } from './EXEMPLOS/mark-as-touched/mark-as-touched.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +19,9 @@ import { FormArrayComGroupComponent } from './EXEMPLOS/form-array-com-group/form
     FormGroupComponent,
     FormArrayComponent,
     FormArrayComGroupComponent,
+    FormBuilderComponent,
+    FormBuilderExternoComponent,
+    MarkAsTouchedComponent,
   ],
   imports: [
     BrowserModule,

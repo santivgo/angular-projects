@@ -1,0 +1,18 @@
+<form action="submit" [formGroup]="meuForm" id="meuForm">
+    <label for="name">Nome: </label>
+    <input type="text" formControlName="name" id="name">
+
+    <label for="email">E-mail:</label>
+    <input type="email" formControlName="email" id="email">
+
+    <h3>Endereço</h3>
+    <div formGroupName="endereco">
+        <label for="rua">Rua:</label>
+        <input type="text" formControlName="rua" id="rua">
+        <label for="numero">Número:</label>
+        <input type="email" formControlName="numero" id="rua">
+
+    </div>
+</form>
+
+<button type="submit">Consultar</button>

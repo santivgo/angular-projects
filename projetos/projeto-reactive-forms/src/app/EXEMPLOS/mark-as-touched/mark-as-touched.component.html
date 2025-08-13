@@ -1,0 +1,18 @@
+<form action="" (ngSubmit)="send()" [formGroup]="pessoaForm">
+    <input type="text" placeholder formControlName="nome">
+    {{nome.invalid}}
+    {{nome.dirty}}
+    <div *ngIf="nome.invalid && (nome.dirty || nome.touched)">
+        <p style="color: red">O nome deve ser obrigatório..</p>
+    </div>
+    <br />
+
+    <input type="text" placeholder formControlName="email">
+
+    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+        <p style="color: red">O e-mail deve ser obrigatório..</p>
+    </div>
+    <br />
+
+    <button type="submit">Enviar</button>
+</form>
