@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormControlComponent } from './EXEMPLOS/form-control/form-control.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
 import { FormGroupComponent } from './EXEMPLOS/form-group/form-group.component';
 import { FormArrayComponent } from './EXEMPLOS/form-array/form-array.component';
@@ -11,6 +11,8 @@ import { FormArrayComGroupComponent } from './EXEMPLOS/form-array-com-group/form
 import { FormBuilderComponent } from './EXEMPLOS/form-builder/form-builder.component';
 import { FormBuilderExternoComponent } from './EXEMPLOS/form-builder-externo/form-builder-externo.component';
 import { MarkAsTouchedComponent } from './EXEMPLOS/mark-as-touched/mark-as-touched.component';
+import { FormComChamadaHttpComponent } from './EXEMPLOS/form-com-chamada-http/form-com-chamada-http.component';
+import { CrossValidatorComponent } from './EXEMPLOS/cross-validator/cross-validator.component';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,14 @@ import { MarkAsTouchedComponent } from './EXEMPLOS/mark-as-touched/mark-as-touch
     FormBuilderComponent,
     FormBuilderExternoComponent,
     MarkAsTouchedComponent,
+    FormComChamadaHttpComponent,
+    CrossValidatorComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
 
   ],
   providers: [provideHttpClient()],

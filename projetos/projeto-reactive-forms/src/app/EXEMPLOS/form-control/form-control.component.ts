@@ -19,14 +19,14 @@ export class FormControlComponent {
     this.nome.patchValue('teste')
   }
   intercept(arg0: Event): void {
-     console.log(arg0);
+    console.log(arg0);
   }
 
   habilitar(): void {
-  this.nome.disable()
-    }
+    this.nome.disable()
+  }
   desabilitar(): void {
-  this.nome.enable()
-    }
+    this.nome.enable()
+  }
 
 }
