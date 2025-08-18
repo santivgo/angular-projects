@@ -1,0 +1,5 @@
+<form action="" [formGroup]='passForm'>
+    <input type="text" formControlName="password">
+    <input type="text" formControlName="passwordConfirmation">
+    {{passForm.hasError('non-equal-password')}}
+</form>
