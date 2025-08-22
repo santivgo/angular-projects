@@ -4,9 +4,3 @@ export interface ICountry {
     country: string;
     cities: string[];
 }
-
-export interface ICountryResponse {
-    error: boolean;
-    msg: string;
-    data: ICountry[];
-}

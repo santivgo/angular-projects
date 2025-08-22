@@ -1,3 +1,3 @@
-import { IState } from "../interfaces/stateResponse.interface";
+import { IState } from "../interfaces/states-response/state.interface";
 
 export type StateList = IState[]

@@ -1,3 +1,3 @@
-import { ICountry } from "../interfaces/countriesResponse.interface";
+import { ICountry } from "../interfaces/country-response/country.interface";
 
 export type CountryList = ICountry[]
