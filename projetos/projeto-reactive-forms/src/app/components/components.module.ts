@@ -6,18 +6,25 @@ import { EnumsModule } from '../enums/enums.module';
 import { ServicesModule } from '../services/services.module';
 import { TypesModule } from '../types/types.module';
 import { InterfacesModule } from '../interfaces/interfaces.module';
+import { SwitchUsersComponent } from './switch-users/switch-users.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SwitchUsersComponent
+  ],
   imports: [
     CommonModule,
     PipesModule,
     EnumsModule,
     ServicesModule,
     TypesModule,
-    InterfacesModule
+    InterfacesModule,
+    AngularMaterialModule
+  ],
+  exports: [
+    SwitchUsersComponent
   ]
 })
 export class ComponentsModule { }

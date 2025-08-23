@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { provideHttpClient } from '@angular/common/http';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { provideHttpClient } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ComponentsModule,
     AngularMaterialModule
   ],
   providers: [provideHttpClient()],
