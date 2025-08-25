@@ -1,3 +1,3 @@
-import { IUser } from "../interfaces/users.interface";
+import { IUser } from "../interfaces/user/user.interface";
 
 export type UsersList = IUser[]

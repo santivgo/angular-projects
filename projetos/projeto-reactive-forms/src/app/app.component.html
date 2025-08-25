@@ -4,9 +4,14 @@
 
     <mat-card-content>
       <div class="p-card__switch-users">
-        <app-switch-users [userList]="userList"></app-switch-users>
+        <app-switch-users (userEmit)="setActualUser($event)" [userList]="userList"></app-switch-users>
       </div>
       <div class="p-card__tab-user">
+        <div *ngIf="userSelected">
+          <app-user-info [userSelected]="userSelected">
+          </app-user-info>
+        </div>
+
       </div>
     </mat-card-content>
   </mat-card>

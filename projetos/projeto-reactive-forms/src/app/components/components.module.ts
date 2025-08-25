@@ -7,12 +7,16 @@ import { ServicesModule } from '../services/services.module';
 import { TypesModule } from '../types/types.module';
 import { InterfacesModule } from '../interfaces/interfaces.module';
 import { SwitchUsersComponent } from './switch-users/switch-users.component';
+import { GeneralUserInfoComponent } from './user/general-user-info/general-user-info.component';
+import { UserInfoComponent } from './user/user-info/user-info.component';
 
 
 
 @NgModule({
   declarations: [
-    SwitchUsersComponent
+    SwitchUsersComponent,
+    UserInfoComponent,
+    GeneralUserInfoComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +28,8 @@ import { SwitchUsersComponent } from './switch-users/switch-users.component';
     AngularMaterialModule
   ],
   exports: [
-    SwitchUsersComponent
+    SwitchUsersComponent,
+    UserInfoComponent
   ]
 })
 export class ComponentsModule { }
