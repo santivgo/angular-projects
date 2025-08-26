@@ -1,5 +1,5 @@
 <h1 class="text-2xl font-bold mb-3">Telefones:</h1>
 <div class="grid mb-6 lg:grid-cols-3">
-    <app-user-info-cell *ngFor="let phone of phoneList" [itemName]="phone.type | phoneType"
-        [item]="phone.number | phone : phone.areaCode : phone.internationalCode"></app-user-info-cell>
+    <app-user-info-cell *ngFor="let phone of displayedPhoneList" [itemName]="phone.type"
+        [item]="phone.phone"></app-user-info-cell>
 </div>
