@@ -1,4 +1,4 @@
-export interface DependentsList {
+export interface IDependent {
     name: string;
     age: number;
     document: number;

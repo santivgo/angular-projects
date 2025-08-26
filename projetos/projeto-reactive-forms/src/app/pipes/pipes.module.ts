@@ -1,14 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { maritalStatusPipe } from './marital-status.pipe';
-
-
+import { MaritalStatusPipe } from './marital-status.pipe';
+import { PhoneTypePipe } from './phone-type.pipe';
+import { PhonePipe } from './phone.pipe';
+import { AddressTypePipe } from './address-type.pipe';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    maritalStatusPipe
-  ], exports: [maritalStatusPipe]
+    MaritalStatusPipe,
+    PhoneTypePipe,
+    PhonePipe,
+    AddressTypePipe
+  ], exports: [
+    MaritalStatusPipe,
+    PhoneTypePipe,
+    PhonePipe,
+    AddressTypePipe]
 })
 export class PipesModule { }

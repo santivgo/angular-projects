@@ -10,6 +10,9 @@ import { SwitchUsersComponent } from './switch-users/switch-users.component';
 import { GeneralUserInfoComponent } from './user/general-user-info/general-user-info.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserInfoCellComponent } from './user/user-info-cell/user-info-cell.component';
+import { ContactUserInfoComponent } from './user/contact-user-info/contact-user-info.component';
+import { UserPhoneListComponent } from './user/components/user-phone-list/user-phone-list.component';
+import { UserAddressListComponent } from './user/components/user-address-list/user-address-list.component';
 
 
 
@@ -18,7 +21,10 @@ import { UserInfoCellComponent } from './user/user-info-cell/user-info-cell.comp
     SwitchUsersComponent,
     UserInfoComponent,
     GeneralUserInfoComponent,
-    UserInfoCellComponent
+    UserInfoCellComponent,
+    ContactUserInfoComponent,
+    UserPhoneListComponent,
+    UserAddressListComponent
   ],
   imports: [
     CommonModule,

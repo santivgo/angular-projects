@@ -1,17 +1,17 @@
 import { Pipe, PipeTransform } from "@angular/core";
-
+import { MaritalStatusEnum } from "../enums/marital-status.enum";
 @Pipe({
     name: 'maritalStatus'
 })
 
-export class maritalStatusPipe implements PipeTransform {
+export class MaritalStatusPipe implements PipeTransform {
     transform(maritalStatus: number) {
-        let marital: { [key: number]: string } = {
-            1: 'Solteiro',
-            2: 'Casado',
-            3: 'Divorciado'
+        const marital: { [key: number]: string } = {
+            [MaritalStatusEnum.SOLTEIRO]: 'Solteiro',
+            [MaritalStatusEnum.CASADO]: 'Casado',
+            [MaritalStatusEnum.DIVORCIADO]: 'Divorciado'
         }
-        return marital[maritalStatus]
+        return maritalStatus ? marital[maritalStatus] : ''
 
     }
 

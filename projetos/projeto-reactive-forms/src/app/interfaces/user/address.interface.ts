@@ -1,5 +1,5 @@
 
-export interface AddressList {
+export interface IAddress {
     type: number;
     street: string;
     complement: string;

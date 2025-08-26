@@ -1,4 +1,4 @@
-export interface PhoneList {
+export interface IPhone {
     type: number;
     areaCode: string;
     internationalCode: string;

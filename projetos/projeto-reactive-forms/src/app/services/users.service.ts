@@ -121,7 +121,7 @@ export class UsersService {
             birthDate: '11/11/1991',
             phoneList: [
                 {
-                    type: 2, // -> Celular
+                    type: PhoneTypeEnum.CELULAR, // -> Celular
                     areaCode: '11', // -> DDD
                     internationalCode: '+55', // -> DDI
                     number: '91111-7777', // -> Número
