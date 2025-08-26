@@ -8,5 +8,6 @@ import { IUser } from '../../../interfaces/user/user.interface';
   styleUrl: './general-user-info.component.sass'
 })
 export class GeneralUserInfoComponent {
+
   @Input({ required: true }) user!: IUser;
 }

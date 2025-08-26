@@ -1,21 +1,20 @@
-<div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 p-2">
-    <div class="user-name">
-        <h1 class="text-lg font-bold">Nome: </h1>
-        <p>{{user.name}}</p>
+<div class="p-4">
+    <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
+        <app-user-info-cell itemName="Nome" [item]="user.name"> </app-user-info-cell>
+        <app-user-info-cell itemName="E-mail" [item]="user.email"> </app-user-info-cell>
     </div>
 
-    <div class="user-email">
-        <h1 class="text-lg font-bold">E-mail: </h1>
-        <p>{{user.email}}</p>
+    <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
+        <app-user-info-cell itemName="País" [item]="user.country"> </app-user-info-cell>
+        <app-user-info-cell itemName="Estado" [item]="user.state"> </app-user-info-cell>
     </div>
 
-    <div class="user-country">
-        <h1 class="text-lg font-bold">País: </h1>
-        <p>{{user.country}}</p>
+    <div class="p-4 grid sm:grid-cols-1  md:grid-cols-2 gap-4 lg:grid-cols-3">
+        <app-user-info-cell itemName="Estado Civil" [item]="user.maritalStatus | maritalStatus"> </app-user-info-cell>
+        <app-user-info-cell itemName="Renda Mensal" [item]="(user.monthlyIncome | currency:'BRL')">
+        </app-user-info-cell>
+        <app-user-info-cell itemName="Data de Nascimento" [item]="user.birthDate">
+        </app-user-info-cell>
     </div>
 
-    <div class="user-marital-status">
-        <h1 class="text-lg font-bold">Estado Civil: </h1>
-        <p>{{user.maritalStatus | maritalStatus}}</p>
-    </div>
 </div>

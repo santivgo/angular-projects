@@ -9,6 +9,7 @@ import { InterfacesModule } from '../interfaces/interfaces.module';
 import { SwitchUsersComponent } from './switch-users/switch-users.component';
 import { GeneralUserInfoComponent } from './user/general-user-info/general-user-info.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
+import { UserInfoCellComponent } from './user/user-info-cell/user-info-cell.component';
 
 
 
@@ -16,7 +17,8 @@ import { UserInfoComponent } from './user/user-info/user-info.component';
   declarations: [
     SwitchUsersComponent,
     UserInfoComponent,
-    GeneralUserInfoComponent
+    GeneralUserInfoComponent,
+    UserInfoCellComponent
   ],
   imports: [
     CommonModule,

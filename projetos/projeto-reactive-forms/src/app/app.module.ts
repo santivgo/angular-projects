@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { provideHttpClient } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -17,7 +21,7 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     AngularMaterialModule
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
