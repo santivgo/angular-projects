@@ -13,6 +13,7 @@ import { UserInfoCellComponent } from './user/user-info-cell/user-info-cell.comp
 import { ContactUserInfoComponent } from './user/contact-user-info/contact-user-info.component';
 import { UserPhoneListComponent } from './user/components/user-phone-list/user-phone-list.component';
 import { UserAddressListComponent } from './user/components/user-address-list/user-address-list.component';
+import { DependentUserInfoComponent } from './user/dependent-user-info/dependent-user-info.component';
 
 
 
@@ -24,7 +25,8 @@ import { UserAddressListComponent } from './user/components/user-address-list/us
     UserInfoCellComponent,
     ContactUserInfoComponent,
     UserPhoneListComponent,
-    UserAddressListComponent
+    UserAddressListComponent,
+    DependentUserInfoComponent
   ],
   imports: [
     CommonModule,

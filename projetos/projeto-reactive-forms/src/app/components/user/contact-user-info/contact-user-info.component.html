@@ -1,18 +1,10 @@
 <div class="p-4">
+    <h1 class="text-2xl font-bold mb-3">Telefones:</h1>
     <app-user-phone-list [phoneList]="user.phoneList"></app-user-phone-list>
 
     <h1 class="text-2xl font-bold mb-3">Endereços:</h1>
-    <div class="grid lg:gap-y-4">
-        <div class="grid gap-y-4 lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2" *ngFor="let address of user.addressList">
-            <app-user-info-cell [item]="address.type | addressType" itemName="Tipo"></app-user-info-cell>
-            <app-user-info-cell [item]="address.street" itemName="Rua"></app-user-info-cell>
-            <app-user-info-cell [item]="address.complement " itemName="Complemento"></app-user-info-cell>
-            <app-user-info-cell [item]="address.country" itemName="País"></app-user-info-cell>
-            <app-user-info-cell [item]="address.state" itemName="Estado"></app-user-info-cell>
-            <app-user-info-cell [item]="address.city" itemName="Cidade"></app-user-info-cell>
-            <hr class="block lg:hidden my-4 bg-white border-0">
-        </div>
+    <app-user-address-list [addressList]="user.addressList"></app-user-address-list>
 
 
-    </div>
+
 </div>

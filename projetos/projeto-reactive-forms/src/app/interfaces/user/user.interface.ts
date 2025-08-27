@@ -1,5 +1,5 @@
 import { AddressList } from "../../types/address-list.type";
-import { DependentsList } from "../../types/dependents-list.type";
+import { DependentList } from "../../types/dependent-list.type";
 import { PhoneList } from "../../types/phone-list.type";
 
 
@@ -13,5 +13,5 @@ export interface IUser {
     birthDate: string;
     phoneList: PhoneList;
     addressList: AddressList;
-    dependentsList: DependentsList;
+    dependentsList: DependentList;
 }

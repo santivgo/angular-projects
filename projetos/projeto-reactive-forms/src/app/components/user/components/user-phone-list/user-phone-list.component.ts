@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PhoneList } from '../../../../types/phone-list.type';
 import { PhoneTypeMap } from '../../../../utils/phone-type.map';
 import { IPhone } from '../../../../interfaces/user/phone.interface';
+import { PhoneListDisplay } from '../../../../types/phone-list-to-display.type';
 
 @Component({
   selector: 'app-user-phone-list',
@@ -11,11 +12,10 @@ import { IPhone } from '../../../../interfaces/user/phone.interface';
 })
 export class UserPhoneListComponent implements OnChanges {
   @Input({ required: true }) phoneList: PhoneList = []
-  displayedPhoneList: { type: string, phone: string }[] = []
+  displayedPhoneList: PhoneListDisplay = []
 
   ngOnChanges(changes: SimpleChanges): void {
 
-    if (changes['phoneList'].previousValue) this.displayedPhoneList = []
     const PHONE_LIST_LOADED = Array.isArray(changes['phoneList'].currentValue)
     if (PHONE_LIST_LOADED) {
       this.displayPhoneList()
@@ -27,11 +27,12 @@ export class UserPhoneListComponent implements OnChanges {
   }
 
   displayPhoneList(): void {
+    this.displayedPhoneList = []
     Object.keys(PhoneTypeMap).map(Number).forEach((value) => {
       const foundPhone: IPhone | undefined = this.phoneList.find((phone) => phone.type === value)
       this.displayedPhoneList.push({
         type: PhoneTypeMap[value],
-        phone: foundPhone ? this.formatPhone(foundPhone) : '-'
+        value: foundPhone ? this.formatPhone(foundPhone) : '-'
       })
 
     })

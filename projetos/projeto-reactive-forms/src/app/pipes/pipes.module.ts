@@ -4,6 +4,7 @@ import { MaritalStatusPipe } from './marital-status.pipe';
 import { PhoneTypePipe } from './phone-type.pipe';
 import { PhonePipe } from './phone.pipe';
 import { AddressTypePipe } from './address-type.pipe';
+import { CpfPipe } from './cpf.pipe';
 
 @NgModule({
   declarations: [],
@@ -12,11 +13,13 @@ import { AddressTypePipe } from './address-type.pipe';
     MaritalStatusPipe,
     PhoneTypePipe,
     PhonePipe,
-    AddressTypePipe
+    AddressTypePipe,
+    CpfPipe
   ], exports: [
     MaritalStatusPipe,
     PhoneTypePipe,
     PhonePipe,
-    AddressTypePipe]
+    AddressTypePipe,
+    CpfPipe]
 })
 export class PipesModule { }

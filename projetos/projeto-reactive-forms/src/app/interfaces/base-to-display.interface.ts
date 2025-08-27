@@ -1,0 +1,1 @@
+export interface IBaseToDisplay { type: string, value: string }
