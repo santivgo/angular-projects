@@ -8,13 +8,9 @@
       </div>
       <div class="p-card__tab-user">
         <div *ngIf="userSelected">
-          <div class="flex xl:justify-end justify-center my-2">
-            <app-dummy-button icon="edit" textButton="Editar" colorButton="bg-blue-500"></app-dummy-button>
-            <app-dummy-button icon="save" textButton="Salvar" colorButton="bg-red-500"></app-dummy-button>
-            <app-dummy-button icon="cancel" textButton="Cancelar" colorButton="bg-green-600"></app-dummy-button>
 
-
-          </div>
+          <app-buttons-container [isInEditMode]="isInEditMode" (onEditBtnEmitt)="setEditMode()"
+            (onCancelBtnEmitt)="cancelEditMode()"></app-buttons-container>
           <app-user-info [userSelected]="userSelected">
           </app-user-info>
         </div>

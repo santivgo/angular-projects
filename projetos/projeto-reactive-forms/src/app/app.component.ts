@@ -13,10 +13,12 @@ import { take } from 'rxjs';
 })
 export class AppComponent implements OnInit {
 
+
   constructor(private readonly _userService: UsersService) { }
   title = 'projeto-reactive-forms';
   userList: UsersList = [];
   userSelected: IUser | null = null
+  isInEditMode: boolean = false;
 
 
   ngOnInit(): void {
@@ -26,6 +28,13 @@ export class AppComponent implements OnInit {
   setActualUser(event: number) {
     console.log(event)
     this.userSelected = structuredClone(this.userList[event]);
+  }
+
+  cancelEditMode() {
+    this.isInEditMode = false;
+  }
+  setEditMode() {
+    this.isInEditMode = true
   }
 
 }

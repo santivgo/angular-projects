@@ -15,6 +15,7 @@ import { UserPhoneListComponent } from './user/sections/components/user-phone-li
 import { UserAddressListComponent } from './user/sections/components/user-address-list/user-address-list.component';
 import { DependentUserInfoComponent } from './user/sections/dependent-user-info/dependent-user-info.component';
 import { DummyButtonComponent } from './buttons/dummy-button/dummy-button.component';
+import { ButtonsContainerComponent } from './buttons/buttons-container/buttons-container.component';
 
 
 
@@ -28,7 +29,8 @@ import { DummyButtonComponent } from './buttons/dummy-button/dummy-button.compon
     UserPhoneListComponent,
     UserAddressListComponent,
     DependentUserInfoComponent,
-    DummyButtonComponent
+    DummyButtonComponent,
+    ButtonsContainerComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ import { DummyButtonComponent } from './buttons/dummy-button/dummy-button.compon
   exports: [
     SwitchUsersComponent,
     UserInfoComponent,
-    DummyButtonComponent
+    DummyButtonComponent,
+    ButtonsContainerComponent
   ]
 })
 export class ComponentsModule { }
