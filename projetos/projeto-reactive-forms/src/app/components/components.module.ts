@@ -7,13 +7,14 @@ import { ServicesModule } from '../services/services.module';
 import { TypesModule } from '../types/types.module';
 import { InterfacesModule } from '../interfaces/interfaces.module';
 import { SwitchUsersComponent } from './switch-users/switch-users.component';
-import { GeneralUserInfoComponent } from './user/general-user-info/general-user-info.component';
+import { GeneralUserInfoComponent } from './user/sections/general-user-info/general-user-info.component';
 import { UserInfoComponent } from './user/user-info/user-info.component';
 import { UserInfoCellComponent } from './user/user-info-cell/user-info-cell.component';
-import { ContactUserInfoComponent } from './user/contact-user-info/contact-user-info.component';
-import { UserPhoneListComponent } from './user/components/user-phone-list/user-phone-list.component';
-import { UserAddressListComponent } from './user/components/user-address-list/user-address-list.component';
-import { DependentUserInfoComponent } from './user/dependent-user-info/dependent-user-info.component';
+import { ContactUserInfoComponent } from './user/sections/contact-user-info/contact-user-info.component';
+import { UserPhoneListComponent } from './user/sections/components/user-phone-list/user-phone-list.component';
+import { UserAddressListComponent } from './user/sections/components/user-address-list/user-address-list.component';
+import { DependentUserInfoComponent } from './user/sections/dependent-user-info/dependent-user-info.component';
+import { DummyButtonComponent } from './buttons/dummy-button/dummy-button.component';
 
 
 
@@ -26,7 +27,8 @@ import { DependentUserInfoComponent } from './user/dependent-user-info/dependent
     ContactUserInfoComponent,
     UserPhoneListComponent,
     UserAddressListComponent,
-    DependentUserInfoComponent
+    DependentUserInfoComponent,
+    DummyButtonComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { DependentUserInfoComponent } from './user/dependent-user-info/dependent
   ],
   exports: [
     SwitchUsersComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    DummyButtonComponent
   ]
 })
 export class ComponentsModule { }

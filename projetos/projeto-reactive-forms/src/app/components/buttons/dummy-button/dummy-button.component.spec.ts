@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserInfoCellComponent } from './user-info-cell.component';
+import { DummyButtonComponent } from './dummy-button.component';
 
-describe('UserInfoCellComponent', () => {
-  let component: UserInfoCellComponent;
-  let fixture: ComponentFixture<UserInfoCellComponent>;
+describe('DummyButtonComponent', () => {
+  let component: DummyButtonComponent;
+  let fixture: ComponentFixture<DummyButtonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [UserInfoCellComponent]
+      declarations: [DummyButtonComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserInfoCellComponent);
+    fixture = TestBed.createComponent(DummyButtonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

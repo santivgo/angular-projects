@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { PhoneList } from '../../../../types/phone-list.type';
-import { PhoneTypeMap } from '../../../../utils/phone-type.map';
-import { IPhone } from '../../../../interfaces/user/phone.interface';
-import { PhoneListDisplay } from '../../../../types/phone-list-to-display.type';
+import { PhoneListDisplay } from '../../../../../types/phone-list-to-display.type';
+import { PhoneList } from '../../../../../types/phone-list.type';
+import { IPhone } from '../../../../../interfaces/user/phone.interface';
+import { PhoneTypeMap } from '../../../../../utils/phone-type.map';
 
 @Component({
   selector: 'app-user-phone-list',

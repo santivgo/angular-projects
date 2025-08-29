@@ -18,7 +18,7 @@ registerLocaleData(localePt);
     BrowserModule,
     AppRoutingModule,
     ComponentsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
   ],
   providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]

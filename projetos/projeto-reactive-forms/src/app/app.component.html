@@ -4,10 +4,17 @@
 
     <mat-card-content>
       <div class="p-card__switch-users">
-        <app-switch-users (userEmit)="setActualUser($event)" [userList]="userList"></app-switch-users>
+        <app-switch-users (indexUserEmit)="setActualUser($event)" [userList]="userList"></app-switch-users>
       </div>
       <div class="p-card__tab-user">
         <div *ngIf="userSelected">
+          <div class="flex xl:justify-end justify-center my-2">
+            <app-dummy-button icon="edit" textButton="Editar" colorButton="bg-blue-500"></app-dummy-button>
+            <app-dummy-button icon="save" textButton="Salvar" colorButton="bg-red-500"></app-dummy-button>
+            <app-dummy-button icon="cancel" textButton="Cancelar" colorButton="bg-green-600"></app-dummy-button>
+
+
+          </div>
           <app-user-info [userSelected]="userSelected">
           </app-user-info>
         </div>

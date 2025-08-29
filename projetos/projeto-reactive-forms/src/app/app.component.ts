@@ -23,8 +23,9 @@ export class AppComponent implements OnInit {
     this._userService.getUsers().pipe(take(1)).subscribe((userList) => this.userList = userList)
   }
 
-  setActualUser(event: IUser) {
-    this.userSelected = event;
+  setActualUser(event: number) {
+    console.log(event)
+    this.userSelected = structuredClone(this.userList[event]);
   }
 
 }

@@ -1,8 +1,7 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { AddressList } from '../../../../types/address-list.type';
-import { AddressListToDisplay } from '../../../../types/address-list-to-display.type';
-import { AddressTypeMap } from '../../../../utils/address-type.map';
-import { IAddress } from '../../../../interfaces/user/address.interface';
+import { AddressList } from '../../../../../types/address-list.type';
+import { AddressTypeMap } from '../../../../../utils/address-type.map';
+import { IAddress } from '../../../../../interfaces/user/address.interface';
 
 @Component({
   selector: 'app-user-address-list',

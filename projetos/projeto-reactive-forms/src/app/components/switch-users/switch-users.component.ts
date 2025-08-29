@@ -13,9 +13,9 @@ export class SwitchUsersComponent {
   selectedUser: IUser | null = null;
   @Input({ 'required': true }) userList: UsersList = []
 
-  @Output() userEmit: EventEmitter<IUser> = new EventEmitter<IUser>();
-  onUserClicked(userClicked: IUser) {
-    this.selectedUser = userClicked
-    this.userEmit.emit(userClicked)
+  @Output() indexUserEmit: EventEmitter<number> = new EventEmitter<number>();
+  onUserClicked(index: number) {
+    this.selectedUser = this.userList[index]
+    this.indexUserEmit.emit(index)
   }
 }
