@@ -11,7 +11,7 @@
 
           <app-buttons-container [isInEditMode]="isInEditMode" (onEditBtnEmitt)="setEditMode()"
             (onCancelBtnEmitt)="cancelEditMode()"></app-buttons-container>
-          <app-user-info [userSelected]="userSelected">
+          <app-user-info [isInEditMode]="isInEditMode" [userSelected]="userSelected">
           </app-user-info>
         </div>
 

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DependentList } from '../../../../types/dependent-list.type';
+import { DependentList } from '../../../../../types/dependent-list.type';
 
 @Component({
   selector: 'app-dependent-user-info',

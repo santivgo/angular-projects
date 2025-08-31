@@ -4,7 +4,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
-
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -13,9 +15,14 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatTabsModule,
-    MatIconModule
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule
 
   ],
-  exports: [MatCardModule, MatTabsModule, MatButtonModule, MatIconModule]
+  exports: [MatCardModule, MatTabsModule, MatButtonModule, MatIconModule, MatInputModule,
+    MatFormFieldModule, FormsModule
+  ]
 })
 export class AngularMaterialModule { }

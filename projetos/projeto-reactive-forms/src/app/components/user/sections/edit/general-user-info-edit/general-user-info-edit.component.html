@@ -1,0 +1,31 @@
+<form action="" [formGroup]="userInfo">
+    <div class="p-4">
+        <h1 class="text-2xl font-bold mb-3">Geral:</h1>
+
+        <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
+            <mat-form-field>
+                <mat-label for="name">Nome:</mat-label>
+                <input matInput type="text" formControlName="name" id="rua">
+            </mat-form-field>
+
+
+
+
+        </div>
+
+        <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
+            <app-user-info-cell itemName="País" [item]="user.country"> </app-user-info-cell>
+            <app-user-info-cell itemName="Estado" [item]="user.state"> </app-user-info-cell>
+        </div>
+
+        <div class="p-4 grid sm:grid-cols-1  md:grid-cols-2 gap-4 lg:grid-cols-3">
+            <app-user-info-cell itemName="Estado Civil" [item]="user.maritalStatus | maritalStatus">
+            </app-user-info-cell>
+            <app-user-info-cell itemName="Renda Mensal" [item]="(user.monthlyIncome | currency:'BRL')">
+            </app-user-info-cell>
+            <app-user-info-cell itemName="Data de Nascimento" [item]="user.birthDate">
+            </app-user-info-cell>
+        </div>
+
+    </div>
+</form>

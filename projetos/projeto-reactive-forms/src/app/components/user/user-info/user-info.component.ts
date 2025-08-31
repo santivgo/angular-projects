@@ -9,5 +9,6 @@ import { IUser } from '../../../interfaces/user/user.interface';
 })
 export class UserInfoComponent {
   @Input({ 'required': true, 'alias': 'userSelected' }) user: IUser = {} as IUser;
+  @Input({ 'required': true }) isInEditMode: boolean = false
   currentTabIndex: number = 0;
 }
