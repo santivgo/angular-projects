@@ -20,6 +20,7 @@ import { GeneralUserInfoComponent } from './user/sections/default/general-user-i
 import { ContactUserInfoComponent } from './user/sections/default/contact-user-info/contact-user-info.component';
 import { DependentUserInfoComponent } from './user/sections/default/dependent-user-info/dependent-user-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormItemComponent } from './user/forms/form-item/form-item.component';
 
 
 
@@ -37,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ButtonsContainerComponent,
     GeneralUserInfoEditComponent,
     DependentUserInfoEditComponent,
-    ContactUserInfoEditComponent
+    ContactUserInfoEditComponent,
+    FormItemComponent
   ],
   imports: [
     CommonModule,

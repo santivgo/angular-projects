@@ -1,21 +1,31 @@
-<form action="" [formGroup]="userInfo">
+<form action="" [formGroup]="userInfoForm">
     <div class="p-4">
         <h1 class="text-2xl font-bold mb-3">Geral:</h1>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
             <mat-form-field>
                 <mat-label for="name">Nome:</mat-label>
-                <input matInput type="text" formControlName="name" id="rua">
+                <input matInput type="text" formControlName="name" id="name">
+            </mat-form-field>
+            <mat-form-field>
+                    <mat-label for="email">Email:</mat-label>
+                    <input matInput type="email" formControlName="email" id="email">
             </mat-form-field>
 
-
-
+        
 
         </div>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
-            <app-user-info-cell itemName="País" [item]="user.country"> </app-user-info-cell>
-            <app-user-info-cell itemName="Estado" [item]="user.state"> </app-user-info-cell>
+            <mat-form-field>
+                <mat-label for="pais">País:</mat-label>
+                <input matInput type="text" formControlName="country" id="pais">
+            </mat-form-field>
+            <mat-form-field>
+                    <mat-label for="estado">Estado:</mat-label>
+                    <input matInput type="text" formControlName="state" id="estado">
+            </mat-form-field>
+
         </div>
 
         <div class="p-4 grid sm:grid-cols-1  md:grid-cols-2 gap-4 lg:grid-cols-3">
