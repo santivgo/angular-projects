@@ -1,4 +1,4 @@
-import { AddressTypeEnum } from "../enums/address-type.enum";
+import { AddressTypeEnum } from "../../enums/address-type.enum";
 
 export const AddressTypeMap: { [key: number]: string } = {
     [AddressTypeEnum.TRABALHO]: 'Trabalho',

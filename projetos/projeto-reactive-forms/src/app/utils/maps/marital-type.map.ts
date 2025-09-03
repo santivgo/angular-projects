@@ -1,4 +1,4 @@
-import { MaritalStatusEnum } from "../enums/marital-status.enum";
+import { MaritalStatusEnum } from "../../enums/marital-status.enum";
 
 export const MaritalStatusMap: { [key: number]: string } = {
     [MaritalStatusEnum.SOLTEIRO]: 'Solteiro',

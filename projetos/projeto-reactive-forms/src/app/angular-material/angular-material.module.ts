@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [],
@@ -18,11 +20,13 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatRadioModule,
+    MatAutocompleteModule
 
   ],
   exports: [MatCardModule, MatTabsModule, MatButtonModule, MatIconModule, MatInputModule,
-    MatFormFieldModule, FormsModule
+    MatFormFieldModule, FormsModule, MatRadioModule, MatAutocompleteModule
   ]
 })
 export class AngularMaterialModule { }

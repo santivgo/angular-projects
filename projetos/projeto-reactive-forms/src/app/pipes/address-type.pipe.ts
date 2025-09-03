@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import { AddressTypeEnum } from "../enums/address-type.enum";
-import { AddressTypeMap } from "../utils/address-type.map";
+import { AddressTypeMap } from "../utils/maps/address-type.map";
 
 @Pipe({
     name: 'addressType'

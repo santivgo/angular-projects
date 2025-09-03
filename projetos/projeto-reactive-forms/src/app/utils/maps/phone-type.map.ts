@@ -1,4 +1,4 @@
-import { PhoneTypeEnum } from "../enums/phone-type.enum";
+import { PhoneTypeEnum } from "../../enums/phone-type.enum";
 
 export const PhoneTypeMap: { [key: number]: string } = {
     [PhoneTypeEnum.CELULAR]: 'Celular',

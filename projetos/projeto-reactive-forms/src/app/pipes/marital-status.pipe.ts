@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import { MaritalStatusEnum } from "../enums/marital-status.enum";
-import { MaritalStatusMap } from "../utils/marital-type.map";
+import { MaritalStatusMap } from "../utils/maps/marital-type.map";
 @Pipe({
     name: 'maritalStatus'
 })

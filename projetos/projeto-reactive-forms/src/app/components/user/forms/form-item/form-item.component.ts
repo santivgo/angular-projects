@@ -8,6 +8,8 @@ import { FormGroup } from '@angular/forms';
   styleUrl: './form-item.component.sass'
 })
 export class FormItemComponent {
-  @Input({'required': true}) form!: FormGroup  
-  @Input({'required': true}) itemName: string = ''
+  @Input({ 'required': true }) form!: FormGroup
+  @Input({ 'required': true }) itemName: string = ''
+  @Input({ 'required': true }) name: string = ''
+  @Input({}) type: string = 'text'
 }

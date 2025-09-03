@@ -3,38 +3,56 @@
         <h1 class="text-2xl font-bold mb-3">Geral:</h1>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
-            <mat-form-field>
-                <mat-label for="name">Nome:</mat-label>
-                <input matInput type="text" formControlName="name" id="name">
-            </mat-form-field>
-            <mat-form-field>
-                    <mat-label for="email">Email:</mat-label>
-                    <input matInput type="email" formControlName="email" id="email">
-            </mat-form-field>
 
-        
+
+            <app-form-item [form]="userInfoForm" name="Nome" itemName="name"></app-form-item>
+            <app-form-item [form]="userInfoForm" type="email" name="Email" itemName="email"></app-form-item>
+
+
+
 
         </div>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
-            <mat-form-field>
-                <mat-label for="pais">País:</mat-label>
-                <input matInput type="text" formControlName="country" id="pais">
+
+            <mat-form-field class="w-full">
+                <mat-label for="country">País</mat-label>
+                <input matInput [matAutocomplete]="pais" formControlName="country" id="country">
+                <mat-autocomplete requireSelection #pais="matAutocomplete">
+                    @for (country of countryList; track country.iso2) {
+                    <mat-option [value]="country.country">{{country.country}}</mat-option>
+                    }
+                </mat-autocomplete>
             </mat-form-field>
-            <mat-form-field>
-                    <mat-label for="estado">Estado:</mat-label>
-                    <input matInput type="text" formControlName="state" id="estado">
+
+            <mat-form-field class="w-full">
+                <mat-label for="state">Estado</mat-label>
+                <input matInput [matAutocomplete]="estado" formControlName="state" id="state">
+                <mat-autocomplete requireSelection #estado="matAutocomplete">
+                    @for (state of stateList; track state) {
+                    <mat-option [value]="state.name">{{state.name}}</mat-option>
+                    }
+                </mat-autocomplete>
             </mat-form-field>
+
+
 
         </div>
-
         <div class="p-4 grid sm:grid-cols-1  md:grid-cols-2 gap-4 lg:grid-cols-3">
-            <app-user-info-cell itemName="Estado Civil" [item]="user.maritalStatus | maritalStatus">
-            </app-user-info-cell>
-            <app-user-info-cell itemName="Renda Mensal" [item]="(user.monthlyIncome | currency:'BRL')">
-            </app-user-info-cell>
-            <app-user-info-cell itemName="Data de Nascimento" [item]="user.birthDate">
-            </app-user-info-cell>
+
+            <div>
+                <mat-radio-group class="grid grid-cols-3" formControlName="maritalStatus">
+                    <mat-radio-button class="w-full" value="1">Solteiro</mat-radio-button>
+                    <mat-radio-button class="w-full" value="2">Casado</mat-radio-button>
+                    <mat-radio-button class="w-full" value="3">Divorciado</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <mat-form-field class="w-full">
+                <mat-label for="monthlyIncome">Renda Mensal</mat-label>
+                <input matInput formControlName="monthlyIncome" id="itemName">
+            </mat-form-field>
+
         </div>
 
     </div>

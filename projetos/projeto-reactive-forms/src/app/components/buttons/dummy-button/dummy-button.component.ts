@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ButtonColorMap } from '../../../utils/button-color.map';
+import { ButtonColorMap } from '../../../utils/maps/button-color.map';
 
 @Component({
   selector: 'app-dummy-button',
