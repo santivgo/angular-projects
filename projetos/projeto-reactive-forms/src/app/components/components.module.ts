@@ -20,7 +20,7 @@ import { ContactUserInfoComponent } from './user/sections/default/contact-user-i
 import { DependentUserInfoComponent } from './user/sections/default/dependent-user-info/dependent-user-info.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormItemComponent } from './user/forms/form-item/form-item.component';
-
+import { NgxMaskDirective, provideEnvironmentNgxMask } from "ngx-mask";
 
 
 @NgModule({
@@ -49,12 +49,18 @@ import { FormItemComponent } from './user/forms/form-item/form-item.component';
     ReactiveFormsModule,
     FormsModule,
     AngularMaterialModule,
+    NgxMaskDirective,
   ],
   exports: [
     SwitchUsersComponent,
     UserInfoComponent,
     DummyButtonComponent,
-    ButtonsContainerComponent
+    ButtonsContainerComponent,
+
+  ],
+  providers: [
+    provideEnvironmentNgxMask(),
+
   ]
 })
 export class ComponentsModule { }

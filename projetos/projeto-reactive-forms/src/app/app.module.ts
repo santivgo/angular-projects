@@ -8,6 +8,8 @@ import { ComponentsModule } from './components/components.module';
 import { LOCALE_ID } from '@angular/core';
 import localePt from '@angular/common/locales/pt';
 import { DATE_PIPE_DEFAULT_OPTIONS, registerLocaleData } from '@angular/common';
+
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -20,7 +22,8 @@ registerLocaleData(localePt);
     ComponentsModule,
     AngularMaterialModule,
   ],
-  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'pt-BR' }],
+  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'pt-BR' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

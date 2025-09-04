@@ -8,6 +8,8 @@ import { CountryList } from '../../../../../types/country-list.type';
 import { count, Observable, take } from 'rxjs';
 import { StateList } from '../../../../../types/state-list.type';
 import { StateService } from '../../../../../services/states.service';
+import { format, parse } from 'date-fns'
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-general-user-info-edit',
@@ -49,7 +51,7 @@ export class GeneralUserInfoEditComponent implements OnChanges {
       state: new FormControl(this.user.state),
       maritalStatus: new FormControl(this.user.maritalStatus.toString()),
       monthlyIncome: new FormControl(this.user.monthlyIncome),
-      birthDate: new FormControl(this.user.birthDate),
+      birthDate: new FormControl(parse(this.user.birthDate, 'dd/MM/yyyy', new Date())),
       phoneList: new FormArray([new FormGroup({
         type: new FormControl(''),
         areaCode: new FormControl(''),
@@ -72,30 +74,21 @@ export class GeneralUserInfoEditComponent implements OnChanges {
     })
   }
 
-  formattedMonthlyIncome(numericValue: string): string | null {
-    return this.currencyPipe.transform(numericValue, 'BRL')
-  }
-  updateMonthlyIncome(): void {
-    const monthlyIncome: FormControl = this.userInfoForm.get('monthlyIncome') as FormControl
-    if (monthlyIncome) {
-      monthlyIncome.valueChanges.subscribe((change) => {
-        const numericValue = change.replace(/[^0-9.]/g, '');
-        const formattedChange: string | null = this.currencyPipe.transform(numericValue, 'BRL');
-        this.userInfoForm.patchValue({
-          'monthlyIncome': formattedChange
-        })
-      })
-    }
-  }
-
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['user'].currentValue) {
       this.buildGroup()
       this.getCountries()
       this.getStates()
-      this.updateMonthlyIncome()
     }
+  }
+
+  onDateChange({ value }: { value: string }): void {
+    this.userInfoForm.patchValue({
+      'birthDate': value
+    })
+    console.log(this.userInfoForm.get('birthDate'))
+
   }
 
 }
