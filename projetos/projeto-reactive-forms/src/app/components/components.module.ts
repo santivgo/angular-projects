@@ -24,6 +24,8 @@ import { NgxMaskDirective, provideEnvironmentNgxMask } from "ngx-mask";
 
 import { EditUserPhoneListComponent } from './user/sections/components/edit-user-phone-list/edit-user-phone-list.component';
 import { EditUserAddressListComponent } from './user/sections/components/edit-user-address-list/edit-user-address-list.component';
+import { EditUserDependentListComponent } from './user/sections/components/edit-user-dependent-list/edit-user-dependent-list.component';
+import { UserDependentListComponent } from './user/sections/components/user-dependent-list/user-dependent-list.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { EditUserAddressListComponent } from './user/sections/components/edit-us
     ContactUserInfoEditComponent,
     FormItemComponent,
     EditUserPhoneListComponent,
-    EditUserAddressListComponent
+    EditUserAddressListComponent,
+    EditUserDependentListComponent,
+    UserDependentListComponent
   ],
   imports: [
     CommonModule,

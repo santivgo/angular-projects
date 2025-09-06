@@ -2,13 +2,11 @@ import { Component, Input } from '@angular/core';
 import { DependentList } from '../../../../../types/dependent-list.type';
 
 @Component({
-  selector: 'app-dependent-user-info-edit',
+  selector: 'app-user-dependent-list',
   standalone: false,
-  templateUrl: './dependent-user-info-edit.component.html',
-  styleUrl: './dependent-user-info-edit.component.sass'
+  templateUrl: './user-dependent-list.component.html',
+  styleUrl: './user-dependent-list.component.sass'
 })
-export class DependentUserInfoEditComponent {
+export class UserDependentListComponent {
   @Input({ required: true, alias: 'dependentList' }) userDependentList!: DependentList
-  userDependentForm!: DependentList
-
 }
