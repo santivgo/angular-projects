@@ -5,10 +5,10 @@
     </mat-tab>
     <mat-tab label="Contato">
         <app-contact-user-info *ngIf="!isInEditMode" [user]="user"></app-contact-user-info>
-        <app-contact-user-info-edit *ngIf="isInEditMode"></app-contact-user-info-edit>
+        <app-contact-user-info-edit *ngIf="isInEditMode" [user]="user"></app-contact-user-info-edit>
 
     </mat-tab>
-    <mat-tab label="Dependente">
+    <mat-tab label=" Dependente">
         <app-dependent-user-info *ngIf="!isInEditMode" [dependentList]="user.dependentsList"></app-dependent-user-info>
         <app-dependent-user-info-edit *ngIf="isInEditMode"></app-dependent-user-info-edit>
 

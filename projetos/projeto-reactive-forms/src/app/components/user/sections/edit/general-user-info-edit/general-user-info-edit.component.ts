@@ -52,20 +52,6 @@ export class GeneralUserInfoEditComponent implements OnChanges {
       maritalStatus: new FormControl(this.user.maritalStatus.toString()),
       monthlyIncome: new FormControl(this.user.monthlyIncome),
       birthDate: new FormControl(parse(this.user.birthDate, 'dd/MM/yyyy', new Date())),
-      phoneList: new FormArray([new FormGroup({
-        type: new FormControl(''),
-        areaCode: new FormControl(''),
-        internationalCode: new FormControl(''),
-        number: new FormControl('')
-      })]),
-      addressList: new FormArray([new FormGroup({
-        type: new FormControl(''),
-        street: new FormControl(''),
-        complement: new FormControl(''),
-        country: new FormControl(''),
-        state: new FormControl(''),
-        city: new FormControl(''),
-      })]),
       dependentsList: new FormArray([new FormGroup({
         name: new FormControl(''),
         age: new FormControl(''),
@@ -87,7 +73,6 @@ export class GeneralUserInfoEditComponent implements OnChanges {
     this.userInfoForm.patchValue({
       'birthDate': value
     })
-    console.log(this.userInfoForm.get('birthDate'))
 
   }
 

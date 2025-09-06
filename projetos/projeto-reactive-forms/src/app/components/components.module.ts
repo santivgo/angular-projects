@@ -18,9 +18,12 @@ import { ContactUserInfoEditComponent } from './user/sections/edit/contact-user-
 import { GeneralUserInfoComponent } from './user/sections/default/general-user-info/general-user-info.component';
 import { ContactUserInfoComponent } from './user/sections/default/contact-user-info/contact-user-info.component';
 import { DependentUserInfoComponent } from './user/sections/default/dependent-user-info/dependent-user-info.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormItemComponent } from './user/forms/form-item/form-item.component';
 import { NgxMaskDirective, provideEnvironmentNgxMask } from "ngx-mask";
+
+import { EditUserPhoneListComponent } from './user/sections/components/edit-user-phone-list/edit-user-phone-list.component';
+import { EditUserAddressListComponent } from './user/sections/components/edit-user-address-list/edit-user-address-list.component';
 
 
 @NgModule({
@@ -38,7 +41,9 @@ import { NgxMaskDirective, provideEnvironmentNgxMask } from "ngx-mask";
     GeneralUserInfoEditComponent,
     DependentUserInfoEditComponent,
     ContactUserInfoEditComponent,
-    FormItemComponent
+    FormItemComponent,
+    EditUserPhoneListComponent,
+    EditUserAddressListComponent
   ],
   imports: [
     CommonModule,
