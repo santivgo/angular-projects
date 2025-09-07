@@ -27,8 +27,7 @@ export class GeneralUserInfoEditComponent implements OnChanges {
     private currencyPipe: CurrencyPipe,
   ) { }
 
-  @Input({ 'required': true }) user: IUser = {} as IUser
-  userInfoForm!: FormGroup
+  @Input({ 'required': true }) userInfoForm!: FormGroup
   countryList!: CountryList
   stateList!: StateList
 
@@ -43,30 +42,18 @@ export class GeneralUserInfoEditComponent implements OnChanges {
     this._stateService.getStates(country).pipe(take(1)).subscribe((stateList) => this.stateList = stateList)
   }
 
-  buildGroup(): void {
-    this.userInfoForm = new FormGroup({
-      name: new FormControl(this.user.name),
-      email: new FormControl(this.user.email),
-      country: new FormControl(this.user.country),
-      state: new FormControl(this.user.state),
-      maritalStatus: new FormControl(this.user.maritalStatus.toString()),
-      monthlyIncome: new FormControl(this.user.monthlyIncome),
-      birthDate: new FormControl(parse(this.user.birthDate, 'dd/MM/yyyy', new Date())),
-      dependentsList: new FormArray([new FormGroup({
-        name: new FormControl(''),
-        age: new FormControl(''),
-        document: new FormControl(''),
-      })]),
-    })
-  }
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['user'].currentValue) {
-      this.buildGroup()
+    if (changes['userInfoForm'].currentValue) {
+      this.updateForm(changes['userInfoForm'].currentValue)
       this.getCountries()
       this.getStates()
     }
+  }
+  updateForm(currentValue: IUser) {
+    this.userInfoForm.reset()
+    this.userInfoForm.patchValue(currentValue)
   }
 
   onDateChange({ value }: { value: string }): void {
