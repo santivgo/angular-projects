@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
   }
 
   setActualUser(event: number) {
-    console.log(event)
     this.userSelected = structuredClone(this.userList[event]);
   }
 

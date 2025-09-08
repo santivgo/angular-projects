@@ -1,16 +1,10 @@
-<form action="" [formGroup]="userInfoForm">
+<form action="" [formGroup]="generalInfoForm">
     <div class="p-4">
         <h1 class="text-2xl font-bold mb-3">Geral:</h1>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
-
-
-            <app-form-item [form]="userInfoForm" name="Nome" itemName="name"></app-form-item>
-            <app-form-item [form]="userInfoForm" type="email" name="Email" itemName="email"></app-form-item>
-
-
-
-
+            <app-form-item [form]="generalInfoForm" name="Nome" itemName="name"></app-form-item>
+            <app-form-item [form]="generalInfoForm" type="email" name="Email" itemName="email"></app-form-item>
         </div>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
@@ -52,7 +46,7 @@
                     decimalMarker="," matInput formControlName="monthlyIncome" id="monthlyIncome">
             </mat-form-field>
             <mat-form-field class="w-full">
-                <input matInput formControlName="birthDate" [matDatepicker]="picker">
+                <input matInput [value]="showDateValue()" (dateChange)="onDateChange($event)" [matDatepicker]="picker">
                 <mat-hint>DD/MM/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>

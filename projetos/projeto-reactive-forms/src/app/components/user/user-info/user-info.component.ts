@@ -14,7 +14,6 @@ export class UserInfoComponent extends UserFormController implements OnChanges {
   @Input({ 'required': true }) isInEditMode: boolean = false
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(this.isInEditMode)
     if (changes['user'] && Object.keys(changes['user'].currentValue).length > 0) {
       this.fulfillUserForm(this.user)
     }

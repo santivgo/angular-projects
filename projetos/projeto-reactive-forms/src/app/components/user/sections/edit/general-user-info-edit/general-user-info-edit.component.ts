@@ -8,7 +8,7 @@ import { CountryList } from '../../../../../types/country-list.type';
 import { count, Observable, take } from 'rxjs';
 import { StateList } from '../../../../../types/state-list.type';
 import { StateService } from '../../../../../services/states.service';
-import { format, parse } from 'date-fns'
+import { format, formatDate, parse } from 'date-fns'
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
 @Component({
@@ -27,10 +27,10 @@ export class GeneralUserInfoEditComponent implements OnChanges {
     private currencyPipe: CurrencyPipe,
   ) { }
 
-  @Input({ 'required': true }) userInfoForm!: FormGroup
+  @Input({ 'required': true }) generalInfoForm!: FormGroup
   countryList!: CountryList
   stateList!: StateList
-
+  showUserBirthDay!: Date
 
   getCountries(): void {
     this._countriesService.getCountries().pipe(take(1)).subscribe(
@@ -38,27 +38,30 @@ export class GeneralUserInfoEditComponent implements OnChanges {
   }
 
   getStates(): void {
-    const country: string = this.userInfoForm.get('country')?.value ?? '';
+    const country: string = this.generalInfoForm.get('country')?.value ?? '';
     this._stateService.getStates(country).pipe(take(1)).subscribe((stateList) => this.stateList = stateList)
   }
 
 
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['userInfoForm'].currentValue) {
-      this.updateForm(changes['userInfoForm'].currentValue)
+    if (changes['generalInfoForm'].currentValue) {
+      this.updateForm(changes['generalInfoForm'].currentValue)
       this.getCountries()
       this.getStates()
     }
   }
-  updateForm(currentValue: IUser) {
-    this.userInfoForm.reset()
-    this.userInfoForm.patchValue(currentValue)
+  showDateValue(): Date {
+    return parse(this.generalInfoForm.get('birthDate')?.value, 'dd/MM/yyyy', new Date())
   }
 
-  onDateChange({ value }: { value: string }): void {
-    this.userInfoForm.patchValue({
-      'birthDate': value
+  updateForm(currentValue: IUser) {
+    this.generalInfoForm.patchValue(currentValue)
+  }
+
+  onDateChange(event: any): void {
+    this.generalInfoForm.patchValue({
+      'birthDate': format(event.value, 'dd/MM/yyyy')
     })
 
   }
