@@ -10,22 +10,8 @@ import { AddressList } from '../../../../../types/address-list.type';
   styleUrl: './edit-user-address-list.component.sass'
 })
 export class EditUserAddressListComponent {
-  @Input({ required: true, alias: 'addressList' }) userAddressList!: AddressList
-  userAddressForm!: FormGroup
+  @Input({ required: true, alias: 'addressList' }) userAddressForm!: FormArray
 
-
-  buildGroup(): void {
-    this.userAddressForm = new FormGroup({
-      addressList: new FormArray([new FormGroup({
-        type: new FormControl(''),
-        street: new FormControl(''),
-        complement: new FormControl(''),
-        country: new FormControl(''),
-        state: new FormControl(''),
-        city: new FormControl(''),
-      })]),
-    })
-  }
 
 
 }

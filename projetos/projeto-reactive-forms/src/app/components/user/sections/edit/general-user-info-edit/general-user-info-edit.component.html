@@ -3,8 +3,18 @@
         <h1 class="text-2xl font-bold mb-3">Geral:</h1>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">
-            <app-form-item [form]="generalInfoForm" name="Nome" itemName="name"></app-form-item>
-            <app-form-item [form]="generalInfoForm" type="email" name="Email" itemName="email"></app-form-item>
+            <mat-form-field class="w-full">
+                <mat-label for="name">Nome</mat-label>
+                <input matInput type="type" formControlName="name" id="name">
+                <mat-error>O nome é obrigatório.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label for="email">E-mail</mat-label>
+                <input #emailInput matInput type="email" formControlName="email" id="email">
+                <mat-error *ngIf="getEmailControl().hasError('required')">O e-mail é obrigatório.</mat-error>
+                <mat-error *ngIf="getEmailControl().hasError('pattern')">O e-mail é inválido.</mat-error>
+
+            </mat-form-field>
         </div>
 
         <div class="p-4 grid sm:grid-cols-1 md:grid-cols-2 gap-4 lg:grid-cols-3">

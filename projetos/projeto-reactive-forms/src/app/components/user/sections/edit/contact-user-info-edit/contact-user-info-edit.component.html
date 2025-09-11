@@ -1,11 +1,11 @@
-<form action="" [formGroup]="userInfoForm">
+<form action="" [formGroup]="contactInformationsForm">
     <div class="p-4">
         <h1 class="text-2xl font-bold mb-3">Telefones:</h1>
 
-        <app-edit-user-phone-list [phoneList]="user.phoneList"></app-edit-user-phone-list>
+        <app-edit-user-phone-list [phoneList]="phoneList"></app-edit-user-phone-list>
 
         <h1 class="text-2xl font-bold mb-3">Endereços:</h1>
-        <app-edit-user-address-list [addressList]="user.addressList"></app-edit-user-address-list>
+        <app-edit-user-address-list [addressList]="addressList"></app-edit-user-address-list>
 
 
 

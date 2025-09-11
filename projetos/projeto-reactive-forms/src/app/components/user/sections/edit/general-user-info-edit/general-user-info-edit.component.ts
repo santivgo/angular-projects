@@ -32,6 +32,10 @@ export class GeneralUserInfoEditComponent implements OnChanges {
   stateList!: StateList
   showUserBirthDay!: Date
 
+  getEmailControl(): FormControl {
+    return this.generalInfoForm.get('email') as FormControl
+  }
+
   getCountries(): void {
     this._countriesService.getCountries().pipe(take(1)).subscribe(
       (countryList) => this.countryList = countryList)

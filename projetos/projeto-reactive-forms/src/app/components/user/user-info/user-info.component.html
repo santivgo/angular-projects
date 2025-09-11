@@ -6,7 +6,8 @@
     </mat-tab>
     <mat-tab label="Contato">
         <app-contact-user-info *ngIf="!isInEditMode" [user]="user"></app-contact-user-info>
-        <app-contact-user-info-edit *ngIf="isInEditMode" [user]="user"></app-contact-user-info-edit>
+        <app-contact-user-info-edit *ngIf="isInEditMode"
+            [contactInformationsForm]="contactInformations"></app-contact-user-info-edit>
 
     </mat-tab>
     <mat-tab label="Dependente">

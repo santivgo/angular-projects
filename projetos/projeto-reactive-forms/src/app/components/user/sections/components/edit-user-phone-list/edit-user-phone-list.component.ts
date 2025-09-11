@@ -9,23 +9,13 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
   styleUrl: './edit-user-phone-list.component.sass'
 })
 export class EditUserPhoneListComponent implements OnChanges {
-  @Input({ required: true, alias: 'phoneList' }) userPhoneList!: PhoneList
-  userPhoneForm!: FormGroup
+  @Input({ required: true, alias: 'phoneList' }) userPhoneArray!: FormArray
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['userPhoneList']) {
-      console.log(this.userPhoneList)
+    if (changes['userPhoneArray']) {
+      console.log(this.userPhoneArray)
     }
   }
 
-  buildGroup(): void {
-    this.userPhoneForm = new FormGroup({
-      phoneList: new FormArray([new FormGroup({
-        type: new FormControl(''),
-        areaCode: new FormControl(''),
-        internationalCode: new FormControl(''),
-        number: new FormControl('')
-      })]),
-    })
-  }
+
 
 }

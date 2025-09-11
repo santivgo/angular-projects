@@ -11,6 +11,7 @@ export class UserFormController {
     userInfoForm!: FormGroup
 
     private _fb = inject(FormBuilder)
+    private emailPattern = /^[a-zA-Z0-9_%+-]+@ [a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     constructor() {
         this.createUserForm()
@@ -18,6 +19,10 @@ export class UserFormController {
 
     get generalInformations(): FormGroup {
         return this.userInfoForm.get('generalInformations') as FormGroup
+    }
+
+    get contactInformations(): FormGroup {
+        return this.userInfoForm.get('contactInformations') as FormGroup
     }
     get phoneList(): FormArray {
         return this.userInfoForm.get('contactInformations.phoneList') as FormArray
@@ -44,6 +49,9 @@ export class UserFormController {
     }
     private resetForm() {
         this.userInfoForm.reset()
+        this.generalInformations.reset()
+        this.phoneList.clear()
+        this.dependentList.clear()
     }
 
     private fulfillPhoneList(userPhoneList: PhoneList) {
@@ -82,7 +90,7 @@ export class UserFormController {
         this.userInfoForm = this._fb.group({
             generalInformations: this._fb.group({
                 name: ['', Validators.required],
-                email: ['', Validators.required],
+                email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
                 country: ['', Validators.required],
                 state: ['', Validators.required],
                 maritalStatus: [null, Validators.required],
