@@ -10,6 +10,9 @@ import { StateList } from '../../../../../types/state-list.type';
 import { StateService } from '../../../../../services/states.service';
 import { format, formatDate, parse } from 'date-fns'
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
+import { ComponentsModule } from '../../../../components.module';
+import { ICountry } from '../../../../../interfaces/country-response/country.interface';
+import { IState } from '../../../../../interfaces/states-response/state.interface';
 
 @Component({
   selector: 'app-general-user-info-edit',
@@ -18,7 +21,7 @@ import { MatDatepickerInputEvent } from '@angular/material/datepicker';
   styleUrl: './general-user-info-edit.component.sass',
   providers: [CurrencyPipe]
 })
-export class GeneralUserInfoEditComponent implements OnChanges {
+export class GeneralUserInfoEditComponent implements OnInit, OnChanges {
 
 
   constructor(
@@ -28,31 +31,62 @@ export class GeneralUserInfoEditComponent implements OnChanges {
   ) { }
 
   @Input({ 'required': true }) generalInfoForm!: FormGroup
-  countryList!: CountryList
-  stateList!: StateList
+  countryList: CountryList = []
+  filteredCountryList: CountryList = []
+
+
+  stateList: StateList = []
+  filteredStateList: StateList = []
   showUserBirthDay!: Date
 
-  getEmailControl(): FormControl {
+  ngOnInit(): void {
+    this.getCountriesFromApi()
+    this.onCountrySelected()
+    this.watchCountryAndFilter()
+    this.watchStateAndFilter()
+  }
+  private watchStateAndFilter() {
+    this.stateControl.valueChanges.subscribe(this.filterStateList.bind(this))
+  }
+  private watchCountryAndFilter() {
+    this.countryControl.valueChanges.subscribe(this.filterCountryList.bind(this))
+  }
+
+  private filterCountryList(searchTerm: string): void {
+    this.filteredCountryList = this.countryList.filter(
+      (item: ICountry) => item.country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase().trim()))
+    console.log(this.filteredCountryList)
+
+  }
+  private filterStateList(searchTerm: string): void {
+    this.filteredStateList = this.stateList.filter(
+      (item: IState) => item.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase().trim()))
+
+  }
+
+  onCountrySelected() {
+    this._stateService.getStates(this.countryControl.value).subscribe((stateList: StateList) => this.stateList = stateList)
+  }
+
+  get emailControl(): FormControl {
     return this.generalInfoForm.get('email') as FormControl
   }
 
-  getCountries(): void {
+  get stateControl(): FormControl {
+    return this.generalInfoForm.get('state') as FormControl
+  }
+  get countryControl(): FormControl {
+    return this.generalInfoForm.get('country') as FormControl
+  }
+
+  private getCountriesFromApi(): void {
     this._countriesService.getCountries().pipe(take(1)).subscribe(
-      (countryList) => this.countryList = countryList)
+      (countryList: CountryList) => this.countryList = countryList)
   }
-
-  getStates(): void {
-    const country: string = this.generalInfoForm.get('country')?.value ?? '';
-    this._stateService.getStates(country).pipe(take(1)).subscribe((stateList) => this.stateList = stateList)
-  }
-
-
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['generalInfoForm'].currentValue) {
       this.updateForm(changes['generalInfoForm'].currentValue)
-      this.getCountries()
-      this.getStates()
     }
   }
   showDateValue(): Date {

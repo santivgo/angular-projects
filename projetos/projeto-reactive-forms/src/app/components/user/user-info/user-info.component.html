@@ -4,7 +4,7 @@
         <app-general-user-info-edit *ngIf="isInEditMode"
             [generalInfoForm]="generalInformations"></app-general-user-info-edit>
     </mat-tab>
-    <mat-tab label="Contato">
+    <!-- <mat-tab label="Contato">
         <app-contact-user-info *ngIf="!isInEditMode" [user]="user"></app-contact-user-info>
         <app-contact-user-info-edit *ngIf="isInEditMode"
             [contactInformationsForm]="contactInformations"></app-contact-user-info-edit>
@@ -15,5 +15,5 @@
         <app-dependent-user-info-edit [dependentList]="user.dependentsList"
             *ngIf="isInEditMode"></app-dependent-user-info-edit>
 
-    </mat-tab>
+    </mat-tab> -->
 </mat-tab-group>

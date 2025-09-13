@@ -11,8 +11,8 @@
             <mat-form-field class="w-full">
                 <mat-label for="email">E-mail</mat-label>
                 <input #emailInput matInput type="email" formControlName="email" id="email">
-                <mat-error *ngIf="getEmailControl().hasError('required')">O e-mail é obrigatório.</mat-error>
-                <mat-error *ngIf="getEmailControl().hasError('pattern')">O e-mail é inválido.</mat-error>
+                <mat-error *ngIf="emailControl.hasError('required')">O e-mail é obrigatório.</mat-error>
+                <mat-error *ngIf="emailControl.hasError('pattern')">O e-mail é inválido.</mat-error>
 
             </mat-form-field>
         </div>
@@ -22,8 +22,10 @@
             <mat-form-field class="w-full">
                 <mat-label for="country">País</mat-label>
                 <input matInput [matAutocomplete]="pais" formControlName="country" id="country">
-                <mat-autocomplete requireSelection #pais="matAutocomplete">
-                    <mat-option *ngFor="let country of countryList"
+                <mat-error>O país é obrigatório.</mat-error>
+
+                <mat-autocomplete (optionSelected)="onCountrySelected()" #pais="matAutocomplete">
+                    <mat-option *ngFor="let country of filteredCountryList"
                         [value]="country.country">{{country.country}}</mat-option>
                 </mat-autocomplete>
             </mat-form-field>
@@ -31,8 +33,10 @@
             <mat-form-field class="w-full">
                 <mat-label for="state">Estado</mat-label>
                 <input matInput [matAutocomplete]="estado" formControlName="state" id="state">
-                <mat-autocomplete requireSelection #estado="matAutocomplete">
-                    <mat-option *ngFor="let state of stateList" [value]="state.name">{{state.name}}</mat-option>
+                <mat-error>O estado é obrigatório.</mat-error>
+
+                <mat-autocomplete #estado="matAutocomplete">
+                    <mat-option *ngFor="let state of filteredStateList" [value]="state.name">{{state.name}}</mat-option>
                 </mat-autocomplete>
             </mat-form-field>
 
@@ -43,9 +47,9 @@
 
             <div>
                 <mat-radio-group class="flex justify-between lg:grid lg:grid-cols-3" formControlName="maritalStatus">
-                    <mat-radio-button class="w-full" value="1">Solteiro</mat-radio-button>
-                    <mat-radio-button class="w-full" value="2">Casado</mat-radio-button>
-                    <mat-radio-button class="w-full" value="3">Divorciado</mat-radio-button>
+                    <mat-radio-button class="w-full" [value]="1">Solteiro</mat-radio-button>
+                    <mat-radio-button class="w-full" [value]="2">Casado</mat-radio-button>
+                    <mat-radio-button class="w-full" [value]="3">Divorciado</mat-radio-button>
                 </mat-radio-group>
             </div>
 
@@ -54,6 +58,7 @@
                 <span *ngIf="monthlyIncome.value" matTextPrefix>R$</span>
                 <input #monthlyIncome placeholder="R$5.000,000" mask="separator.2" thousandSeparator="."
                     decimalMarker="," matInput formControlName="monthlyIncome" id="monthlyIncome">
+                <mat-error>A renda mensal é obrigatória</mat-error>
             </mat-form-field>
             <mat-form-field class="w-full">
                 <input matInput [value]="showDateValue()" (dateChange)="onDateChange($event)" [matDatepicker]="picker">
