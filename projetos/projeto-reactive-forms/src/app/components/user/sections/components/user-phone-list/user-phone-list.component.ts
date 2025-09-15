@@ -3,6 +3,7 @@ import { PhoneListDisplay } from '../../../../../types/phone-list-to-display.typ
 import { PhoneList } from '../../../../../types/phone-list.type';
 import { IPhone } from '../../../../../interfaces/user/phone.interface';
 import { PhoneTypeMap } from '../../../../../utils/maps/phone-type.map';
+import { formatPhone } from '../../../../../utils/format-phone';
 
 @Component({
   selector: 'app-user-phone-list',
@@ -22,9 +23,7 @@ export class UserPhoneListComponent implements OnChanges {
     }
   }
 
-  formatPhone(phone: IPhone): string {
-    return `${phone.internationalCode} ${phone.areaCode} ${phone.number}`
-  }
+
 
   displayPhoneList(): void {
     this.displayedPhoneList = []
@@ -32,7 +31,7 @@ export class UserPhoneListComponent implements OnChanges {
       const foundPhone: IPhone | undefined = this.phoneList.find((phone) => phone.type === value)
       this.displayedPhoneList.push({
         type: PhoneTypeMap[value],
-        value: foundPhone ? this.formatPhone(foundPhone) : '-'
+        value: foundPhone ? formatPhone(foundPhone) : '-'
       })
 
     })

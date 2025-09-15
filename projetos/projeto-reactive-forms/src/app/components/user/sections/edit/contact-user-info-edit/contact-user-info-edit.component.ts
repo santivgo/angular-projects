@@ -10,17 +10,6 @@ import { AddressList } from '../../../../../types/address-list.type';
   templateUrl: './contact-user-info-edit.component.html',
   styleUrl: './contact-user-info-edit.component.sass'
 })
-export class ContactUserInfoEditComponent implements OnChanges {
+export class ContactUserInfoEditComponent {
   @Input({ 'required': true }) contactInformationsForm!: FormGroup
-  phoneList!: FormArray
-  addressList!: FormArray
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes['contactInformationsForm'].currentValue) {
-      this.phoneList = this.contactInformationsForm.get('phoneList') as FormArray
-      this.addressList = this.contactInformationsForm.get('addressList') as FormArray
-
-    }
-  }
-
 }

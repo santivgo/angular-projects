@@ -4,6 +4,10 @@ import { IUser } from "../../../interfaces/user/user.interface";
 import { PhoneList } from "../../../types/phone-list.type";
 import { AddressList } from "../../../types/address-list.type";
 import { DependentList } from "../../../types/dependent-list.type";
+import { PhoneTypeMap } from "../../../utils/maps/phone-type.map";
+import { IPhone } from "../../../interfaces/user/phone.interface";
+import { format } from "date-fns";
+import { formatPhone } from "../../../utils/format-phone";
 
 export class UserFormController {
 
@@ -55,12 +59,22 @@ export class UserFormController {
     }
 
     private fulfillPhoneList(userPhoneList: PhoneList) {
-        userPhoneList.forEach((phone) => this.phoneList.push(this._fb.group({
-            type: [phone.type, Validators.required],
-            areaCode: [phone.areaCode, Validators.required],
-            internationalCode: [phone.internationalCode, Validators.required],
-            number: [phone.number, Validators.required],
-        })))
+        let typeUserPhone: IPhone | undefined
+        const newPhoneArray: FormArray = this._fb.array([]);
+
+        console.log('chamada')
+
+        Object.keys(PhoneTypeMap).map(Number).forEach(
+            (key: number) => {
+
+                typeUserPhone = userPhoneList.find((value: IPhone) => value.type === key)
+                newPhoneArray.push(this._fb.group({
+                    type: [key, Validators.required],
+                    phone: [typeUserPhone ? formatPhone(typeUserPhone) : '']
+                }))
+            }
+        )
+        this.contactInformations.setControl('phoneList', newPhoneArray);
     }
     private fulfillAddressList(userAddressList: AddressList) {
         userAddressList.forEach((address) => this.addressList.push(this._fb.group({

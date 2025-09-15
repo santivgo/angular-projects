@@ -53,14 +53,19 @@ export class GeneralUserInfoEditComponent implements OnInit, OnChanges {
   }
 
   private filterCountryList(searchTerm: string): void {
-    this.filteredCountryList = this.countryList.filter(
-      (item: ICountry) => item.country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase().trim()))
-    console.log(this.filteredCountryList)
+    if (this.countryList.length > 0 && searchTerm) {
+      this.filteredCountryList = this.countryList.filter(
+        (item: ICountry) => item.country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase().trim()))
+    }
+
 
   }
   private filterStateList(searchTerm: string): void {
-    this.filteredStateList = this.stateList.filter(
-      (item: IState) => item.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase().trim()))
+    if (this.stateList.length > 0 && searchTerm) {
+
+      this.filteredStateList = this.stateList.filter(
+        (item: IState) => item.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase().trim()))
+    }
 
   }
 
@@ -89,7 +94,7 @@ export class GeneralUserInfoEditComponent implements OnInit, OnChanges {
       this.updateForm(changes['generalInfoForm'].currentValue)
     }
   }
-  showDateValue(): Date {
+  get dateValue(): Date {
     return parse(this.generalInfoForm.get('birthDate')?.value, 'dd/MM/yyyy', new Date())
   }
 

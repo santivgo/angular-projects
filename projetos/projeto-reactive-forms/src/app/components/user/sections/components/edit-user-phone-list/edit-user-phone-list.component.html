@@ -1,14 +1,25 @@
-<div class="p-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
-    <mat-form-field class="w-full">
-        <mat-label for="residencial">Residencial</mat-label>
-        <input matInput formControlName="" id="residencial">
-    </mat-form-field>
-    <mat-form-field class="w-full">
-        <mat-label for="celular">Celular</mat-label>
-        <input matInput formControlName="" id="celular">
-    </mat-form-field>
-    <mat-form-field class="w-full">
-        <mat-label for="emergência">Emergência</mat-label>
-        <input matInput formControlName="" id="emergência">
-    </mat-form-field>
+<div [formGroup]="contactInfoForm">
+    <div formArrayName="phoneList" class="p-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
+        <div [formGroupName]="0">
+            <mat-form-field class="w-full">
+                <mat-label for="residencial">Residencial</mat-label>
+                <input formControlName="phone" matInput mask="+00 00 0000-0000" id="residencial">
+            </mat-form-field>
+        </div>
+
+        <div [formGroupName]="1">
+            <mat-form-field class="w-full">
+                <mat-label for="celular">Celular</mat-label>
+                <input formControlName="phone" matInput mask="+00 00 00000-0000" id="celular">
+            </mat-form-field>
+        </div>
+        <div [formGroupName]="2">
+
+            <mat-form-field class="w-full">
+                <mat-label for="emergência">Emergência</mat-label>
+                <input matInput formControlName="phone" mask="+00 00 00000-0000 || +00 00 0000-0000" id="emergência">
+            </mat-form-field>
+        </div>
+
+    </div>
 </div>

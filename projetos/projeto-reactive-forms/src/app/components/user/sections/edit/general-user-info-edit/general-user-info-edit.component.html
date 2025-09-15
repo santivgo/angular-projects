@@ -61,7 +61,7 @@
                 <mat-error>A renda mensal é obrigatória</mat-error>
             </mat-form-field>
             <mat-form-field class="w-full">
-                <input matInput [value]="showDateValue()" (dateChange)="onDateChange($event)" [matDatepicker]="picker">
+                <input matInput [value]="dateValue" (dateChange)="onDateChange($event)" [matDatepicker]="picker">
                 <mat-hint>DD/MM/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
