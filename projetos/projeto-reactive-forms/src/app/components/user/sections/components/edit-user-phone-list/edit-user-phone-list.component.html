@@ -1,25 +1,13 @@
-<div [formGroup]="contactInfoForm">
+<form [formGroup]="contactInfoForm">
     <div formArrayName="phoneList" class="p-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
-        <div [formGroupName]="0">
-            <mat-form-field class="w-full">
-                <mat-label for="residencial">Residencial</mat-label>
-                <input formControlName="phone" matInput mask="+00 00 0000-0000" id="residencial">
-            </mat-form-field>
-        </div>
+        <mat-form-field class="w-full" *ngFor="let phone of phoneList.controls; let i = index" [formGroupName]='i'>
+            <mat-label>{{phoneList.value[i].typeDescription}}</mat-label>
+            <input formControlName="phone" matInput [mask]="phoneList.value[i].type | maskPhone">
+            <mat-error *ngIf="phone.get('phone')?.hasError('required')">O telefone é obrigatório</mat-error>
+            <mat-error *ngIf="phone.get('phone')?.hasError('mask')">O telefone é inválido</mat-error>
 
-        <div [formGroupName]="1">
-            <mat-form-field class="w-full">
-                <mat-label for="celular">Celular</mat-label>
-                <input formControlName="phone" matInput mask="+00 00 00000-0000" id="celular">
-            </mat-form-field>
-        </div>
-        <div [formGroupName]="2">
 
-            <mat-form-field class="w-full">
-                <mat-label for="emergência">Emergência</mat-label>
-                <input matInput formControlName="phone" mask="+00 00 00000-0000 || +00 00 0000-0000" id="emergência">
-            </mat-form-field>
-        </div>
+        </mat-form-field>
 
     </div>
-</div>
+</form>

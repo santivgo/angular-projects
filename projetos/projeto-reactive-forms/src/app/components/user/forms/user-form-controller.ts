@@ -8,6 +8,7 @@ import { PhoneTypeMap } from "../../../utils/maps/phone-type.map";
 import { IPhone } from "../../../interfaces/user/phone.interface";
 import { format } from "date-fns";
 import { formatPhone } from "../../../utils/format-phone";
+import { PhoneTypeEnum } from "../../../enums/phone-type.enum";
 
 export class UserFormController {
 
@@ -62,15 +63,17 @@ export class UserFormController {
         let typeUserPhone: IPhone | undefined
         const newPhoneArray: FormArray = this._fb.array([]);
 
-        console.log('chamada')
+
 
         Object.keys(PhoneTypeMap).map(Number).forEach(
             (key: number) => {
-
                 typeUserPhone = userPhoneList.find((value: IPhone) => value.type === key)
+                const phoneValidators = key === PhoneTypeEnum.EMERGENCIA ? [] : [Validators.required]
+
                 newPhoneArray.push(this._fb.group({
-                    type: [key, Validators.required],
-                    phone: [typeUserPhone ? formatPhone(typeUserPhone) : '']
+                    typeDescription: [PhoneTypeMap[key]],
+                    type: [key],
+                    phone: [typeUserPhone ? formatPhone(typeUserPhone) : '', phoneValidators]
                 }))
             }
         )
