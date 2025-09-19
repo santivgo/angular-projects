@@ -1,7 +1,26 @@
-<form action="">
-    <div class="p-4">
+<form [formGroup]="userInfoForm" action="">
+    <div formArrayName="dependentList" class="p-4">
         <h1 class="text-2xl font-bold mb-3">Dependentes:</h1>
-        <app-edit-user-dependent-list [dependentList]="userDependentList"></app-edit-user-dependent-list>
+
+        <app-dummy-button class="p-4" textButton="Novo Dependente" colorButton="green"></app-dummy-button>
+        <div *ngIf="dependentList.controls">
+        <div [formGroupName]="i" *ngFor="let item of dependentList.controls; let i = index" class="p-4 grid my-4 sm:grid-cols-4 grid-cols-1 gap-4 ">
+            <mat-form-field class="w-full">
+                <mat-label for="name">Nome</mat-label>
+                <input matInput formControlName="name" id="name">
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label for="age">Idade</mat-label>
+                <input matInput formControlName="age" id="age">
+            </mat-form-field>
+            <mat-form-field class="w-full">
+                <mat-label for="document">Documento</mat-label>
+                <input matInput formControlName="document" id="document">
+            </mat-form-field>
+            <div class="flex justify-center"> <app-dummy-button textButton="Remover" colorButton="red"></app-dummy-button>
+            </div>
+             </div>
+        </div>
 
 
 
