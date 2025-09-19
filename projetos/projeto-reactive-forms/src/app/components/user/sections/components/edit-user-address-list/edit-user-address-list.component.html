@@ -1,27 +1,34 @@
-<div class="p-4 grid my-4 sm:grid-cols-2 grid-cols-3 gap-4 lg:grid-cols-6">
-    <mat-form-field class="w-full">
-        <mat-label for="tipo">Tipo</mat-label>
-        <input matInput formControlName="" id="tipo">
-    </mat-form-field>
-    <mat-form-field class="w-full">
-        <mat-label for="rua">Rua</mat-label>
-        <input matInput formControlName="" id="rua">
-    </mat-form-field>
-    <mat-form-field class="w-full">
-        <mat-label for="complemento">Complemento</mat-label>
-        <input matInput formControlName="" id="complemento">
-    </mat-form-field>
-    <mat-form-field class="w-full">
-        <mat-label for="pais">País</mat-label>
-        <input matInput formControlName="" id="pais">
-    </mat-form-field>
-    <mat-form-field class="w-full">
-        <mat-label for="estado">Estado</mat-label>
-        <input matInput formControlName="" id="estado">
-    </mat-form-field>
+<div [formGroup]="contactInformationsForm">
+    <div formArrayName="addressList">
+        <div *ngFor="let item of addressList.controls; let i = index" [formGroupName]="i">
+            <div class="p-4 grid my-4 sm:grid-cols-2 grid-cols-3 gap-4 lg:grid-cols-6">
+                <mat-form-field class="w-full">
+                    <mat-label for="tipo">Tipo</mat-label>
+                    <input matInput formControlName="type" id="tipo">
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label for="rua">Rua</mat-label>
+                    <input matInput formControlName="street" id="rua">
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label for="complemento">Complemento</mat-label>
+                    <input matInput formControlName="complement" id="complemento">
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label for="pais">País</mat-label>
+                    <input matInput formControlName="country" id="pais">
+                </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label for="estado">Estado</mat-label>
+                    <input matInput formControlName="state" id="estado">
+                </mat-form-field>
 
-    <mat-form-field class="w-full">
-        <mat-label for="cidade">Cidade</mat-label>
-        <input matInput formControlName="" id="cidade">
-    </mat-form-field>
+                <mat-form-field class="w-full">
+                    <mat-label for="cidade">Cidade</mat-label>
+                    <input matInput formControlName="city" id="cidade">
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+
 </div>

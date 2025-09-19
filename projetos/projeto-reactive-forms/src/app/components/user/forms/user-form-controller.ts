@@ -56,6 +56,7 @@ export class UserFormController {
         this.userInfoForm.reset()
         this.generalInformations.reset()
         this.phoneList.clear()
+        this.addressList.clear()
         this.dependentList.clear()
     }
 
@@ -80,6 +81,7 @@ export class UserFormController {
         this.contactInformations.setControl('phoneList', newPhoneArray);
     }
     private fulfillAddressList(userAddressList: AddressList) {
+
         userAddressList.forEach((address) => this.addressList.push(this._fb.group({
             city: [address.city, Validators.required],
             complement: [address.complement, Validators.required],

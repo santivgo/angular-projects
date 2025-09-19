@@ -12,4 +12,5 @@ import { AddressList } from '../../../../../types/address-list.type';
 })
 export class ContactUserInfoEditComponent {
   @Input({ 'required': true }) contactInformationsForm!: FormGroup
+
 }
