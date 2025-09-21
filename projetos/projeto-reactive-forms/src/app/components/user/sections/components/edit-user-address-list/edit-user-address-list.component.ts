@@ -13,7 +13,6 @@ export class EditUserAddressListComponent {
   @Input({ required: true, alias: 'contactInfoForm' }) contactInformationsForm!: FormGroup
 
   get addressList(): FormArray {
-    console.log(this.contactInformationsForm.get('addressList'))
     return this.contactInformationsForm.get('addressList') as FormArray
 
   }

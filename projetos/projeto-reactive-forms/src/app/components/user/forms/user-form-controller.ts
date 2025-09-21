@@ -1,14 +1,16 @@
 import { inject } from "@angular/core";
-import { Form, FormArray, FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
+import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IUser } from "../../../interfaces/user/user.interface";
 import { PhoneList } from "../../../types/phone-list.type";
 import { AddressList } from "../../../types/address-list.type";
 import { DependentList } from "../../../types/dependent-list.type";
 import { PhoneTypeMap } from "../../../utils/maps/phone-type.map";
 import { IPhone } from "../../../interfaces/user/phone.interface";
-import { format } from "date-fns";
 import { formatPhone } from "../../../utils/format-phone";
 import { PhoneTypeEnum } from "../../../enums/phone-type.enum";
+import { AddressTypeMap } from "../../../utils/maps/address-type.map";
+import { IAddress } from "../../../interfaces/user/address.interface";
+import { ValidateAddress } from "./validators/address.validator";
 
 export class UserFormController {
 
@@ -82,14 +84,34 @@ export class UserFormController {
     }
     private fulfillAddressList(userAddressList: AddressList) {
 
-        userAddressList.forEach((address) => this.addressList.push(this._fb.group({
-            city: [address.city, Validators.required],
-            complement: [address.complement, Validators.required],
-            country: [address.country, Validators.required],
-            state: [address.state, Validators.required],
-            street: [address.street, Validators.required],
-            type: [address.type, Validators.required],
-        })))
+        const defaultUserAddress: IAddress = {
+            city: '',
+            country: '',
+            complement: '',
+            state: '',
+            street: '',
+            type: NaN,
+        };
+        Object.keys(AddressTypeMap).map(Number).forEach((type) => {
+            let addressOfType: IAddress | undefined = userAddressList.find((address) => address.type === type)
+
+            if (addressOfType === undefined) addressOfType = defaultUserAddress
+            const formGroupAddress = this._fb.group({
+                city: [addressOfType.city],
+                complement: [addressOfType.complement],
+                country: [addressOfType.country],
+                state: [addressOfType.state],
+                street: [addressOfType.street],
+                type: [type],
+                typeDescription: [{ value: AddressTypeMap[type], disabled: true }],
+
+            })
+
+            formGroupAddress.addValidators(ValidateAddress)
+            this.addressList.push(formGroupAddress)
+
+
+        })
     }
 
     private fulfillDependentList(userDependentList: DependentList) {
@@ -127,6 +149,7 @@ export class UserFormController {
             }),
             dependentList: this._fb.array([])
         })
+
 
 
 

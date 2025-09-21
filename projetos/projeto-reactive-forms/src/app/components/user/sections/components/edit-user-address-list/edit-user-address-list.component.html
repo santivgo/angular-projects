@@ -4,7 +4,8 @@
             <div class="p-4 grid my-4 sm:grid-cols-2 grid-cols-3 gap-4 lg:grid-cols-6">
                 <mat-form-field class="w-full">
                     <mat-label for="tipo">Tipo</mat-label>
-                    <input matInput formControlName="type" id="tipo">
+                    <input matInput formControlName="typeDescription" id="tipo">
+                    <mat-error *ngIf="addressList.getError('required')">Oi</mat-error>
                 </mat-form-field>
                 <mat-form-field class="w-full">
                     <mat-label for="rua">Rua</mat-label>
