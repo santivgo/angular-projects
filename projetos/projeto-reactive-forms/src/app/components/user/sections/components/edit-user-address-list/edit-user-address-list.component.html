@@ -3,30 +3,43 @@
         <div *ngFor="let item of addressList.controls; let i = index" [formGroupName]="i">
             <div class="p-4 grid my-4 sm:grid-cols-2 grid-cols-3 gap-4 lg:grid-cols-6">
                 <mat-form-field class="w-full">
-                    <mat-label for="tipo">Tipo</mat-label>
+                    <mat-label>Tipo</mat-label>
                     <input matInput formControlName="typeDescription" id="tipo">
-                    <mat-error *ngIf="addressList.getError('required')">Oi</mat-error>
                 </mat-form-field>
                 <mat-form-field class="w-full">
-                    <mat-label for="rua">Rua</mat-label>
+                    <mat-label>Rua</mat-label>
                     <input matInput formControlName="street" id="rua">
+                    <mat-error>A rua é
+                        obrigatória</mat-error>
+
                 </mat-form-field>
                 <mat-form-field class="w-full">
-                    <mat-label for="complemento">Complemento</mat-label>
+                    <mat-label>Complemento</mat-label>
                     <input matInput formControlName="complement" id="complemento">
+
                 </mat-form-field>
                 <mat-form-field class="w-full">
-                    <mat-label for="pais">País</mat-label>
+                    <mat-label>País</mat-label>
                     <input matInput formControlName="country" id="pais">
+                    <mat-error>O país é
+                        obrigatório</mat-error>
+
+
                 </mat-form-field>
                 <mat-form-field class="w-full">
-                    <mat-label for="estado">Estado</mat-label>
+                    <mat-label>Estado</mat-label>
                     <input matInput formControlName="state" id="estado">
+                    <mat-error>O estado é
+                        obrigatório</mat-error>
+
                 </mat-form-field>
 
                 <mat-form-field class="w-full">
-                    <mat-label for="cidade">Cidade</mat-label>
+                    <mat-label>Cidade</mat-label>
                     <input matInput formControlName="city" id="cidade">
+                    <mat-error>A cidade é
+                        obrigatória</mat-error>
+
                 </mat-form-field>
             </div>
         </div>

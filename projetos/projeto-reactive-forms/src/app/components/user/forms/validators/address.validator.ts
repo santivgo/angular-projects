@@ -10,7 +10,7 @@ const hasText = (control: AbstractControl | null): boolean => {
 export const ValidateAddress: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
   const groupControl = group as FormGroup
 
-  const controlsToCheck: string[] = Object.keys(groupControl.controls).filter((value) => value != 'type' && value != 'typeDescription')
+  const controlsToCheck: string[] = Object.keys(groupControl.controls).filter((value) => value != 'type' && value != 'typeDescription' && value != 'complement')
 
   const hasAnyText: boolean = controlsToCheck.some((value) => hasText(groupControl.get(value)))
 
@@ -19,7 +19,9 @@ export const ValidateAddress: ValidatorFn = (group: AbstractControl): Validation
     if (hasAnyText) {
 
       if (!control?.value) {
-        control?.setValidators([Validators.required])
+        control?.setErrors({ requiredAddressControl: true })
+        control?.markAsTouched(); // <- Adicione isso
+
       } else {
         control?.setErrors(null)
       }

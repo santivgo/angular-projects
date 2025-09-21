@@ -96,7 +96,8 @@ export class UserFormController {
             let addressOfType: IAddress | undefined = userAddressList.find((address) => address.type === type)
 
             if (addressOfType === undefined) addressOfType = defaultUserAddress
-            const formGroupAddress = this._fb.group({
+
+            this.addressList.push(this._fb.group({
                 city: [addressOfType.city],
                 complement: [addressOfType.complement],
                 country: [addressOfType.country],
@@ -105,10 +106,7 @@ export class UserFormController {
                 type: [type],
                 typeDescription: [{ value: AddressTypeMap[type], disabled: true }],
 
-            })
-
-            formGroupAddress.addValidators(ValidateAddress)
-            this.addressList.push(formGroupAddress)
+            }, { validators: ValidateAddress }))
 
 
         })
