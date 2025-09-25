@@ -54,6 +54,22 @@ export class UserFormController {
         this.fulfillDependentList(user.dependentsList)
 
     }
+
+    deleteDependent(i: number): void {
+        this.dependentList.removeAt(i)
+    }
+
+    createEmptyDependent(): void {
+
+        this.dependentList.push(this._fb.group({
+            age: ['', Validators.required],
+            document: ['', Validators.required],
+            name: ['', Validators.required],
+        }))
+        console.log(this.dependentList)
+
+
+    }
     private resetForm() {
         this.userInfoForm.reset()
         this.generalInformations.reset()

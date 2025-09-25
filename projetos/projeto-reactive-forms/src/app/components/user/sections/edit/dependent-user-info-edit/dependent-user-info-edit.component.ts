@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DependentList } from '../../../../../types/dependent-list.type';
-import { FormArray, FormGroup } from '@angular/forms';
+import { Form, FormArray, FormGroup } from '@angular/forms';
+import { UserFormController } from '../../../forms/user-form-controller';
 
 @Component({
   selector: 'app-dependent-user-info-edit',
@@ -8,10 +9,9 @@ import { FormArray, FormGroup } from '@angular/forms';
   templateUrl: './dependent-user-info-edit.component.html',
   styleUrl: './dependent-user-info-edit.component.sass'
 })
-export class DependentUserInfoEditComponent {
-  @Input({ required: true }) userInfoForm!: FormGroup
+export class DependentUserInfoEditComponent extends UserFormController {
+  @Input({ required: true, alias: 'userInfoForm' }) userInfoF!: FormGroup
 
-  get dependentList(): FormArray{
-    return this.userInfoForm.get('dependentList') as FormArray
-  }
+
+
 }
