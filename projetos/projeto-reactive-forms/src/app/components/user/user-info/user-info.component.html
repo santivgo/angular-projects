@@ -10,10 +10,11 @@
             [contactInformationsForm]="contactInformations"></app-contact-user-info-edit>
 
     </mat-tab>
-    
+
     <mat-tab label="Dependente">
         <app-dependent-user-info *ngIf="!isInEditMode" [dependentList]="user.dependentsList"></app-dependent-user-info>
-        <app-dependent-user-info-edit [userInfoForm]="userInfoForm"
+        <app-dependent-user-info-edit (onCreateDependent)="createEmptyDependent()"
+            (onRemoveDependent)="deleteDependent($event)" [userInfoForm]="userInfoForm"
             *ngIf="isInEditMode"></app-dependent-user-info-edit>
 
     </mat-tab>

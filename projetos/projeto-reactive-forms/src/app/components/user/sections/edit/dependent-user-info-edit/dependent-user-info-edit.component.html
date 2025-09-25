@@ -22,11 +22,13 @@
                     <mat-label for="document">Documento</mat-label>
                     <input matInput mask="000.000.000-00" formControlName="document" id="document">
                     <mat-error *ngIf="item.get('document')?.hasError('required')">O CPF é obrigatório</mat-error>
+                    <mat-error *ngIf="item.get('document')?.hasError('mask')">O CPF está inválido</mat-error>
+
 
                 </mat-form-field>
                 <div class="flex justify-center">
                     <app-dummy-button textButton="Remover" colorButton="red"
-                        (click)="deleteDependent(i)"></app-dummy-button>
+                        (click)="removeDependent(i)"></app-dummy-button>
                 </div>
             </div>
         </div>
