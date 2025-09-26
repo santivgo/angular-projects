@@ -12,10 +12,15 @@ export class SwitchUsersComponent {
 
   selectedUser: IUser | null = null;
   @Input({ 'required': true }) userList: UsersList = []
+  @Input({ 'required': true }) isInEditMode: boolean = false
 
   @Output() indexUserEmit: EventEmitter<number> = new EventEmitter<number>();
   onUserClicked(index: number) {
-    this.selectedUser = this.userList[index]
-    this.indexUserEmit.emit(index)
+
+    if (!this.isInEditMode) {
+      this.selectedUser = this.userList[index]
+      this.indexUserEmit.emit(index)
+    }
+
   }
 }

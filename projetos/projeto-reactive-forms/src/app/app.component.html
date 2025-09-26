@@ -4,7 +4,8 @@
 
     <mat-card-content>
       <div class="p-card__switch-users">
-        <app-switch-users (indexUserEmit)="setActualUser($event)" [userList]="userList"></app-switch-users>
+        <app-switch-users (indexUserEmit)="setActualUser($event)" [isInEditMode]="isInEditMode"
+          [userList]="userList"></app-switch-users>
       </div>
       <div class="p-card__tab-user">
         <div *ngIf="userSelected">

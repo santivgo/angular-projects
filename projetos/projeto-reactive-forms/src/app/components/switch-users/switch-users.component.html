@@ -1,13 +1,16 @@
 <div class="grid lg:grid-cols-3 gap-3 md:grid-cols-2 sm:grid-cols-1">
 
-    <div class="cursor-pointer active:translate-y-1" (click)="onUserClicked(i)"
-        *ngFor="let user of userList; let i = index">
+    <div [ngClass]="{
+        'active:translate-y-1': !isInEditMode,
+        'cursor-pointer': true,
+    }" (click)="onUserClicked(i)" *ngFor="let user of userList; let i = index">
 
         <mat-card [ngClass]="{
             'user-card-hover': true,
             'ease-out': true,
             'duration-500': true,
-            'user-selected': selectedUser === user
+            'user-selected': selectedUser === user,
+            'cursor-not-allowed': selectedUser !== user && isInEditMode,
         }">
             <mat-card-content>
                 <mat-card-title>{{user.name}}</mat-card-title>
