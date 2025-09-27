@@ -1,10 +1,21 @@
 <mat-tab-group [(selectedIndex)]="currentTabIndex">
+
     <mat-tab label="Geral">
+        <ng-template mat-tab-label>
+            <div [matBadgeHidden]="!isInEditMode || invalidGeneralInformationsCount == 0"
+                [matBadge]="invalidGeneralInformationsCount" matBadgeOverlap="false">
+                Geral</div>
+        </ng-template>
         <app-general-user-info *ngIf="!isInEditMode" [user]="user"></app-general-user-info>
         <app-general-user-info-edit *ngIf="isInEditMode"
             [generalInfoForm]="generalInformations"></app-general-user-info-edit>
     </mat-tab>
+
     <mat-tab label="Contato">
+        <ng-template mat-tab-label>
+            <div [matBadgeHidden]="!isInEditMode || invalidContactInformations == 0"
+                [matBadge]="invalidContactInformations " matBadgeOverlap="false">Contato</div>
+        </ng-template>
         <app-contact-user-info *ngIf="!isInEditMode" [user]="user"></app-contact-user-info>
         <app-contact-user-info-edit *ngIf="isInEditMode"
             [contactInformationsForm]="contactInformations"></app-contact-user-info-edit>
@@ -12,6 +23,10 @@
     </mat-tab>
 
     <mat-tab label="Dependente">
+        <ng-template mat-tab-label>
+            <div [matBadgeHidden]="!isInEditMode || invalidDependentInformations == 0"
+                [matBadge]="invalidDependentInformations" matBadgeOverlap="false">Dependente</div>
+        </ng-template>
         <app-dependent-user-info *ngIf="!isInEditMode" [dependentList]="user.dependentsList"></app-dependent-user-info>
         <app-dependent-user-info-edit (onCreateDependent)="createEmptyDependent()"
             (onRemoveDependent)="deleteDependent($event)" [userInfoForm]="userInfoForm"

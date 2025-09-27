@@ -1,5 +1,5 @@
 import { inject } from "@angular/core";
-import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Form, FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IUser } from "../../../interfaces/user/user.interface";
 import { PhoneList } from "../../../types/phone-list.type";
 import { AddressList } from "../../../types/address-list.type";
@@ -18,7 +18,7 @@ export class UserFormController {
     userInfoForm!: FormGroup
 
     private _fb = inject(FormBuilder)
-    private emailPattern = /^[a-zA-Z0-9_%+-]+@ [a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    private emailPattern = /^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     constructor() {
         this.createUserForm()
@@ -27,6 +27,25 @@ export class UserFormController {
     get generalInformations(): FormGroup {
         return this.userInfoForm.get('generalInformations') as FormGroup
     }
+
+    get invalidGeneralInformationsCount(): number {
+        return Object.keys(this.generalInformations.controls).filter((key) => this.generalInformations.get(key)?.invalid).length
+    }
+
+    get invalidContactInformations(): number {
+        const invalidPhoneCounter = Object.keys(this.phoneList.controls).filter((key) => this.phoneList.get(key)?.invalid).length
+        const invalidAddressCounter = Object.keys(this.addressList.controls).filter((key) => this.addressList.get(key)?.invalid).length
+
+        return invalidAddressCounter + invalidPhoneCounter
+    }
+
+
+    get invalidDependentInformations(): number {
+        return Object.keys(this.dependentList.controls).filter((key) => this.dependentList.get(key)?.invalid).length
+    }
+
+
+
 
     get contactInformations(): FormGroup {
         return this.userInfoForm.get('contactInformations') as FormGroup

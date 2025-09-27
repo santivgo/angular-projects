@@ -11,6 +11,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatBadgeModule } from '@angular/material/badge';
 
 @NgModule({
   declarations: [],
@@ -24,11 +25,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatFormFieldModule,
     FormsModule,
     MatRadioModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatBadgeModule
 
   ],
   exports: [MatCardModule, MatTabsModule, MatButtonModule, MatIconModule, MatInputModule,
-    MatFormFieldModule, FormsModule, MatRadioModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule
+    MatFormFieldModule, FormsModule, MatRadioModule, MatAutocompleteModule, MatDatepickerModule, MatNativeDateModule, MatBadgeModule
   ],
 })
 export class AngularMaterialModule { }
