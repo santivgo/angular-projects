@@ -71,6 +71,8 @@ export class UserFormController {
         this.fulfillPhoneList(user.phoneList)
         this.fulfillAddressList(user.addressList)
         this.fulfillDependentList(user.dependentsList)
+        this.userInfoForm.markAllAsTouched()
+        this.userInfoForm.updateValueAndValidity()
 
     }
 

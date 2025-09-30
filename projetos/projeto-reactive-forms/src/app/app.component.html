@@ -10,9 +10,10 @@
       <div class="p-card__tab-user">
         <div *ngIf="userSelected">
 
-          <app-buttons-container [isInEditMode]="isInEditMode" (onEditBtnEmitt)="setEditMode()"
-            (onCancelBtnEmitt)="cancelEditMode()"></app-buttons-container>
-          <app-user-info [isInEditMode]="isInEditMode" [userSelected]="userSelected">
+          <app-buttons-container [formValidity]="isFormValid" [isInEditMode]="isInEditMode"
+            (onEditBtnEmitt)="setEditMode()" (onCancelBtnEmitt)="cancelEditMode()"></app-buttons-container>
+          <app-user-info (formValidityEmitt)="setFormValidity($event)" [isInEditMode]="isInEditMode"
+            [userSelected]="userSelected">
           </app-user-info>
         </div>
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ButtonColorMap } from '../../../utils/maps/button-color.map';
 
 @Component({
@@ -7,13 +7,22 @@ import { ButtonColorMap } from '../../../utils/maps/button-color.map';
   templateUrl: './dummy-button.component.html',
   styleUrl: './dummy-button.component.sass'
 })
-export class DummyButtonComponent {
+export class DummyButtonComponent implements OnChanges {
 
   @Input() icon: string = '';
   @Input({ required: true }) textButton: string = '';
   @Input({ required: true }) colorButton: string = ''
-  addColors(): string[] {
-    return ButtonColorMap[this.colorButton];
+  @Input() disabled: boolean = false
+  additionalClasses(): string[] {
+    const base = this.disabled ? ['opacity-50', 'cursor-not-allowed'] : ['cursor-pointer', 'active:translate-y-1', 'ease', 'duration-50']
+    console.log(this.disabled)
+    console.log([...base, ...ButtonColorMap[this.colorButton]])
+    return [...base, ...ButtonColorMap[this.colorButton]];
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['disabled']) {
+      console.log(changes['disabled'])
+    }
   }
 
 
