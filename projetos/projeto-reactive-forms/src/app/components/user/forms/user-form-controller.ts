@@ -78,6 +78,8 @@ export class UserFormController {
 
     deleteDependent(i: number): void {
         this.dependentList.removeAt(i)
+        this.dependentList.markAsDirty()
+
     }
 
     createEmptyDependent(): void {
@@ -87,8 +89,8 @@ export class UserFormController {
             document: ['', Validators.required],
             name: ['', Validators.required],
         }))
-        console.log(this.dependentList)
 
+        this.dependentList.markAsDirty()
 
     }
     private resetForm() {

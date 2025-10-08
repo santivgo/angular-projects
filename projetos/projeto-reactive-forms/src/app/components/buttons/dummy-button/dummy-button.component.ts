@@ -15,8 +15,6 @@ export class DummyButtonComponent implements OnChanges {
   @Input() disabled: boolean = false
   additionalClasses(): string[] {
     const base = this.disabled ? ['opacity-50', 'cursor-not-allowed'] : ['cursor-pointer', 'active:translate-y-1', 'ease', 'duration-50']
-    console.log(this.disabled)
-    console.log([...base, ...ButtonColorMap[this.colorButton]])
     return [...base, ...ButtonColorMap[this.colorButton]];
   }
   ngOnChanges(changes: SimpleChanges): void {

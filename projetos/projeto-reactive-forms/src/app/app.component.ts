@@ -15,12 +15,15 @@ export class AppComponent implements OnInit {
 
 
 
+
   constructor(private readonly _userService: UsersService) { }
   title = 'projeto-reactive-forms';
   userList: UsersList = [];
   userSelected: IUser | null = null
   isInEditMode: boolean = false;
   isFormValid: boolean = true
+  isFormDirty: boolean = false
+
 
 
   ngOnInit(): void {
@@ -30,8 +33,14 @@ export class AppComponent implements OnInit {
   setActualUser(event: number) {
     this.userSelected = structuredClone(this.userList[event]);
   }
-  setFormValidity(isValid: any) {
-    this.isFormValid = isValid
+
+  setFormDirty(isDirty: boolean) {
+    setTimeout(() => { this.isFormDirty = isDirty; }, 0)
+  }
+  setFormValidity(isValid: boolean) {
+
+    setTimeout(() => { this.isFormValid = isValid }, 0)
+
   }
 
   cancelEditMode() {

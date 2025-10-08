@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IUser } from '../../../interfaces/user/user.interface';
 import { UserFormController } from '../forms/user-form-controller';
+import { distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-user-info',
@@ -13,15 +14,31 @@ export class UserInfoComponent extends UserFormController implements OnChanges {
   @Input({ 'required': true, 'alias': 'userSelected' }) user: IUser = {} as IUser;
   @Input({ 'required': true }) isInEditMode: boolean = false
   @Output() formValidityEmitt = new EventEmitter<boolean>()
+  @Output() formDirtyEmitt = new EventEmitter<boolean>()
+
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['user'] && Object.keys(changes['user'].currentValue).length > 0) {
       this.fulfillUserForm(this.user)
     }
-    this.userInfoForm.valueChanges.subscribe((value) => { this.isFormValid() })
+
+    this.checkFormValidity()
 
   }
 
+  checkFormValidity(): void {
+    this.userInfoForm.valueChanges.pipe(distinctUntilChanged()).subscribe(() => {
+      this.isFormDirty()
+      this.isFormValid()
+
+    }
+
+    )
+  }
+
+  isFormDirty(): void {
+    this.formDirtyEmitt.emit(this.userInfoForm.dirty)
+  }
   isFormValid(): void {
     this.formValidityEmitt.emit(this.userInfoForm.valid)
   }

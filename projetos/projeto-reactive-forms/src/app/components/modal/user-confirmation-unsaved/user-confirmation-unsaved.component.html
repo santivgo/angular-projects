@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>O Formulário foi alterado</h2>
+
+<mat-dialog-content>
+    <p>Deseja realmente cancelar as alterações feitas no formulário?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div class="buttons flex flex-row gap-10 mt-10 cursor-pointer flex-start">
+        <div class="btn active:translate-y-1" (click)="onNoClick()">Não</div>
+        <div class="btn active:translate-y-1" (click)="onYesClick()">Sim</div>
+    </div>
+
+</mat-dialog-actions>

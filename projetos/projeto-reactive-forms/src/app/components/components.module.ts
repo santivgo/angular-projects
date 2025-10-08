@@ -25,6 +25,7 @@ import { NgxMaskDirective, provideEnvironmentNgxMask } from "ngx-mask";
 import { EditUserPhoneListComponent } from './user/sections/components/edit-user-phone-list/edit-user-phone-list.component';
 import { EditUserAddressListComponent } from './user/sections/components/edit-user-address-list/edit-user-address-list.component';
 import { UserDependentListComponent } from './user/sections/components/user-dependent-list/user-dependent-list.component';
+import { UserConfirmationUnsavedComponent } from './modal/user-confirmation-unsaved/user-confirmation-unsaved.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { UserDependentListComponent } from './user/sections/components/user-depe
     FormItemComponent,
     EditUserPhoneListComponent,
     EditUserAddressListComponent,
-    UserDependentListComponent
+    UserDependentListComponent,
+    UserConfirmationUnsavedComponent
   ],
   imports: [
     CommonModule,
