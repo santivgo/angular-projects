@@ -26,6 +26,7 @@ import { EditUserPhoneListComponent } from './user/sections/components/edit-user
 import { EditUserAddressListComponent } from './user/sections/components/edit-user-address-list/edit-user-address-list.component';
 import { UserDependentListComponent } from './user/sections/components/user-dependent-list/user-dependent-list.component';
 import { UserConfirmationUnsavedComponent } from './modal/user-confirmation-unsaved/user-confirmation-unsaved.component';
+import { UserConfirmationSavedComponent } from './modal/user-confirmation-saved/user-confirmation-saved.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { UserConfirmationUnsavedComponent } from './modal/user-confirmation-unsa
     EditUserPhoneListComponent,
     EditUserAddressListComponent,
     UserDependentListComponent,
-    UserConfirmationUnsavedComponent
+    UserConfirmationUnsavedComponent,
+    UserConfirmationSavedComponent
   ],
   imports: [
     CommonModule,

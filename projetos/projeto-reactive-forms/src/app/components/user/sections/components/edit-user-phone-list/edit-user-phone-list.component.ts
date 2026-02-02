@@ -11,7 +11,6 @@ export class EditUserPhoneListComponent implements OnChanges {
   @Input({ required: true, alias: 'contactInfoForm' }) contactInfoForm!: FormGroup
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['contactInfoForm']) {
-      console.log(this.contactInfoForm.get('phoneList'))
     }
   }
 

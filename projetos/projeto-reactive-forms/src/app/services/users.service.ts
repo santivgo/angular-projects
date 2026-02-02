@@ -1,15 +1,18 @@
 import { Injectable } from "@angular/core";
 import { UsersList } from "../types/user-list.type";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 import { MaritalStatusEnum } from "../enums/marital-status.enum";
 import { PhoneTypeEnum } from "../enums/phone-type.enum";
 import { AddressTypeEnum } from "../enums/address-type.enum";
+import { IUser } from "../interfaces/user/user.interface";
+import { IUserForm } from "../interfaces/user/user-form.interface";
 
 @Injectable(
     { providedIn: 'root' }
 )
 export class UsersService {
-    private readonly usersList: UsersList = [
+
+    private usersList: UsersList = [
         {
             name: 'Fulano',
             email: 'fulano@hotmail.com',
@@ -141,6 +144,8 @@ export class UsersService {
         }
     ];
 
+    public userFormRawValue: IUserForm = {} as IUserForm;
+
 
     getUsers(): Observable<UsersList> {
         return new Observable((observer) => {
@@ -149,6 +154,17 @@ export class UsersService {
                 observer.complete()
             }, 300)
         })
+    }
+
+    updateUser(newInfo: IUser, index: number) {
+        console.log(newInfo)
+
+        return new Observable<{ status: number, body: IUser }>((observer) => {
+            setTimeout(() => {
+                observer.next({ status: 200, body: structuredClone(newInfo) });
+                observer.complete();
+            }, 500)
+        }).pipe(map((updateUserResponse) => updateUserResponse.body))
     }
 
 }

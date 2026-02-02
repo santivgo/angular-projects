@@ -19,7 +19,6 @@ export class DummyButtonComponent implements OnChanges {
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['disabled']) {
-      console.log(changes['disabled'])
     }
   }
 

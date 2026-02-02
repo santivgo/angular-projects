@@ -11,7 +11,8 @@
         <div *ngIf="userSelected">
 
           <app-buttons-container [formDirty]="isFormDirty" [formValidity]="isFormValid" [isInEditMode]="isInEditMode"
-            (onEditBtnEmitt)="setEditMode()" (onCancelBtnEmitt)="cancelEditMode()"></app-buttons-container>
+            (onEditBtnEmitt)="setEditMode()" (onSaveBtnEmitt)="updateUser()"
+            (onCancelBtnEmitt)="cancelEditMode()"></app-buttons-container>
           <app-user-info (formDirtyEmitt)="setFormDirty($event)" (formValidityEmitt)="setFormValidity($event)"
             [isInEditMode]="isInEditMode" [userSelected]="userSelected">
           </app-user-info>

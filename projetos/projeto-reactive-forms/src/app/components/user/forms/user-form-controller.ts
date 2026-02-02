@@ -11,18 +11,22 @@ import { PhoneTypeEnum } from "../../../enums/phone-type.enum";
 import { AddressTypeMap } from "../../../utils/maps/address-type.map";
 import { IAddress } from "../../../interfaces/user/address.interface";
 import { ValidateAddress } from "./validators/address.validator";
+import { UsersService } from "../../../services/users.service";
 
 export class UserFormController {
 
 
     userInfoForm!: FormGroup
+    private readonly _userFormService = inject(UsersService);
+    private readonly _fb = inject(FormBuilder)
 
-    private _fb = inject(FormBuilder)
     private emailPattern = /^[a-zA-Z0-9_%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     constructor() {
         this.createUserForm()
+        this.watchUserFormValueChangesAndUpdateService()
     }
+
 
     get generalInformations(): FormGroup {
         return this.userInfoForm.get('generalInformations') as FormGroup
@@ -60,6 +64,16 @@ export class UserFormController {
     get dependentList(): FormArray {
         return this.userInfoForm.get('dependentList') as FormArray
     }
+
+    private watchUserFormValueChangesAndUpdateService() {
+        this.userInfoForm
+            .valueChanges.subscribe(() => {
+                return this._userFormService.userFormRawValue = this.userInfoForm.getRawValue()
+
+            })
+
+    }
+
 
     private fulfillGeneralInformations(user: IUser) {
         this.generalInformations.patchValue(user)
@@ -153,8 +167,8 @@ export class UserFormController {
 
     private fulfillDependentList(userDependentList: DependentList) {
         userDependentList.forEach((dependent) => this.dependentList.push(this._fb.group({
-            age: [dependent.age, Validators.required],
-            document: [dependent.document, Validators.required],
+            age: [dependent.age.toString(), Validators.required],
+            document: [dependent.document.toString(), Validators.required],
             name: [dependent.name, Validators.required],
 
 
