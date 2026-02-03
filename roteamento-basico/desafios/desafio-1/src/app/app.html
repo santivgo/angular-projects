@@ -1,0 +1,29 @@
+<div class="menu">
+  <div class="menu__item">
+    <a routerLink="" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="menu__link--selected"
+      class="menu__link">Início</a>
+  </div>
+  <div class="menu__item">
+    <a [class.menu__link--disabled]="sair.isActive" [routerLinkActiveOptions]="{exact: true}"
+      [routerLink]="sair.isActive ? null : 'info'" routerLinkActive="menu__link--selected" class="menu__link"
+      #info="routerLinkActive">Informações</a>
+  </div>
+  <div class="menu__item">
+    <a [class.menu__link--disabled]="sair.isActive" [routerLinkActiveOptions]="{exact: true}"
+      [routerLink]="sair.isActive ? null : 'contatos'" routerLinkActive="menu__link--selected" class="menu__link"
+      #cont="routerLinkActive">Contatos</a>
+  </div>
+  <div class="menu__item">
+    <a [class.menu__link--disabled]="sair.isActive" [routerLinkActiveOptions]="{exact: true}"
+      [routerLink]="sair.isActive ? null : 'sobre'" routerLinkActive="menu__link--selected" class="menu__link"
+      #sobre="routerLinkActive">Sobre</a>
+  </div>
+  <div class="menu__item">
+    <a #sair="routerLinkActive" routerLink="sair" routerLinkActive="menu__link--selected" class="menu__link">Sair</a>
+  </div>
+</div>
+
+@if (!sobre.isActive && !info.isActive && !cont.isActive && !sair.isActive) {
+<p>Não há rotas ativas.</p>
+}
+<router-outlet></router-outlet>
